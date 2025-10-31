@@ -9,7 +9,7 @@ from ..mydefine import get_now_date, get_attachment
 import copy
 import re
 from hashlib import md5
-
+from loguru import logger
 import scrapy
 from scrapy.spiders import CrawlSpider
 from scrapy.utils.project import get_project_settings
@@ -18,40 +18,35 @@ from ..items import DataItem
 from ..mydefine import get_now_date, get_attachment
 
 
-class ZjNyjpolicySpider(scrapy.Spider):
-    name = "zj_nyj_policy"
-    allowed_domains = ["zjb.nea.gov.cn"]
+class EitdznewsSpider(scrapy.Spider):
+    name = "zj_eitdz_news"
+    allowed_domains = ["jxt.zj.gov.cn"]
 
-    _from = '国家能源局浙江监管办公室'
+    _from = '浙江省经济和信息化厅'
     dupefilter_field = {
         "batch": "20240322"
+    }
+    custom_settings = {
+        'DOWNLOADER_MIDDLEWARES': {
+            'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
+            'zj_prov.middlewares.EducationDownloaderMiddleware': None,
+        }
     }
 
     infoes = [
         {
-            'url': 'https://zjb.nea.gov.cn/xxgk/zcfg/index.html',
+            'url': 'https://jxt.zj.gov.cn/col/col1659217/index.html?uid=5031616&pageNum=1',
             'label': "政策法规",
-            'detail_xpath': '//div[contains(@class,"wrapper_item_content")]/ul/li/a',
-            'url_xpath': './@href',
-            'title_xpath': './span[1]/text()',
-            'publish_time_xpath': './span[2]/text()',
-            'body_xpath': '//div[@class="article-content"] | //div[@class="wrapper_detail_text"]',
-            'total': 10,
+            'detail_xpath': '//*[@id="5031616"]/div/p',
+            'url_xpath': './a/@href',
+            'title_xpath': './a/@title',
+            'publish_time_xpath': './span',
+            'body_xpath': '//div[@class="bt-box-1170 c1"] | //div[@class="wrapper_detail_text"] | //div[@class="article-content"]',
+            'total': 6,
             'page': 1,
-            'base_url': 'https://zjb.nea.gov.cn/xxgk/zcfg/index_{}.shtml'
+            'base_url': 'https://jxt.zj.gov.cn/col/col1659217/index.html?uid=5031616&pageNum={}'
         },
-        {
-            'url': 'https://zjb.nea.gov.cn/xxgk/zcjd/index.html',
-            'label': "政策解读",
-            'detail_xpath': '//div[contains(@class,"wrapper_item_content")]/ul/li/a',
-            'url_xpath': './@href',
-            'title_xpath': './span[1]/text()',
-            'publish_time_xpath': './span[2]/text()',
-            'body_xpath': '//div[@class="article-content"] | //div[@class="wrapper_detail_text"]',
-            'total': 10,
-            'page': 1,
-            'base_url': 'https://zjb.nea.gov.cn/xxgk/zcjd/index_{}.shtml'
-        },
+
     ]
 
     def start_requests(self):
@@ -67,6 +62,8 @@ class ZjNyjpolicySpider(scrapy.Spider):
 
     def parse_item(self, response):
         """解析列表页，提取详情链接、标题、发布时间"""
+        logger.info("进入函数parse_item")
+        print(response.text)
         _meta = response.meta
         label = _meta.get('label')
         detail_xpath = _meta.get('detail_xpath')
@@ -80,12 +77,22 @@ class ZjNyjpolicySpider(scrapy.Spider):
 
         # 遍历详情页链接
         for ex_url in response.xpath(detail_xpath):
-            url = response.urljoin(ex_url.xpath(url_xpath).get())
-            if not url:
+            relative_url = ex_url.xpath(url_xpath).get()
+            logger.info(f"relative_url是: {relative_url}")
+            if not relative_url:
+                logger.info("没有relative_url")
                 continue
 
+            # 自动补全完整 URL
+            if relative_url.startswith('/'):
+                url = f'https://jxt.zj.gov.cn{relative_url}'
+            else:
+                url = response.urljoin(relative_url)
+
             title = ''.join(ex_url.xpath(title_xpath).getall()).strip()
-            publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').getall()).strip() if publish_time_xpath else None
+            publish_time = ''.join(ex_url.xpath(publish_time_xpath).getall()).strip()
+
+            print(f"[详情链接] {url}")
 
             meta = {
                 'label': label,
@@ -101,15 +108,9 @@ class ZjNyjpolicySpider(scrapy.Spider):
                 dont_filter=True
             )
 
-
         if page < total:
             page += 1
-
-            if page == 1:
-                next_url = 'https://zjb.nea.gov.cn/xxgk/zcjd/index.html'
-            else:
-                next_url = f'https://zjb.nea.gov.cn/xxgk/zcjd/index_{page - 1}.html'
-
+            next_url = _meta.get('base_url').format(page)
             print(f"正在抓取第 {page} 页：{next_url}")
 
             yield scrapy.Request(
@@ -123,7 +124,8 @@ class ZjNyjpolicySpider(scrapy.Spider):
                     'publish_time_xpath': publish_time_xpath,
                     'body_xpath': body_xpath,
                     'total': total,
-                    'page': page
+                    'page': page,
+                    'base_url': base_url
                 }),
                 dont_filter=True
             )
@@ -163,5 +165,5 @@ class ZjNyjpolicySpider(scrapy.Spider):
             "images": [response.urljoin(i) for i in response.xpath(f'{body_xpath}//img/@src').getall()],
             "attachment":get_attachment(attachment_urls, url, self._from),
             "spider_date": get_now_date(),
-            'spider_topic': "spider-policy-zhejiang"
+            'spider_topic': "spider-news-zhejiang"
         })
