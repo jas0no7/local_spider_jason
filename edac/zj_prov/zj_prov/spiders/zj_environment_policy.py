@@ -11,7 +11,7 @@ class EitdznewsSpider(scrapy.Spider):
     name = "zj_environment_policy"
     allowed_domains = ["sthjt.zj.gov.cn/"]
 
-    _from = '浙江省经济和信息化厅'
+    _from = '浙江省生态环境厅'
     dupefilter_field = {
         "batch": "20240322"
     }

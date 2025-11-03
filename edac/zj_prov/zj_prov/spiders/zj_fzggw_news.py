@@ -8,10 +8,10 @@ from ..mydefine import get_now_date, get_attachment
 
 
 class EitdznewsSpider(scrapy.Spider):
-    name = "zj_eitdz_policy"
-    allowed_domains = ["jxt.zj.gov.cn"]
+    name = "zj_fzggw_news"
+    allowed_domains = ["fzggw.zj.gov.cn"]
 
-    _from = '浙江省经济和信息化厅'
+    _from = '浙江省发展和改革委员会'
     dupefilter_field = {
         "batch": "20240322"
     }
@@ -24,28 +24,28 @@ class EitdznewsSpider(scrapy.Spider):
 
     infoes = [
         {
-            'url': 'https://jxt.zj.gov.cn/col/col1229895084/index.html?uid=5024951&pageNum=1',
-            'label': "统计分析;统计信息",
-            'detail_xpath': '//*[@id="5024951"]/div/p',
+            'url': 'https://fzggw.zj.gov.cn/col/col1599562/index.html?uid=4892867&pageNum=1',
+            'label': "新闻发布会;新闻发布会",
+            'detail_xpath': '//*[@id="4892867"]/div/ul/li',
             'url_xpath': './a/@href',
             'title_xpath': './a/@title',
             'publish_time_xpath': './span',
-            'body_xpath': '//div[@class="bt-box-1170 c1"] | //div[@class="wrapper_detail_text"] | //div[@class="article-content"]',
-            'total': 5,
+            'body_xpath': '//div[@id="zoom" or contains(@class,"main-txt")]',
+            'total': 26,
             'page': 1,
-            'base_url': 'https://jxt.zj.gov.cn/col/col1229895084/index.html?uid=5024951&pageNum={}'
+            'base_url': 'https://fzggw.zj.gov.cn/col/col1599562/index.html?uid=4892867&pageNum={}'
         },
         {
-            'url': 'https://jxt.zj.gov.cn/col/col1229895085/index.html?uid=5024951&pageNum=1',
-            'label': "统计分析;监测分析",
-            'detail_xpath': '//*[@id="5024951"]/div/p',
+            'url': 'https://fzggw.zj.gov.cn/col/col1229318206/index.html?uid=4892867&pageNum=1',
+            'label': "新闻发布会;在线访谈",
+            'detail_xpath': '//*[@id="7468062"]/div/ul/li',
             'url_xpath': './a/@href',
             'title_xpath': './a/@title',
             'publish_time_xpath': './span',
-            'body_xpath': '//div[@class="bt-box-1170 c1"] | //div[@class="wrapper_detail_text"] | //div[@class="article-content"]',
-            'total': 5,
+            'body_xpath': '//div[@class="main-txt" and @id="zoom"] | //*[@id="img-content"]',
+            'total': 6,
             'page': 1,
-            'base_url': 'https://jxt.zj.gov.cn/col/col1229895085/index.html?uid=5024951&pageNum={}'
+            'base_url': 'https://fzggw.zj.gov.cn/col/col1229318206/index.html?uid=4892867&pageNum={}'
         },
 
     ]
@@ -65,32 +65,32 @@ class EitdznewsSpider(scrapy.Spider):
         """解析列表页"""
         logger.info(f"页面URL: {response.url}")
 
-        # 1. 取出包裹在 <script type="text/xml"> 里的内容
         xml_text = ''.join(response.xpath('//script[@type="text/xml"]/text()').getall())
-        if not xml_text:
-            logger.warning("未找到 <script type='text/xml'> 内容")
-            return
+        html_blocks = []
 
-        # 2. 提取所有 <p class="lb-list"> 段落
-        html_blocks = re.findall(r'<p class="lb-list">.*?</p>', xml_text, flags=re.S)
+        if xml_text:
+            # 新版结构：<record><![CDATA[<li>...</li>]]></record>
+            html_blocks = re.findall(r'<record><!\[CDATA\[(.*?)\]\]></record>', xml_text, flags=re.S)
+            # 旧版兼容
+            if not html_blocks:
+                html_blocks = re.findall(r'<p class="lb-list">.*?</p>', xml_text, flags=re.S)
+        else:
+            # fallback：直接HTML结构
+            logger.warning("未找到 <script type='text/xml'>，尝试直接解析HTML列表结构")
+            html_blocks = response.xpath('//div[@id and contains(@class,"list")]/ul/li').getall()
 
         logger.info(f"匹配到 {len(html_blocks)} 条记录")
 
         for block in html_blocks:
             sel = scrapy.Selector(text=block)
-            relative_url = sel.xpath('//a/@href').get()
-            title = sel.xpath('//a/text()').get()
-            publish_time = sel.xpath('//span/text()').get()
+            relative_url = sel.xpath('.//a/@href').get()
+            title = sel.xpath('.//a/@title').get() or sel.xpath('.//a/text()').get()
+            publish_time = sel.xpath('.//span/text()').get()
 
             if not relative_url:
                 continue
 
-            # 3. 自动补全 URL
-            if relative_url.startswith('/'):
-                url = f'https://jxt.zj.gov.cn{relative_url}'
-            else:
-                url = relative_url
-
+            url = response.urljoin(relative_url)
             logger.info(f"抓取链接: {url}")
 
             meta = {
@@ -104,6 +104,28 @@ class EitdznewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_detail,
                 meta=copy.deepcopy(meta),
+                dont_filter=True
+            )
+
+        # ======================
+        # 翻页逻辑
+        # ======================
+        current_page = response.meta.get('page', 1)
+        total_page = response.meta.get('total', 1)
+        base_url = response.meta.get('base_url')
+
+        if current_page < total_page:
+            next_page = current_page + 1
+            next_url = base_url.format(next_page)
+            logger.info(f"翻页至第 {next_page} 页: {next_url}")
+
+            next_meta = copy.deepcopy(response.meta)
+            next_meta['page'] = next_page
+
+            yield scrapy.Request(
+                url=next_url,
+                callback=self.parse_item,
+                meta=next_meta,
                 dont_filter=True
             )
 
@@ -142,5 +164,5 @@ class EitdznewsSpider(scrapy.Spider):
             "images": [response.urljoin(i) for i in response.xpath(f'{body_xpath}//img/@src').getall()],
             "attachment": get_attachment(attachment_urls, url, self._from),
             "spider_date": get_now_date(),
-            'spider_topic': "spider-policy-zhejiang"
+            'spider_topic': "spider-news-zhejiang"
         })
