@@ -120,7 +120,7 @@ class ZjsthjtSpider(scrapy.Spider):
                     headers=headers,
                     callback=self.parse_item,
                     meta=copy.deepcopy(info),
-                    dont_filter=True
+                    dont_filter=False
                 )
 
     def parse_item(self, response):
@@ -151,7 +151,7 @@ class ZjsthjtSpider(scrapy.Spider):
                 url=href,
                 callback=self.parse_detail,
                 meta=copy.deepcopy(meta),
-                dont_filter=True,
+                dont_filter=False,
             )
 
     def parse_detail(self, response):
