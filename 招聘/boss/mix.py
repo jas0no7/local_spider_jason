@@ -45,7 +45,6 @@ def get_time_from_boss_traceid(traceid: str, ref_ms: Optional[int] = None) -> _d
     return _dt.datetime.fromtimestamp(ts / 1000.0)
 
 
-def fetch_boss_jobs(city_code="101270100", page=None):
     """发起 Boss 直聘小程序职位请求"""
     traceid = generate_boss_traceid()
     print(f"[+] Generated traceid: {traceid}")
@@ -102,6 +101,3 @@ def fetch_boss_jobs(city_code="101270100", page=None):
 # 主程序入口
 # ---------------------------
 if __name__ == "__main__":
-    for i in range (1,5):
-        fetch_boss_jobs(page=i)
-        print(f"第{i}页结束")
