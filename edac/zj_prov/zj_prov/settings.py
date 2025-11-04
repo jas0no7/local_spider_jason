@@ -41,7 +41,9 @@ REFERRER_POLICY = "same-origin"
 DUPEFILTER_CLASS = "zj_prov.mydefine.RFPDupeFilter"
 SCHEDULER = "zj_prov.mydefine.Scheduler"
 SCHEDULER_PERSIST = True
-SCHEDULER_DUPEFILTER_KEY = "duplicate:zj_prov"
+# 分离请求与数据的去重 Key，降低互相污染与误判率
+SCHEDULER_DUPEFILTER_KEY = "duplicate:req:zj_prov"
+ITEM_DUPEFILTER_KEY = "duplicate:item:zj_prov"
 SCHEDULER_QUEUE_KEY = f"zj_prov:%(spider)s_requests"
 SCHEDULER_FLUSH_ON_START = False
 SCHEDULER_IDLE_BEFORE_CLOSE = 30

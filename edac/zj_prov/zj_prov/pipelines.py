@@ -19,7 +19,8 @@ settings = get_project_settings()
 policy_kafka_topic = settings.get('POLICY_KAFKA_TOPIC')
 news_kafka_topic = settings.get('NEWS_KAFKA_TOPIC')
 
-dupefilter_key = settings.get('SCHEDULER_DUPEFILTER_KEY')
+# 独立的 Item 去重 Key，避免与请求级去重互相干扰
+item_dupefilter_key = settings.get('ITEM_DUPEFILTER_KEY', 'duplicate:item:zj_prov')
 
 cleaner = clean.Cleaner()
 cleaner.style = True
@@ -31,6 +32,11 @@ class Pipeline:
         self.myredis = MyRedis()
         self.kafka = MyKafkaProducer()
         self.topics = self.kafka.topics_list()
+        # 确保用于 Item 去重的 Cuckoo Filter 存在
+        try:
+            self.myredis.create(key=item_dupefilter_key, capacity=10000000)
+        except Exception:
+            pass
 
     def open_spider(self, spider):
         """
@@ -68,10 +74,10 @@ class Pipeline:
             item.get('spider_topic') or news_kafka_topic.format(current_key).replace('_', '-')
 
         # 整个页面去重
-        if self.myredis.exists(key=dupefilter_key, value=_id):
+        if self.myredis.exists(key=item_dupefilter_key, value=_id):
             logger.info(f'{kafka_topic} 的 {current_key} 已存在 {_id} 跳过')
             return item
-        self.myredis.add(key=dupefilter_key, value=_id)
+        self.myredis.add(key=item_dupefilter_key, value=_id)
 
         try:
             # 主要是删除html中的style和script标签

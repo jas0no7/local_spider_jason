@@ -617,10 +617,8 @@ class RFPDupeFilter(object):
         dupefilter_field = f"{''.join(sorted([f'{v}' for v in self.dupefilter_field.values()]))}"
         fp.update(dupefilter_field.encode('utf-8'))
         fp = fp.hexdigest()
-        if myredis.exists(key=_dupefilter_key, value=fp):
-            return True
-        myredis.add(key=_dupefilter_key, value=fp)
-        return False
+        inserted = myredis.add(key=_dupefilter_key, value=fp)
+        return not bool(inserted)
 
     @staticmethod
     def clear():

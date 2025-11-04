@@ -51,7 +51,7 @@ class ZjNyjnewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_item,
                 meta=copy.deepcopy(info),
-                dont_filter=True
+                dont_filter=False
             )
 
     def parse_item(self, response):
@@ -87,7 +87,7 @@ class ZjNyjnewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_detail,
                 meta=copy.deepcopy(meta),
-                dont_filter=True
+                dont_filter=False
             )
 
 
@@ -114,7 +114,7 @@ class ZjNyjnewsSpider(scrapy.Spider):
                     'total': total,
                     'page': page
                 }),
-                dont_filter=True
+                dont_filter=False
             )
 
     def parse_detail(self, response):

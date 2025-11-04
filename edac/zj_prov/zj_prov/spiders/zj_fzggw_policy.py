@@ -12,15 +12,18 @@ class EitdznewsSpider(scrapy.Spider):
     allowed_domains = ["fzggw.zj.gov.cn"]
 
     _from = '浙江省发展和改革委员会'
-    dupefilter_field = {
-        "batch": "20240322"
-    }
+    dupefilter_field = {"batch": "20240322"}
+
     custom_settings = {
         'DOWNLOADER_MIDDLEWARES': {
             'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
             'zj_prov.middlewares.EducationDownloaderMiddleware': None,
         }
     }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.visited_urls = set()
 
     infoes = [
         {
@@ -71,35 +74,30 @@ class EitdznewsSpider(scrapy.Spider):
             'page': 1,
             'base_url': 'https://fzggw.zj.gov.cn/col/col1599544/index.html?uid=4892867&pageNum={}'
         },
-
     ]
 
     def start_requests(self):
         """起始请求"""
         for info in self.infoes:
-            url = info.get('url')
             yield scrapy.Request(
-                url=url,
+                url=info.get('url'),
                 callback=self.parse_item,
                 meta=copy.deepcopy(info),
-                dont_filter=True
+                dont_filter=False
             )
 
+
     def parse_item(self, response):
-        """解析列表页"""
         logger.info(f"页面URL: {response.url}")
 
         xml_text = ''.join(response.xpath('//script[@type="text/xml"]/text()').getall())
         html_blocks = []
 
         if xml_text:
-            # 新版结构：<record><![CDATA[<li>...</li>]]></record>
             html_blocks = re.findall(r'<record><!\[CDATA\[(.*?)\]\]></record>', xml_text, flags=re.S)
-            # 旧版兼容
             if not html_blocks:
                 html_blocks = re.findall(r'<p class="lb-list">.*?</p>', xml_text, flags=re.S)
         else:
-            # fallback：直接HTML结构
             logger.warning("未找到 <script type='text/xml'>，尝试直接解析HTML列表结构")
             html_blocks = response.xpath('//div[@id and contains(@class,"list")]/ul/li').getall()
 
@@ -108,14 +106,20 @@ class EitdznewsSpider(scrapy.Spider):
         for block in html_blocks:
             sel = scrapy.Selector(text=block)
             relative_url = sel.xpath('.//a/@href').get()
-            title = sel.xpath('.//a/@title').get() or sel.xpath('.//a/text()').get()
-            publish_time = sel.xpath('.//span/text()').get()
-
             if not relative_url:
                 continue
 
             url = response.urljoin(relative_url)
-            logger.info(f"抓取链接: {url}")
+            url = url.replace("http://", "https://")
+
+            # ✅ 关键：全局唯一 URL 防重
+            if url in self.visited_urls:
+                logger.debug(f"重复URL跳过: {url}")
+                continue
+            self.visited_urls.add(url)
+
+            title = sel.xpath('.//a/@title').get() or sel.xpath('.//a/text()').get()
+            publish_time = sel.xpath('.//span/text()').get()
 
             meta = {
                 'label': response.meta.get('label'),
@@ -128,29 +132,7 @@ class EitdznewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_detail,
                 meta=copy.deepcopy(meta),
-                dont_filter=True
-            )
-
-        # ======================
-        # 翻页逻辑
-        # ======================
-        current_page = response.meta.get('page', 1)
-        total_page = response.meta.get('total', 1)
-        base_url = response.meta.get('base_url')
-
-        if current_page < total_page:
-            next_page = current_page + 1
-            next_url = base_url.format(next_page)
-            logger.info(f"翻页至第 {next_page} 页: {next_url}")
-
-            next_meta = copy.deepcopy(response.meta)
-            next_meta['page'] = next_page
-
-            yield scrapy.Request(
-                url=next_url,
-                callback=self.parse_item,
-                meta=next_meta,
-                dont_filter=True
+                dont_filter=False
             )
 
     def parse_detail(self, response):
@@ -164,13 +146,11 @@ class EitdznewsSpider(scrapy.Spider):
         publish_time = _meta.get('publish_time')
         body_xpath = _meta.get('body_xpath')
 
-        # 提取作者信息（来源）
         author = (
-                ''.join(re.findall(r'来源[:：]\s*(.*?)<', response.text)) or
-                ''.join(response.xpath('//meta[@name="Author"]/@content').getall())
+            ''.join(re.findall(r'来源[:：]\s*(.*?)<', response.text))
+            or ''.join(response.xpath('//meta[@name="Author"]/@content').getall())
         ).strip()
 
-        # 提取附件
         attachment_urls = response.xpath(
             f'{body_xpath}//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".docx") or contains(@href, ".wps")]'
         )

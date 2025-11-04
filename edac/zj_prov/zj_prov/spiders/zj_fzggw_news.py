@@ -31,7 +31,7 @@ class EitdznewsSpider(scrapy.Spider):
             'title_xpath': './a/@title',
             'publish_time_xpath': './span',
             'body_xpath': '//div[@id="zoom" or contains(@class,"main-txt")]',
-            'total': 26,
+            'total': 9,
             'page': 1,
             'base_url': 'https://fzggw.zj.gov.cn/col/col1599562/index.html?uid=4892867&pageNum={}'
         },
@@ -43,7 +43,7 @@ class EitdznewsSpider(scrapy.Spider):
             'title_xpath': './a/@title',
             'publish_time_xpath': './span',
             'body_xpath': '//div[@class="main-txt" and @id="zoom"] | //*[@id="img-content"]',
-            'total': 6,
+            'total': 2,
             'page': 1,
             'base_url': 'https://fzggw.zj.gov.cn/col/col1229318206/index.html?uid=4892867&pageNum={}'
         },
@@ -58,7 +58,7 @@ class EitdznewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_item,
                 meta=copy.deepcopy(info),
-                dont_filter=True
+                dont_filter=False
             )
 
     def parse_item(self, response):
@@ -104,7 +104,7 @@ class EitdznewsSpider(scrapy.Spider):
                 url=url,
                 callback=self.parse_detail,
                 meta=copy.deepcopy(meta),
-                dont_filter=True
+                dont_filter=False
             )
 
         # ======================
@@ -126,7 +126,7 @@ class EitdznewsSpider(scrapy.Spider):
                 url=next_url,
                 callback=self.parse_item,
                 meta=next_meta,
-                dont_filter=True
+                dont_filter=False
             )
 
     def parse_detail(self, response):
