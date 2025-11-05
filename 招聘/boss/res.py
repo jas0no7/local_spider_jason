@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 
@@ -8,7 +10,7 @@ headers = {
     "wt2": "",
     "zp_app_id": "10002",
     "content-type": "application/x-www-form-urlencoded",
-    "traceid" : "F-b8ef25govX1WmhAb",
+    "traceid" : "F-67098fkhlRIYIdXF",
     # "traceid": "F-91b0f4pzpbKtyDFt",#"traceid": "F-990639dwsuSugKlm",
     "mpt": "93b0bda2f7fe388c8465cbdc6de87bd2",
     #       93b0bda2f7fe388c8465cbdc6de87bd2
@@ -26,6 +28,7 @@ headers = {
     "priority": "u=1, i"
 }
 url = "https://www.zhipin.com/wapi/zpgeek/miniapp/homepage/recjoblist.json"
+
 params = {
     "cityCode": "101210100",
     "sortType": "1",
@@ -43,5 +46,29 @@ params = {
 }
 response = requests.get(url, headers=headers, params=params)
 
-print(response.text)
-print(response)
+data = response.json()
+
+# 顶层字段
+code = data.get("code")
+message = data.get("message")
+zp_data = data.get("zpData", {})
+
+has_more = zp_data.get("hasMore")
+search_position_list = zp_data.get("searchPositionList", [])
+job_list = zp_data.get("jobList", [])
+
+print(f"\ncode: {code}")
+print(f"message: {message}")
+print(f"hasMore: {has_more}")
+print(f"职位数量: {len(job_list)}\n")
+
+# 遍历所有职位信息
+for i, job in enumerate(job_list, 1):
+    print(f"====== 第 {i} 个职位 ======")
+    for key, value in job.items():
+        # 美化输出：列表或字典类型转 JSON 方便阅读
+        if isinstance(value, (list, dict)):
+            print(f"{key}: {json.dumps(value, ensure_ascii=False)}")
+        else:
+            print(f"{key}: {value}")
+    print()
