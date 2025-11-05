@@ -13,8 +13,9 @@ class EitdznewsSpider(scrapy.Spider):
     name = "hb_economicinfo_policy"
     allowed_domains = ["jxt.hubei.gov.cn"]
 
-    _from = "湖北省经济信息化厅"
 
+    _from = "湖北省经济信息化厅"
+    _label = '规范性文件'
     dupefilter_field = {"batch": "20240322"}
 
     custom_settings = {
@@ -52,7 +53,7 @@ class EitdznewsSpider(scrapy.Spider):
             headers=headers,
             cookies=cookies,
             callback=self.parse_item,
-            dont_filter=True
+            dont_filter=False
         )
 
     def parse_item(self, response):
@@ -92,13 +93,13 @@ class EitdznewsSpider(scrapy.Spider):
         url = meta.get("URL", "")
         body_html = " ".join(response.xpath(body_xpath).getall())
         content = " ".join(response.xpath(f"{body_xpath}//text()").getall()).strip()
-        attachment_urls = response.xpath(f"{body_xpath}//a/@href").getall()
+        attachment_urls = []
 
         yield DataItem({
             "_id": md5(f"{url}".encode("utf-8")).hexdigest(),
             "url": url,
             "spider_from": self._from,
-            "label": "政策文件",
+            "label": self._label,
             "title": title,
             "author": author,
             "publish_time": publish_time,
