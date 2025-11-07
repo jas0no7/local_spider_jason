@@ -9,7 +9,7 @@ headers = {
     "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
     "Origin": "https://gxt.jiangxi.gov.cn",
     "Pragma": "no-cache",
-    "Referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/jdcl/index.html",
+    "Referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/gfxwj/index.html",
     "Sec-Fetch-Dest": "empty",
     "Sec-Fetch-Mode": "cors",
     "Sec-Fetch-Site": "same-origin",
@@ -20,13 +20,13 @@ headers = {
     "sec-ch-ua-platform": "\"Windows\""
 }
 url = "https://gxt.jiangxi.gov.cn/queryList"
-max_page = 10
-label = "解读材料"
+max_page =4
+label = "规范性文件"
 data = {
     "current": "1",
     "pageSize": "15",
     "webSiteCode[]": "jxsgyhxxht",
-    "channelCode[]": "jdcl",
+    "channelCode[]": "gfxwj",
     "sort": "sortNum",
     "order": "desc"
 }

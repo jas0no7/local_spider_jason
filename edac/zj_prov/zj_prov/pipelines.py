@@ -17,7 +17,7 @@ from .mydefine import MyRedis, MyKafkaProducer
 settings = get_project_settings()
 
 policy_kafka_topic = settings.get('POLICY_KAFKA_TOPIC')
-news_kafka_topic = settings.get('NEWS_KAFKA_TOPIC')
+news_kafka_topic = settings.get(' ')
 
 # 独立的 Item 去重 Key，避免与请求级去重互相干扰
 item_dupefilter_key = settings.get('ITEM_DUPEFILTER_KEY', 'duplicate:item:zj_prov')
