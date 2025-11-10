@@ -1,4 +1,3 @@
-import copy
 import json
 from hashlib import md5
 from time import time
@@ -7,7 +6,7 @@ import scrapy
 from scrapy.selector import Selector
 from scrapy.spiders import CrawlSpider
 from ..items import DataItem
-from ..mydefine import get_now_date, get_attachment
+from edac.tfwk.tfpolicy.mydefine import get_now_date, get_attachment
 
 
 class DataSpider(CrawlSpider):

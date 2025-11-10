@@ -2,7 +2,6 @@ import copy
 import json
 import re
 from hashlib import md5
-from xml import etree
 
 import requests
 import scrapy
@@ -10,7 +9,7 @@ from scrapy.spiders import CrawlSpider
 from scrapy.utils.project import get_project_settings
 
 from ..items import DataItem
-from ..mydefine import get_now_date, get_attachment
+from edac.tfwk.tfpolicy.mydefine import get_now_date, get_attachment
 
 settings = get_project_settings()
 

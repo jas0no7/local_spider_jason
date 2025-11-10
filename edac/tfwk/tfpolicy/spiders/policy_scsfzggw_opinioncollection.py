@@ -2,7 +2,7 @@ import json
 from hashlib import md5
 import scrapy
 from scrapy.utils.project import get_project_settings
-from ..mydefine import get_now_date, get_attachment  # 修改：新增 get_attachment 导入
+from edac.tfwk.tfpolicy.mydefine import get_now_date, get_attachment  # 修改：新增 get_attachment 导入
 
 from lxml import etree  # 修改：新增 etree，用于构造 fake <a> 标签列表
 

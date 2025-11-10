@@ -2,9 +2,6 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-from scrapy.downloadermiddlewares.retry import RetryMiddleware
-from twisted.internet import error
-from scrapy.core.downloader.handlers.http11 import TunnelError
 import base64
 import sys
 from urllib.parse import urlparse, quote
@@ -18,7 +15,7 @@ from scrapy.core.downloader.handlers.http11 import TunnelError
 sys.path.append('..')
 sys.path.append('../..')
 
-from .mydefine import request_seen_del, ProxyPool, UserAgent
+from edac.tfwk.tfpolicy.mydefine import request_seen_del, ProxyPool, UserAgent
 
 proxypool = ProxyPool()
 ua = UserAgent()

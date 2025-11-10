@@ -12,7 +12,7 @@ from scrapy.utils.project import get_project_settings
 sys.path.append('..')
 sys.path.append('../..')
 
-from .mydefine import MyRedis, MyKafkaProducer
+from edac.tfwk.tfpolicy.mydefine import MyRedis, MyKafkaProducer
 
 settings = get_project_settings()
 
