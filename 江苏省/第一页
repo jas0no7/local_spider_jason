@@ -1,0 +1,70 @@
+以下是我针对一个网页不同的页码 的抓取的curl。
+请你帮我分析其中的分页逻辑 并且转为res代码。其中一共有685页
+
+
+第685页：https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=685
+curl 'https://sthjt.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=10261&endrecord=10266&perpage=15' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b 'JSESSIONID=E5CE90EE12ADD4DF55D8FEFA20061063; __jsluid_s=3a7706b8264b4000ab582f8996e70e23' \
+  -H 'Origin: https://sthjt.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=1' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=14&path=%2F&columnid=84025&sourceContentType=1&unitid=402134&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E7%94%9F%E6%80%81%E7%8E%AF%E5%A2%83%E5%8E%85&permissiontype=0'
+
+
+
+
+第一页：https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=1
+curl 'https://sthjt.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=1&endrecord=45&perpage=15' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b 'JSESSIONID=8BC2F34A1DEC09C3A498C98B4BE4BCC5; __jsluid_s=3a7706b8264b4000ab582f8996e70e23; bbb55017-1d84-4a25-a6ff-2075b819ea85=WyI2OTM5OTgzMTEiXQ' \
+  -H 'Origin: https://sthjt.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=685' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=14&path=%2F&columnid=84025&sourceContentType=1&unitid=402134&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E7%94%9F%E6%80%81%E7%8E%AF%E5%A2%83%E5%8E%85&permissiontype=0'
+
+
+第一百页：https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=100
+curl 'https://sthjt.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=1486&endrecord=1530&perpage=15' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b 'JSESSIONID=8BC2F34A1DEC09C3A498C98B4BE4BCC5; __jsluid_s=3a7706b8264b4000ab582f8996e70e23; bbb55017-1d84-4a25-a6ff-2075b819ea85=WyI2OTM5OTgzMTEiXQ' \
+  -H 'Origin: https://sthjt.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://sthjt.jiangsu.gov.cn/col/col84025/index.html?uid=402134&pageNum=1' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Google Chrome";v="141", "Not?A_Brand";v="8", "Chromium";v="141"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=14&path=%2F&columnid=84025&sourceContentType=1&unitid=402134&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E7%94%9F%E6%80%81%E7%8E%AF%E5%A2%83%E5%8E%85&permissiontype=0'

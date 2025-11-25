@@ -1,14 +1,6 @@
 import copy
 import re
 from hashlib import md5
-import scrapy
-from scrapy.utils.project import get_project_settings
-
-from ..items import DataItem
-from ..mydefine import get_now_date, get_attachment
-import copy
-import re
-from hashlib import md5
 
 import scrapy
 from scrapy.spiders import CrawlSpider
@@ -17,41 +9,23 @@ from scrapy.utils.project import get_project_settings
 from ..items import DataItem
 from ..mydefine import get_now_date, get_attachment
 
+settings = get_project_settings()
 
-class HBsthjt(scrapy.Spider):
-    name = "policy_"
-    allowed_domains = ["sthjt.hubei.gov.cn"]
+policy_kafka_topic = settings.get('POLICY_KAFKA_TOPIC')
 
-    _from = '湖北经济和信息化厅'
+
+class DataSpider(CrawlSpider):
+    name = 'policy_jxt_hubei'
+    allowed_domains = [
+        'jxt.hubei.gov.cn'
+    ]
+
+    _from = '湖北省经济和信息化厅'
     dupefilter_field = {
         "batch": "20240322"
     }
 
     infoes = [
-        {
-            'url': 'https://sthjt.hubei.gov.cn/fbjd/zc/gfxwj/index.shtml',
-            'label': "规范性文件",
-            'detail_xpath': '//*[@id="zcwjList"]/li/span[2]',
-            'url_xpath': './div/a/@href',
-            'title_xpath': './div/a/@title',
-            'publish_time_xpath': './div/span[2]',
-            'body_xpath': '//div[@class="article"]',
-            'total': 3,
-            'page': 1,
-            'base_url': 'https://sthjt.hubei.gov.cn/fbjd/zc/gfxwj/index_{}.shtml'
-        },
-        {
-            'url': 'https://sthjt.hubei.gov.cn/fbjd/zc/zcjd/index.shtml',
-            'label': "政策解读",
-            'detail_xpath': '//ul[@class="info-list"]/li',
-            'url_xpath': './a/@href',
-            'title_xpath': './a/@title',
-            'publish_time_xpath': './span',
-            'body_xpath': '//div[@class="article_new"]',
-            'total': 5,
-            'page': 1,
-            'base_url': 'https://sthjt.hubei.gov.cn/fbjd/zc/zcjd/index_{}.shtml'
-        },
         {
             'url': 'https://jxt.hubei.gov.cn/bmdt/jjyx/index.shtml',
             'label': "经济运行",
@@ -67,7 +41,6 @@ class HBsthjt(scrapy.Spider):
     ]
 
     def start_requests(self):
-        """起始请求"""
         for info in self.infoes:
             url = info.get('url')
             yield scrapy.Request(
@@ -78,7 +51,12 @@ class HBsthjt(scrapy.Spider):
             )
 
     def parse_item(self, response):
-        """解析列表页，提取详情链接、标题、发布时间"""
+        """
+        详情和下一页url
+        :param response:
+        :return:
+        """
+
         _meta = response.meta
         label = _meta.get('label')
         detail_xpath = _meta.get('detail_xpath')
@@ -90,22 +68,23 @@ class HBsthjt(scrapy.Spider):
         page = _meta.get('page')
         base_url = _meta.get('base_url')
 
-        # 遍历详情页链接
         for ex_url in response.xpath(detail_xpath):
-            url = response.urljoin(ex_url.xpath(url_xpath).get())
-            if not url:
+            url = response.urljoin(ex_url.xpath(url_xpath).extract_first())
+            if url.endswith('.pdf'):
                 continue
 
-            title = ''.join(ex_url.xpath(title_xpath).getall()).strip()
-            publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').getall()).strip() if publish_time_xpath else None
+            title = ''.join(ex_url.xpath(title_xpath).extract())
+            if publish_time_xpath:
+                publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').extract()).replace('(', '').replace(')', '').strip()
+            else:
+                publish_time = None
 
             meta = {
-                'label': label,
-                'title': title,
+                "label": label,
+                "title": title,
                 'publish_time': publish_time,
                 'body_xpath': body_xpath,
             }
-
             yield scrapy.Request(
                 url=url,
                 callback=self.parse_detail,
@@ -113,20 +92,14 @@ class HBsthjt(scrapy.Spider):
                 dont_filter=True
             )
 
-        # 翻页逻辑
         if page < total:
             page += 1
-
-            # 第1页用原始URL，后续页用base_url格式化
             if page == 1:
                 next_url = _meta['url']
             else:
                 next_url = base_url.format(page)
-
-            print(f"正在抓取第 {page} 页：{next_url}")
-
             yield scrapy.Request(
-                url=next_url,
+                url=base_url.format(page),
                 callback=self.parse_item,
                 meta=copy.deepcopy({
                     'label': label,
@@ -138,35 +111,38 @@ class HBsthjt(scrapy.Spider):
                     'total': total,
                     'page': page,
                     'base_url': base_url,
-                    'url': _meta['url']  # 保留原始URL
                 }),
-                dont_filter=True
             )
 
     def parse_detail(self, response):
-        """解析详情页内容"""
+        """
+        详情
+        :param response:
+        :return:
+        """
         _meta = response.meta
+
         method = response.request.method
-        body = response.request.body.decode('utf-8') if response.request.body else ''
-        url = response.url
+        body = response.request.body.decode('utf-8')
+        url = response.request.url
 
-        title = _meta.get('title') or response.xpath('//meta[@name="ArticleTitle"]/@content').get()
-        publish_time = _meta.get('publish_time')
         body_xpath = _meta.get('body_xpath')
+        title = _meta.get('title') or response.xpath('//meta[@name="ArticleTitle"]/@content').extract_first()
+        publish_time = _meta.get('publish_time') or \
+                       ''.join(response.xpath('//publishtime/text()').extract()).strip() or \
+                       ''.join(re.findall(r'发布日期.*?(\d{4}-\d{2}-\d{2})', response.text, re.DOTALL)).strip()
 
-        # 提取作者信息（来源）
-        author = (
-                ''.join(re.findall(r'来源[:：]\s*(.*?)<', response.text)) or
-                ''.join(response.xpath('//meta[@name="Author"]/@content').getall())
-        ).strip()
+        author = response.xpath('//meta[@name="Author"]/@content').extract_first() or \
+                 ''.join(re.findall(r'发布机构：</strong><span>(.*?)</span></li>', response.text, re.DOTALL)).strip() or \
+                 ''.join(re.findall(r'>信息来源：(.*?)</', response.text, re.DOTALL)).strip()
 
-        #提取附件
         attachment_urls = response.xpath(
             '//p[contains(@class, "insertfileTag")]//a | '
             '//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".docx") or '
             'contains(@href, ".xls") or contains(@href, ".xlsx") or contains(@href, ".wps") or '
             'contains(@href, ".zip") or contains(@href, ".rar")]'
         )
+
         yield DataItem({
             "_id": md5(f'{method}{url}{body}'.encode('utf-8')).hexdigest(),
             "url": url,
@@ -175,10 +151,11 @@ class HBsthjt(scrapy.Spider):
             'title': title,
             'author': author,
             'publish_time': publish_time,
-            'body_html': ' '.join(response.xpath(body_xpath).getall()),
-            "content": ' '.join(response.xpath(f'{body_xpath}//text()').getall()),
-            "images": [response.urljoin(i) for i in response.xpath(f'{body_xpath}//img/@src').getall()],
-            "attachment":get_attachment(attachment_urls, url, self._from),
+            'body_html': ' '.join(response.xpath(body_xpath).extract()),
+            "content": ' '.join(response.xpath(f'{body_xpath}//text()').extract()),
+            "images": [response.urljoin(i) for i in response.xpath(f'{body_xpath}//img/@src').extract()],
+            "attachment": get_attachment(attachment_urls, url, self._from),
             "spider_date": get_now_date(),
             'spider_topic': "spider-policy-hubei"
         })
+

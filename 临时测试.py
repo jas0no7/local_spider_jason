@@ -1,69 +1,66 @@
-import re
+import json
+
 import requests
-from lxml import etree, html
-from time import sleep
+
+url = "https://api.hunan.gov.cn/search/common/search/80675"
 
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                  "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/120.0.0.0 Safari/537.36"
+    "Accept": "application/json, text/javascript, */*; q=0.01",
+    "Accept-Language": "zh-CN,zh;q=0.9",
+    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "Origin": "https://gxt.hunan.gov.cn",
+    "Pragma": "no-cache",
+    "Referer": "https://gxt.hunan.gov.cn/",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-site",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "sec-ch-ua": '"Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
 }
+for page in range(1,71):
+    data = {
+        "datas[0][key]": "status",
+        "datas[0][value]": "4",
+        "datas[0][join]": "and",
+        "datas[0][queryType]": "term",
 
-url = "https://gxt.jiangsu.gov.cn/col/col80181/index.html"
-data_list = []
+        "datas[1][key]": "publishedTime",
+        "datas[1][sort]": "true",
+        "datas[1][order]": "desc",
+        "datas[1][queryType]": "term",
 
-for page in range(1, 2):  # 可根据需要调节页数
-    print(f"正在抓取第 {page} 页...")
-    params = {"uid": "403740", "pageNum": page}
+        "page": page,
+        "_pageSize": "20",
+        "_isAgg": "true"
+    }
 
-    resp = requests.get(url, headers=headers, params=params, timeout=10)
-    resp.encoding = "utf-8"
+    response = requests.post(url, headers=headers, data=data)
 
-    tree = etree.HTML(resp.text)
-    xml_text = tree.xpath('string(//script[@type="text/xml"])')
-    if not xml_text:
-        print("❌ 没找到 XML 数据段，跳过。")
-        continue
+    resp_json = json.loads(response.text)
 
-    # 提取 CDATA 段落
-    records = re.findall(r"<record><!\[CDATA\[(.*?)\]\]></record>", xml_text, re.S)
-    for rec in records:
-        frag = html.fromstring(rec.strip())
-        title = frag.xpath("string(.//a/@title)")
-        href = frag.xpath("string(.//a/@href)")
-        publish_time = frag.xpath("string(.//b)")
-        full_url = f"https://gxt.jiangsu.gov.cn{href}" if href.startswith("/") else href
+    items = []
 
-        data_list.append({
-            "label": "统计信息",
-            "title": title.strip(),
-            "detail_url": full_url.strip(),
-            "publish_time": publish_time.strip()
+    # 安全地取出 results 列表
+    results = resp_json.get("data", {}).get("results", [])
+
+    for r in results:
+        title = r.get("title", "")
+        content = r.get("content", "")
+        publish_time = r.get("publishedTimeStr", "")
+
+        items.append({
+            "label": "工信数据",
+            "title": title,
+            "content": content,
+            "publish_time": publish_time,
         })
+        print(items)
 
-# ===============================
-# 进入每个详情页，提取正文
-# ===============================
-for i, item in enumerate(data_list, 1):
-    try:
-        print(f"抓取正文 [{i}/{len(data_list)}]: {item['title']}")
-        detail_resp = requests.get(item["detail_url"], headers=headers, timeout=10)
-        detail_resp.encoding = "utf-8"
-        detail_tree = etree.HTML(detail_resp.text)
-        # 提取正文（包含文字与换行）
-        content_list = detail_tree.xpath('//div[@id="Zoom"]//text()')
-        content = "\n".join([c.strip() for c in content_list if c.strip()])
-        item["content"] = content
-        sleep(0.8)  # 加延时防止请求过快
-    except Exception as e:
-        print(f"❌ 抓取失败：{item['detail_url']}，错误：{e}")
-        item["content"] = ""
 
-# ===============================
-# 打印示例结果
-# ===============================
-for item in data_list[:3]:
-    print("=" * 60)
-    print(item["title"], item["publish_time"])
-    print(item["detail_url"])
-    print(item["content"][:200], "...")
+
+
+
