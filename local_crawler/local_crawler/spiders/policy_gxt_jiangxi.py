@@ -3,56 +3,25 @@ import copy
 import json
 from hashlib import md5
 from urllib.parse import urljoin
+from datetime import datetime
 
 import scrapy
 from scrapy.spiders import CrawlSpider
-from scrapy.utils.project import get_project_settings
-from ..items import DataItem
-from ..mydefine import get_now_date, get_attachment
-
-settings = get_project_settings()
 
 
-class DataSpider(CrawlSpider):
+class JiangxiPolicySpider(CrawlSpider):
     name = "policy_gxt_jiangxi"
     allowed_domains = ["gxt.jiangxi.gov.cn"]
 
     _from = "江西省工业和信息化厅"
-    dupefilter_field = {"batch": "20251107"}
 
-    # ==========================================================
-    # 栏目信息配置（支持四个接口）
-    # ==========================================================
     infoes = [
-        {
-            "label": "政策文件",
-            "channel_code": "zcwj",
-            "max_page": 4,
-            "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/zcwj/index.html",
-        },
-        {
-            "label": "解读材料",
-            "channel_code": "jdcl",
-            "max_page": 10,
-            "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/jdcl/index.html",
-        },
-        {
-            "label": "规范性文件",
-            "channel_code": "gfxwj",
-            "max_page": 4,
-            "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/gfxwj/index.html",
-        },
-        {
-            "label": "产业动态",
-            "channel_code": "cydt",
-            "max_page": 99,
-            "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/gfxwj/index.html",
-        },
+        {"label": "政策文件", "channel_code": "zcwj", "max_page": 4, "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/zcwj/index.html"},
+        {"label": "解读材料", "channel_code": "jdcl", "max_page": 10, "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/jdcl/index.html"},
+        {"label": "规范性文件", "channel_code": "gfxwj", "max_page": 4, "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/gfxwj/index.html"},
+        {"label": "产业动态", "channel_code": "cydt", "max_page": 99, "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/gfxwj/index.html"},
     ]
 
-    # ==========================================================
-    # 公共 headers
-    # ==========================================================
     headers = {
         "Accept": "*/*",
         "Accept-Language": "zh-CN,zh;q=0.9",
@@ -68,12 +37,8 @@ class DataSpider(CrawlSpider):
         "X-Requested-With": "XMLHttpRequest",
     }
 
-    # 接口 URL
     base_url = "https://gxt.jiangxi.gov.cn/queryList"
 
-    # ==========================================================
-    # 起始请求：遍历 infoes 并分页请求
-    # ==========================================================
     def start_requests(self):
         for info in self.infoes:
             label = info["label"]
@@ -105,9 +70,6 @@ class DataSpider(CrawlSpider):
                     dont_filter=True,
                 )
 
-    # ==========================================================
-    # 列表页解析：提取 JSON 内容
-    # ==========================================================
     def parse_list(self, response):
         meta = response.meta
         label = meta.get("label")
@@ -127,16 +89,14 @@ class DataSpider(CrawlSpider):
             publish_time = source.get("pubDate")
             author = json.loads(source.get("metadata", "{}")).get("author", "")
             content_html = source.get("content", {}).get("content", "")
-            content_text = (
-                content_html.replace("\n", "").replace("\r", "").replace("  ", "")
-            )
+            content_text = content_html.replace("\n", "").replace("\r", "").replace("  ", "")
 
-            # 图片提取
+            # 图片
             image_list = []
             if source.get("images"):
                 try:
                     for img in json.loads(source["images"]):
-                        image_list.append(urljoin(base_domain, img["filePath"]))
+                        image_list.append(urljoin(base_domain, img.get("filePath", "")))
                 except Exception:
                     pass
 
@@ -152,23 +112,22 @@ class DataSpider(CrawlSpider):
             # 附件
             attachment_urls = []
 
-            # 输出 DataItem
-            yield DataItem(
-                {
-                    "_id": md5(f"GET{content_url}".encode("utf-8")).hexdigest(),
-                    "url": content_url,
-                    "spider_from": self._from,
-                    "label": label,
-                    "title": title,
-                    "author": author,
-                    "publish_time": publish_time,
-                    "body_html": content_html,
-                    "content": content_text,
-                    "images": image_list,
-                    "attachment": get_attachment(
-                        attachment_urls, content_url, self._from
-                    ),
-                    "spider_date": get_now_date(),
-                    "spider_topic": "spider-policy-jiangxi",
-                }
-            )
+            # 构造 dict
+            data_item = {
+                "_id": md5(f"GET{content_url}".encode("utf-8")).hexdigest(),
+                "url": content_url,
+                "spider_from": self._from,
+                "label": label,
+                "title": title,
+                "author": author,
+                "publish_time": publish_time,
+                "body_html": content_html,
+                "content": content_text,
+                "images": image_list,
+                "attachments": attachment_urls,
+                "spider_date": datetime.now().strftime("%Y-%m-%d"),
+                "spider_topic": "spider-policy-jiangxi",
+            }
+
+            # yield dict 让 pipeline 保存
+            yield data_item

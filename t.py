@@ -1,16 +1,26 @@
-infeos = [
-
+infoes = [
     {
-        "url": "https://gxt.hunan.gov.cn/gxt/xxgk_71033/zcfg/zcjd/index.html",
-        "label": "政策解读",
-        "detail_xpath": "//table[@class="table"]/tbody/tr",
-        "url_xpath": "./td[2]/a/@href",
-        "title_xpath": "./td[3]/a/@title",
-        "publish_time_xpath": "./td[3]/text()",
-        "body_xpath": "//div[@class="tys-main"]",
-        "total": 18,
-        "page": 1,
-        "base_url": "https://gxt.hunan.gov.cn/gxt/xxgk_71033/zcfg/zcjd/index_2.html",
+        'url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col42150/index.html',
+        'label': "政策法规框解读",
+        'detail_xpath': '//ul[@class="List_list"]/li',
+        'url_xpath': './a/@href',
+        'title_xpath': '/a/@title',
+        'publish_time_xpath': './span',
+        'body_xpath': '//div[@class="jgzn_content"]',
+        'total': 30,
+        'page': 1,
+        'base_url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col42150/index.html?uid=380055&pageNum={}'
     },
-
+    {
+        'url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col57149/index.html?uid=380055&pageNum=1',
+        'label': "规范性文件",
+        'detail_xpath': '//ul[@class="List_list"]/li',
+        'url_xpath': './a/@href',
+        'title_xpath': '/a/@title',
+        'publish_time_xpath': './span',
+        'body_xpath': '//div[@class="jgzn_content"]',
+        'total': 3,
+        'page': 1,
+        'base_url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col57149/index.html?uid=380055&pageNum={}'
+    },
 ]
