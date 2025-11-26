@@ -1,0 +1,126 @@
+[
+    {
+        "city_name": "北京市",
+        "city_code": "110000"
+    },
+    {
+        "city_name": "天津市",
+        "city_code": "120000"
+    },
+    {
+        "city_name": "河北省",
+        "city_code": "130000"
+    },
+    {
+        "city_name": "山西省",
+        "city_code": "140000"
+    },
+    {
+        "city_name": "内蒙古自治区",
+        "city_code": "150000"
+    },
+    {
+        "city_name": "辽宁省",
+        "city_code": "210000"
+    },
+    {
+        "city_name": "吉林省",
+        "city_code": "220000"
+    },
+    {
+        "city_name": "黑龙江省",
+        "city_code": "230000"
+    },
+    {
+        "city_name": "上海市",
+        "city_code": "310000"
+    },
+    {
+        "city_name": "江苏省",
+        "city_code": "320000"
+    },
+    {
+        "city_name": "浙江省",
+        "city_code": "330000"
+    },
+    {
+        "city_name": "安徽省",
+        "city_code": "340000"
+    },
+    {
+        "city_name": "福建省",
+        "city_code": "350000"
+    },
+    {
+        "city_name": "江西省",
+        "city_code": "360000"
+    },
+    {
+        "city_name": "山东省",
+        "city_code": "370000"
+    },
+    {
+        "city_name": "河南省",
+        "city_code": "410000"
+    },
+    {
+        "city_name": "湖北省",
+        "city_code": "420000"
+    },
+    {
+        "city_name": "湖南省",
+        "city_code": "430000"
+    },
+    {
+        "city_name": "广东省",
+        "city_code": "440000"
+    },
+    {
+        "city_name": "广西壮族自治区",
+        "city_code": "450000"
+    },
+    {
+        "city_name": "海南省",
+        "city_code": "460000"
+    },
+    {
+        "city_name": "重庆市",
+        "city_code": "500000"
+    },
+    {
+        "city_name": "四川省",
+        "city_code": "510000"
+    },
+    {
+        "city_name": "贵州省",
+        "city_code": "520000"
+    },
+    {
+        "city_name": "云南省",
+        "city_code": "530000"
+    },
+    {
+        "city_name": "西藏自治区",
+        "city_code": "540000"
+    },
+    {
+        "city_name": "陕西省",
+        "city_code": "610000"
+    },
+    {
+        "city_name": "甘肃省",
+        "city_code": "620000"
+    },
+    {
+        "city_name": "青海省",
+        "city_code": "630000"
+    },
+    {
+        "city_name": "宁夏回族自治区",
+        "city_code": "640000"
+    },
+    {
+        "city_name": "新疆维吾尔自治区",
+        "city_code": "650000"
+    }
+]

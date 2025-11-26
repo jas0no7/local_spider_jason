@@ -1,0 +1,70 @@
+以下是我针对一个网页不同的页码 的抓取的curl。
+请你帮我分析其中的分页逻辑 并且转为res代码。其中一共有15页
+
+
+第15页：
+curl 'https://fzggw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=121&endrecord=150&perpage=10' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b '4e592537-9abc-4c60-a2bb-cecd0f661748=WyIyNDcwODEzNDE5Il0; __jsluid_s=cccbcc5be814769ca76c51e8b6a2342e; zh_choose_3=s' \
+  -H 'Origin: https://fzggw.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://fzggw.jiangsu.gov.cn/col/col282/index.html?uid=423656&pageNum=2' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=3&path=%2F&columnid=282&sourceContentType=1&unitid=423656&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%8F%91%E5%B1%95%E5%92%8C%E6%94%B9%E9%9D%A9%E5%A7%94%E5%91%98%E4%BC%9A&permissiontype=0'
+
+
+
+第一页：curl 'https://fzggw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=1&endrecord=30&perpage=10' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b 'JSESSIONID=21530C2A382F886CF75A32063333943F; 4e592537-9abc-4c60-a2bb-cecd0f661748=WyIyNDcwODEzNDE5Il0; __jsluid_s=cccbcc5be814769ca76c51e8b6a2342e; zh_choose_3=s' \
+  -H 'Origin: https://fzggw.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://fzggw.jiangsu.gov.cn/col/col282/index.html?uid=423656&pageNum=15' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=3&path=%2F&columnid=282&sourceContentType=1&unitid=423656&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%8F%91%E5%B1%95%E5%92%8C%E6%94%B9%E9%9D%A9%E5%A7%94%E5%91%98%E4%BC%9A&permissiontype=0'
+
+
+  第十页：
+  curl 'https://fzggw.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord=91&endrecord=120&perpage=10' \
+  -H 'Accept: application/xml, text/xml, */*; q=0.01' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+  -b 'JSESSIONID=21530C2A382F886CF75A32063333943F; 4e592537-9abc-4c60-a2bb-cecd0f661748=WyIyNDcwODEzNDE5Il0; __jsluid_s=cccbcc5be814769ca76c51e8b6a2342e; zh_choose_3=s' \
+  -H 'Origin: https://fzggw.jiangsu.gov.cn' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: https://fzggw.jiangsu.gov.cn/col/col282/index.html?uid=423656&pageNum=1' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-origin' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
+  -H 'X-Requested-With: XMLHttpRequest' \
+  -H 'sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  --data-raw 'col=1&appid=1&webid=3&path=%2F&columnid=282&sourceContentType=1&unitid=423656&webname=%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%8F%91%E5%B1%95%E5%92%8C%E6%94%B9%E9%9D%A9%E5%A7%94%E5%91%98%E4%BC%9A&permissiontype=0'
+
+
