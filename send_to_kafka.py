@@ -71,8 +71,9 @@ def send_json_array_to_kafka(json_path: str, topic: str):
 
 
 if __name__ == "__main__":
-    json_path = "spider-policy-nea-v2-v2.json"
-    topic = "spider-policy-nea-v2"
+    json_path = r"D:\项目文件夹\政策大脑_json\news_nea_zhejiang.json"
+    topic = "spider-news-zhejiang"
 
     send_json_array_to_kafka(json_path, topic)
+
 

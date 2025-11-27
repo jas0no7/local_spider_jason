@@ -1,26 +1,50 @@
-infoes = [
-    {
-        'url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col42150/index.html',
-        'label': "政策法规框解读",
-        'detail_xpath': '//ul[@class="List_list"]/li',
-        'url_xpath': './a/@href',
-        'title_xpath': '/a/@title',
-        'publish_time_xpath': './span',
-        'body_xpath': '//div[@class="jgzn_content"]',
-        'total': 30,
-        'page': 1,
-        'base_url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col42150/index.html?uid=380055&pageNum={}'
-    },
-    {
-        'url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col57149/index.html?uid=380055&pageNum=1',
-        'label': "规范性文件",
-        'detail_xpath': '//ul[@class="List_list"]/li',
-        'url_xpath': './a/@href',
-        'title_xpath': '/a/@title',
-        'publish_time_xpath': './span',
-        'body_xpath': '//div[@class="jgzn_content"]',
-        'total': 3,
-        'page': 1,
-        'base_url': 'https://sthjt.jiangxi.gov.cn/jxssthjt/col/col57149/index.html?uid=380055&pageNum={}'
-    },
-]
+import requests
+
+headers = {
+    "Accept": "application/xml, text/xml, */*; q=0.01",
+    "Accept-Language": "zh-CN,zh;q=0.9",
+    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "Origin": "https://gxt.jiangsu.gov.cn",
+    "Pragma": "no-cache",
+    "Referer": "https://gxt.jiangsu.gov.cn/col/col6197/index.html?uid=403981&pageNum=3",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "X-Requested-With": "XMLHttpRequest",
+    "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\""
+}
+cookies = {
+    "__jsluid_s": "6adbbfed425abed2a58140d4b6204a37",
+    "e34b3568-c02f-45db-8662-33d198d0da1b": "WyIyNzE4Nzk4NjkwIl0"
+}
+url = "https://gxt.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp"
+params = {
+    "startrecord": "37",
+    "endrecord": "72",
+    "perpage": "12"
+}
+data = {
+    "col": "1",
+    "appid": "1",
+    "webid": "23",
+    "path": "/",
+    "columnid": "6197",
+    "sourceContentType": "1",
+    "unitid": "403981",
+    "webname": "江苏省工业和信息化厅",
+    "permissiontype": "0"
+}
+response = requests.post(url, headers=headers, cookies=cookies, params=params, data=data)
+
+print(response.text)
+print(response)
+{
+    "columnid": "6197",
+    "unitid": "403981",
+    "label": "政策解读",
+},

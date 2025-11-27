@@ -5,11 +5,10 @@ if __name__ == "__main__":
     process = CrawlerProcess(get_project_settings())
 
     spider_names = [
-        "policy_fgw_henan",
-        "policy_gxt_henan",
-        "policy_sthjt_henan",
-        "news_gxt_henan",
-        "news_sthjt_henan",
+        "news_fgw_zhejiang.py",
+        "news_jxt_zhejiang.py",# 有问题
+        "policy_jxt_zhejiang.py",
+        "policy_sthjt_zhejiang.py"# 有问题
     ]
 
     for spider in spider_names:
