@@ -140,7 +140,7 @@ class EitdznewsSpider(scrapy.Spider):
 
             url = response.urljoin(relative_url).replace("http://", "https://")
 
-            # 全局 URL 去重
+            #全局 URL 去重
             if url in self.visited_urls:
                 logger.debug(f"重复URL跳过: {url}")
                 continue

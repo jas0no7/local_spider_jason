@@ -10,13 +10,25 @@ from random import randint
 from subprocess import Popen
 from zoneinfo import ZoneInfo
 
+''''
+
+未完成的：
+    policy_sthjt_jiangxi.py
+    policy_jxt_hubei.p
+
+
+'''
 from apscheduler.schedulers.background import BlockingScheduler
 from loguru import logger
 
 from province_policy_news.settings import cron as edu_cron
 
 obj_path = 'province_policy_news/spiders'
-spider_names = [f'{path[:-3]}' for path in os.listdir(obj_path) if not path.startswith('__') and path.startswith('edu')]
+spider_names = [
+    path[:-3]
+    for path in os.listdir(obj_path)
+    if path.endswith('.py') and not path.startswith('__')
+]
 
 
 def get_now_date(fmt='%Y-%m-%d %H:%M:%S'):

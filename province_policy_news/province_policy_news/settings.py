@@ -34,49 +34,85 @@ SCHEDULER_FLUSH_ON_START = False
 SCHEDULER_IDLE_BEFORE_CLOSE = 30
 DOWNLOAD_FAIL_ON_DATALOSS = False
 
+
 spider_name_from_map = {
-    # 新闻类
+
+    # ======================
+    # 新闻类（更新完整）
+    # ======================
+    'news_fgw_fujian': '新闻-发展和改革委员会-福建',
+    'news_fgw_gansu': '新闻-发展和改革委员会-甘肃',
     'news_fgw_henan': '新闻-发展和改革委员会-河南',
     'news_fgw_jiangsu': '新闻-发展和改革委员会-江苏',
     'news_fgw_zhejiang': '新闻-发展和改革委员会-浙江',
 
-    'news_gxt_henan': '新闻-工业和信息化厅-河南',
-    'news_jxt_zhejiang': '新闻-经济和信息化厅-浙江',
-    'news_nea_zhejiang': '新闻-国家能源局-浙江',
+    'news_gsbnea': '新闻-国家能源局-甘肃',
+    'news_gxt_jiangxi': '新闻-工业和信息化厅-江西',
 
-    'news_sthjt_henan': '新闻-生态环境厅-河南',
-    'news_sthjt_jiangsu': '新闻-生态环境厅-江苏',
+    'news_nea_fujian': '新闻-国家能源局-福建',
+    'news_nea_jiangsu': '新闻-国家能源局-江苏',
 
-    # 政策类：发展和改革委员会
+    'news_scbnea': '新闻-国家能源局-四川',
+
+    'news_sthjt_fujian': '新闻-生态环境厅-福建',
+    'news_sthjt_shaanxi': '新闻-生态环境厅-陕西',
+    'news_sthjt_sichuan': '新闻-生态环境厅-四川',
+
+    'new_fgw_sichuan': '新闻-发展和改革委员会-四川',
+
+    # ======================
+    # 政策类（发展改革委 fgw）
+    # ======================
     'policy_fgw_chongqing': '政策-发展和改革委员会-重庆',
     'policy_fgw_henan': '政策-发展和改革委员会-河南',
     'policy_fgw_jiangsu': '政策-发展和改革委员会-江苏',
     'policy_fgw_shaanxi': '政策-发展和改革委员会-陕西',
     'policy_fgw_zhejiang': '政策-发展和改革委员会-浙江',
+    'policy_fgw_hunan': '政策-发展和改革委员会-湖南',
+    'policy_fgw_sichuan': '政策-发展和改革委员会-四川',
 
-    # 工业信息化厅（简称 gxt）
-    'policy_gxt1_hunan': '政策-工业和信息化厅-湖南',
-    'policy_gxt2_hunan': '政策-工业和信息化厅-湖南',
+    # ======================
+    # 政策类（gxt 工业和信息化厅）
+    # ======================
+    'policy_gsbnea': '政策-国家能源局-甘肃',
+    'policy_gxt_fujian': '政策-工业和信息化厅-福建',
+    'policy_gxt_hunan': '政策-工业和信息化厅-湖南',
     'policy_gxt_henan': '政策-工业和信息化厅-河南',
     'policy_gxt_jiangsu': '政策-工业和信息化厅-江苏',
     'policy_gxt_jiangxi': '政策-工业和信息化厅-江西',
     'policy_gxt_shaanxi': '政策-工业和信息化厅-陕西',
 
-    # 交通运输厅（你文件名前缀 jxt）
-    'policy_jxt_hubei': '政策-经济和信息化厅-湖北',
-    'policy_jxt_zhejiang': '政策-经济和信息化厅-浙江',
+    # ======================
+    # 政策类（能源局）
+    # ======================
+    'policy_hnnyfz': '政策-能源发展厅-河南',
+    'policy_hunb_nea': '政策-国家能源局-湖北',
 
-    # 国家能源局（nea）
+    'policy_nea_fujian': '政策-国家能源局-福建',
+    'policy_nea_shaanxi': '政策-国家能源局-陕西',
     'policy_nea_jiangsu': '政策-国家能源局-江苏',
     'policy_nea_zhejiang': '政策-国家能源局-浙江',
 
-    # 生态环境厅（sthjt）
-    'policy_sthjt2_zhejiang': '政策-生态环境厅-浙江',
-    'policy_sthjt_henan': '政策-生态环境厅-河南',
-    'policy_sthjt_hubei': '政策-生态环境厅-湖北',
-    'policy_sthjt_jiangsu': '政策-生态环境厅-江苏',
-    'policy_sthjt_jiangxi': '政策-生态环境厅-江西',
-    'policy_sthjt_zhejiang': '政策-生态环境厅-浙江',
+    'policy_scbnea': '政策-国家能源局-四川',
+
+    # ======================
+    # 政策类（其他厅局）
+    # ======================
+    'policy_jjxxw_chongqing': '政策-经济和信息化委员会-重庆',
+
+    'policy_jxt_sichuan': '政策-交通运输厅-四川',
+
+    'policy_sndrc_shaanxi': '政策-发展和改革委员会-陕西（能源处）',
+
+    # ======================
+    # 生态环境厅 sthjt
+    # ======================
+    'policy_sthjt_chongqing': '政策-生态环境厅-重庆',
+    'policy_sthjt_fujian': '政策-生态环境厅-福建',
+    'policy_sthjt_hunan': '政策-生态环境厅-湖南',
+    'policy_sthjt_shaanxi': '政策-生态环境厅-陕西',
+    'policy_sthjt_sichuan': '政策-生态环境厅-四川',
+
 }
 
 # kafka
@@ -85,46 +121,77 @@ KAFKA_TOPIC = {
     # ======================
     # 新闻类
     # ======================
+    'news_fgw_fujian': 'spider-news-fujian',
+    'news_fgw_gansu': 'spider-news-gansu',
     'news_fgw_henan': 'spider-news-henan',
     'news_fgw_jiangsu': 'spider-news-jiangsu',
     'news_fgw_zhejiang': 'spider-news-zhejiang',
 
-    'news_gxt_henan': 'spider-news-henan',
-    'news_jxt_zhejiang': 'spider-news-zhejiang',
-    'news_nea_zhejiang': 'spider-news-zhejiang',
+    'news_gsbnea': 'spider-news-gansu',
+    'news_gxt_jiangxi': 'spider-news-jiangxi',
+    'news_nea_fujian': 'spider-news-fujian',
+    'news_nea_jiangsu': 'spider-news-jiangsu',
+    'news_scbnea': 'spider-news-sichuan',
 
-    'news_sthjt_henan': 'spider-news-henan',
-    'news_sthjt_jiangsu': 'spider-news-jiangsu',
+    'news_sthjt_fujian': 'spider-news-fujian',
+    'news_sthjt_shaanxi': 'spider-news-shaanxi',
+    'news_sthjt_sichuan': 'spider-news-sichuan',
+
+    'new_fgw_sichuan': 'spider-news-sichuan',
+
 
     # ======================
-    # 政策类（统一 spider-policy-省份）
+    # 政策类（发展改革委）
     # ======================
     'policy_fgw_chongqing': 'spider-policy-chongqing',
     'policy_fgw_henan': 'spider-policy-henan',
     'policy_fgw_jiangsu': 'spider-policy-jiangsu',
     'policy_fgw_shaanxi': 'spider-policy-shaanxi',
     'policy_fgw_zhejiang': 'spider-policy-zhejiang',
+    'policy_fgw_hunan': 'spider-policy-hunan',
+    'policy_fgw_sichuan': 'spider-policy-sichuan',
 
-    'policy_gxt1_hunan': 'spider-policy-hunan',
-    'policy_gxt2_hunan': 'spider-policy-hunan',
+    # ======================
+    # 工信厅 gxt
+    # ======================
+    'policy_gsbnea': 'spider-policy-gansu',
+    'policy_gxt_fujian': 'spider-policy-fujian',
+    'policy_gxt_hunan': 'spider-policy-hunan',
     'policy_gxt_henan': 'spider-policy-henan',
     'policy_gxt_jiangsu': 'spider-policy-jiangsu',
     'policy_gxt_jiangxi': 'spider-policy-jiangxi',
     'policy_gxt_shaanxi': 'spider-policy-shaanxi',
 
-    'policy_jxt_hubei': 'spider-policy-hubei',
-    'policy_jxt_zhejiang': 'spider-policy-zhejiang',
+    # ======================
+    # 能源局（nea）
+    # ======================
+    'policy_hnnyfz': 'spider-policy-henan',
+    'policy_hunb_nea': 'spider-policy-hubei',
 
+    'policy_nea_fujian': 'spider-policy-fujian',
+    'policy_nea_shaanxi': 'spider-policy-shaanxi',
     'policy_nea_jiangsu': 'spider-policy-jiangsu',
     'policy_nea_zhejiang': 'spider-policy-zhejiang',
 
-    'policy_sthjt2_zhejiang': 'spider-policy-zhejiang',
-    'policy_sthjt_henan': 'spider-policy-henan',
-    'policy_sthjt_hubei': 'spider-policy-hubei',
-    'policy_sthjt_jiangsu': 'spider-policy-jiangsu',
-    'policy_sthjt_jiangxi': 'spider-policy-jiangxi',
-    'policy_sthjt_zhejiang': 'spider-policy-zhejiang',
+    'policy_scbnea': 'spider-policy-sichuan',
+
+    # ======================
+    # 其他厅局
+    # ======================
+    'policy_jjxxw_chongqing': 'spider-policy-chongqing',
+    'policy_jxt_sichuan': 'spider-policy-sichuan',
+    'policy_sndrc_shaanxi': 'spider-policy-shaanxi',
+
+    # ======================
+    # 生态环境厅 sthjt
+    # ======================
+    'policy_sthjt_chongqing': 'spider-policy-chongqing',
+    'policy_sthjt_fujian': 'spider-policy-fujian',
+    'policy_sthjt_hunan': 'spider-policy-hunan',
+    'policy_sthjt_shaanxi': 'spider-policy-shaanxi',
+    'policy_sthjt_sichuan': 'spider-policy-sichuan',
 }
+
 
 
 

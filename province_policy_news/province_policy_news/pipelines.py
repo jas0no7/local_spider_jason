@@ -115,8 +115,9 @@ class EducationPipeline:
         if kafka_topic:
             try:
                 self.kafka.send(topic=kafka_topic, value=deepcopy(item), key=spider.name)
+                logger.info(f"[Kafka OK] 已发送到 {kafka_topic} -> {_id}")
             except Exception as e:
-                logger.debug(f'Kafka 发送失败: {e}')
+                logger.error(f"[Kafka ERROR] 发送失败 {kafka_topic} -> {_id}, 原因: {e}")
 
         return item
 
