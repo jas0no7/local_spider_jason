@@ -37,8 +37,6 @@ class DataSpider(CrawlSpider):
             'page': 1,
             'base_url': 'https://gsb.nea.gov.cn/dtyw/jgdt/index_{}.html'
         },
-
-
     ]
 
     def start_requests(self):
@@ -53,11 +51,8 @@ class DataSpider(CrawlSpider):
 
     def parse_item(self, response):
         """
-        详情和下一页url
-        :param response:
-        :return:
+        列表页（仅第一页，不翻页）
         """
-
         _meta = response.meta
         label = _meta.get('label')
         detail_xpath = _meta.get('detail_xpath')
@@ -65,20 +60,15 @@ class DataSpider(CrawlSpider):
         title_xpath = _meta.get('title_xpath')
         publish_time_xpath = _meta.get('publish_time_xpath')
         body_xpath = _meta.get('body_xpath')
-        total = _meta.get('total')
-        page = _meta.get('page')
-        base_url = _meta.get('base_url')
 
+        # -------- 提取第一页文章列表 --------
         for ex_url in response.xpath(detail_xpath):
             url = response.urljoin(ex_url.xpath(url_xpath).extract_first())
-            if url.endswith('.pdf'):
+            if not url or url.endswith('.pdf'):
                 continue
 
             title = ''.join(ex_url.xpath(title_xpath).extract())
-            if publish_time_xpath:
-                publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').extract()).replace('(', '').replace(')', '').strip()
-            else:
-                publish_time = None
+            publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').extract()).strip()
 
             meta = {
                 "label": label,
@@ -86,6 +76,7 @@ class DataSpider(CrawlSpider):
                 'publish_time': publish_time,
                 'body_xpath': body_xpath,
             }
+
             yield scrapy.Request(
                 url=url,
                 callback=self.parse_detail,
@@ -93,33 +84,12 @@ class DataSpider(CrawlSpider):
                 dont_filter=True
             )
 
-        if page < total:
-            page += 1
-            if page == 1:
-                next_url = _meta['url']
-            else:
-                next_url = base_url.format(page)
-            yield scrapy.Request(
-                url=base_url.format(page),
-                callback=self.parse_item,
-                meta=copy.deepcopy({
-                    'label': label,
-                    'detail_xpath': detail_xpath,
-                    'url_xpath': url_xpath,
-                    'title_xpath': title_xpath,
-                    'publish_time_xpath': publish_time_xpath,
-                    'body_xpath': body_xpath,
-                    'total': total,
-                    'page': page,
-                    'base_url': base_url,
-                }),
-            )
+        # -------- ❌ 删除翻页逻辑（仅抓第一页） --------
+        return
 
     def parse_detail(self, response):
         """
-        详情
-        :param response:
-        :return:
+        详情页解析
         """
         _meta = response.meta
 
@@ -129,9 +99,11 @@ class DataSpider(CrawlSpider):
 
         body_xpath = _meta.get('body_xpath')
         title = _meta.get('title') or response.xpath('//meta[@name="ArticleTitle"]/@content').extract_first()
-        publish_time = _meta.get('publish_time') or \
-                       ''.join(response.xpath('//publishtime/text()').extract()).strip() or \
-                       ''.join(re.findall(r'发布日期.*?(\d{4}-\d{2}-\d{2})', response.text, re.DOTALL)).strip()
+        publish_time = (
+            _meta.get('publish_time')
+            or ''.join(response.xpath('//publishtime/text()').extract()).strip()
+            or ''.join(re.findall(r'发布日期.*?(\d{4}-\d{2}-\d{2})', response.text, re.DOTALL)).strip()
+        )
         label = _meta.get('label')
 
         author = response.xpath('//meta[@name="Author"]/@content').extract_first() or \
@@ -140,9 +112,9 @@ class DataSpider(CrawlSpider):
 
         attachment_urls = response.xpath(
             '//p[contains(@class, "insertfileTag")]//a | '
-            '//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".docx") or '
-            'contains(@href, ".xls") or contains(@href, ".xlsx") or contains(@href, ".wps") or '
-            'contains(@href, ".zip") or contains(@href, ".rar")]'
+            '//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".docx") '
+            'or contains(@href, ".xls") or contains(@href, ".xlsx") or contains(@href, ".wps") '
+            'or contains(@href, ".zip") or contains(@href, ".rar")]'
         )
 
         images = [response.urljoin(i) for i in response.xpath(f'{body_xpath}//img/@src').extract()]

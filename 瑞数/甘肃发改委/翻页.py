@@ -1,25 +1,45 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import os
-import re
-import json
 import time
-import subprocess
-from hashlib import md5
-from urllib.parse import urljoin
-from datetime import datetime
-
+import execjs
 from curl_cffi import requests
-from lxml import etree
 from loguru import logger
+from lxml import etree
+import subprocess
 
-# ==============================================================
-# 基础配置
-# ==============================================================
+cookies = {}
 session = requests.Session()
-base_url = "https://www.gansu.gov.cn"
-first_url = "https://www.gansu.gov.cn/common/search/77b4ad617c73434dba6491e1de8a615a"
+def get_cookies(response):
+    tree = etree.HTML(response.text)
+    contentStr = tree.xpath('//meta[2]/@content')[0]
+    content = f'content="{contentStr}";'
+    scriptStr = tree.xpath('//script[1]/text()')[0]
+    js_code = session.get(url='https://fzgg.gansu.gov.cn' + tree.xpath('//script[2]/@src')[0], headers=headers).text
 
+    with open('./content.js', 'w', encoding='utf-8') as f:
+        f.write(content)
+    with open('./ts.js', 'w', encoding='utf-8') as f:
+        f.write(scriptStr)
+    with open('./cd.js', 'w', encoding='utf-8') as f:
+        f.write(js_code)
+
+    logger.info('content/ts/js保存成功！')
+
+    # ✅ 通用兼容写法
+    try:
+        # 标准 requests
+        cookies = response.cookies.get_dict()
+    except AttributeError:
+        try:
+            # 一些 curl_cffi 版本支持 items()
+            cookies = dict(response.cookies.items())
+        except Exception:
+            # 最保险的方案：直接转字符串再解析
+            cookies = {}
+            for c in str(response.cookies).split(";"):
+                if "=" in c:
+                    k, v = c.strip().split("=", 1)
+                    cookies[k] = v
+
+    return cookies
 headers = {
     "Accept": "*/*",
     "Accept-Language": "zh-CN,zh;q=0.9",
@@ -27,168 +47,107 @@ headers = {
     "Connection": "keep-alive",
     "Pragma": "no-cache",
     "Referer": "https://www.gansu.gov.cn/gsszf/gsyw/common_noleftlist.shtml",
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
-    ),
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+    "X-Requested-With": "XMLHttpRequest",
+    "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\""
 }
-
-output_dir = "./output_gansu"
-os.makedirs(output_dir, exist_ok=True)
-
-
-# ==============================================================
-# 工具函数
-# ==============================================================
-def get_now_date():
-    """当前时间字符串"""
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#url = "https://fzgg.gansu.gov.cn/common/search/b16135ef84e445dea2bfd0343dd96c4c" #[政策文件] total = 101
+#url = "https://fzgg.gansu.gov.cn/common/search/0c4a5c08111c4b66b8ebfec8e563de37" #[政府定价] total =20
+url = "https://fzgg.gansu.gov.cn/common/search/906fa06cf3f84ed68e030cf7cfdf7234" #[政策解读] total = 38
 
 
-def get_cookies(response):
-    """生成瑞数 cookie 的文件"""
-    tree = etree.HTML(response.text)
-    content_str = tree.xpath('//meta[2]/@content')[0]
-    script_str = tree.xpath('//script[1]/text()')[0]
-    js_code = session.get(url=base_url + tree.xpath('//script[2]/@src')[0], headers=headers).text
+response = session.get(url, headers=headers)
+logger.info(f'第一次访问状态：{response.status_code}')
 
-    with open("./content.js", "w", encoding="utf-8") as f:
-        f.write(f'content="{content_str}";')
-    with open("./ts.js", "w", encoding="utf-8") as f:
-        f.write(script_str)
-    with open("./cd.js", "w", encoding="utf-8") as f:
-        f.write(js_code)
-    logger.info("content/ts/js 保存成功")
+cookies = get_cookies(response)
 
-    cookies = {}
-    try:
-        cookies = response.cookies.get_dict()
-    except Exception:
-        pass
-    return cookies
+result = subprocess.run(['node', 'env.js'], capture_output=True, text=True)
 
-
-def get_html(url, cookies):
-    """获取网页 HTML"""
-    try:
-        res = session.get(url, headers=headers, cookies=cookies, timeout=10)
-        if res.status_code == 200:
-            return res.text
-        else:
-            logger.warning(f"请求失败 {res.status_code} -> {url}")
-            return None
-    except Exception as e:
-        logger.error(f"请求异常: {e}")
-        return None
-
-
-def get_attachment(attachment_nodes, base_url):
-    """提取附件链接"""
-    att_list = []
-    for a in attachment_nodes:
-        href = a.get("href")
-        if href:
-            att_list.append(urljoin(base_url, href))
-    return att_list
-
-
-def parse_detail(url, cookies):
-    """解析详情页"""
-    html = get_html(url, cookies)
-    if not html:
-        return None
-    tree = etree.HTML(html)
-
-    body_elem = tree.xpath('//div[@class="main"]')
-    body_html = "".join([etree.tostring(e, encoding="unicode", method="html") for e in body_elem])
-    content = "".join(tree.xpath('//div[@class="main"]//text()')).strip()
-    author = "".join(re.findall(r"信息来源[:：]\s*(.*?)<", html, re.DOTALL)).strip()
-    images = [urljoin(url, i) for i in tree.xpath('//div[@class="main"]//img/@src')]
-    attachment_nodes = tree.xpath(
-        '//a[contains(@href, ".pdf") or contains(@href, ".doc") or '
-        'contains(@href, ".docx") or contains(@href, ".xls") or '
-        'contains(@href, ".xlsx") or contains(@href, ".zip") or '
-        'contains(@href, ".rar")]'
-    )
-    attachments = get_attachment(attachment_nodes, url)
-
-    return {
-        "author": author,
-        "body_html": body_html,
-        "content": content,
-        "images": images,
-        "attachment": attachments,
+cookies['4hP44ZykCTt5P'] = result.stdout.strip()
+total = 3
+for page in range(2, total + 1):
+    params = {
+        "sort": "",
+        "_isAgg": "false",
+        "_isJson": "false",
+        "_pageSize": "20",
+        "_template": "index",
+        "_channelName": "",
+        "page": str(page)
     }
-
-
-def save_json(data):
-    """每篇新闻保存为单独 JSON 文件"""
-    file_path = os.path.join(output_dir, f"{data['_id']}.json")
-    with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    logger.info(f"✅ 已保存: {file_path}")
-
-
-def parse_page(html, cookies):
-    """解析列表页并爬取详情"""
+    res = session.get(url, headers=headers, cookies=cookies, params=params)
+    logger.info(f'第二次访问状态：{res.status_code}')
+    html = res.text
     tree = etree.HTML(html)
-    titles = [t.strip() for t in tree.xpath('//div[@class="title"]/a/text()')]
-    detail_urls = [urljoin(base_url, u) for u in tree.xpath('//div[@class="title"]/a/@href')]
-    publish_times = [t.strip() for t in tree.xpath('//div[@class="date"]/text()')]
 
-    logger.info(f"共抓取 {len(titles)} 条新闻")
+    items = tree.xpath('//ul[@id="body"]/li')
 
-    for title, detail_url, pub_time in zip(titles, detail_urls, publish_times):
-        logger.info(f"正在抓取: {title} ({pub_time})")
+    for li in items:
+        title = li.xpath('./div[@class="title"]/a/text()')
+        title = title[0].strip() if title else ""
 
-        detail_data = parse_detail(detail_url, cookies)
-        if not detail_data:
+        url_path = li.xpath('./div[@class="title"]/a/@href')
+        if not url_path:
             continue
 
-        data = {
-            "_id": md5(f"GET{detail_url}".encode("utf-8")).hexdigest(),
-            "url": detail_url,
-            "spider_from": "甘肃省人民政府",
-            "label": "甘肃要闻",
+        href = url_path[0].strip()
+
+        # ================================
+        # 站外链接过滤（跳过微信/微博等）
+        # ================================
+        if href.startswith("http://") or href.startswith("https://"):
+            # 🔥 如果不是甘肃发改委的域名 → 跳过
+            if not href.startswith("https://fzgg.gansu.gov.cn"):
+                print(f"跳过站外链接: {href}")
+                continue
+            url_full = href
+        else:
+            url_full = "https://fzgg.gansu.gov.cn" + href
+
+        date = li.xpath('./div[@class="date"]/text()')
+        date = date[0].strip() if date else ""
+
+        print("\n====== 进入详情页 ======")
+        print(url_full)
+
+        # ==========================
+        # 访问详情页
+        # ==========================
+        detail_html = session.get(url_full, headers=headers, cookies=cookies).text
+        detail_tree = etree.HTML(detail_html)
+
+        # ==========================
+        # 详情正文提取
+        # ==========================
+        body_xpath = '//div[@class="main mt8"] | //div[@class="article"] | //div[@id="zoom"] | //div[@class="mainbox clearfix"]'
+
+        body_elements = detail_tree.xpath(body_xpath)
+
+        body_html = ''.join([
+            etree.tostring(elem, encoding='unicode', method='html')
+            for elem in body_elements
+        ])
+
+        body_text_nodes = detail_tree.xpath(f'{body_xpath}//text()')
+        body_text = ''.join([
+            node if isinstance(node, str) else (node.text or "")
+            for node in body_text_nodes
+        ]).strip()
+
+        print({
             "title": title,
-            "author": detail_data["author"],
-            "publish_time": pub_time,
-            "body_html": detail_data["body_html"],
-            "content": detail_data["content"],
-            "images": detail_data["images"],
-            "attachment": detail_data["attachment"],
-            "spider_date": get_now_date(),
-        }
-
-        save_json(data)
-        time.sleep(1.2)
-
-    next_link = tree.xpath('//a[@class="next"]/@href')
-    return urljoin(base_url, next_link[0]) if next_link else None
+            "detail_url": url_full,
+            "date": date,
+            "body_text": body_text,
+            "body_html": body_html
+        })
 
 
-# ==============================================================
-# 主程序入口
-# ==============================================================
-if __name__ == "__main__":
-    logger.info("开始初始化瑞数 Cookie")
-    response = session.get(first_url, headers=headers)
-    cookies = get_cookies(response)
 
-    result = subprocess.run(["node", "env.js"], capture_output=True, text=True)
-    cookies["4hP44ZykCTt5P"] = result.stdout.strip()
 
-    logger.info("开始抓取新闻列表与详情")
-    page_url = first_url
-    for page in range(1, 729):
-        html = get_html(page_url, cookies)
-        if not html:
-            break
-        logger.info(f"=== 第 {page} 页 ===")
-        next_url = parse_page(html, cookies)
-        if not next_url:
-            break
-        page_url = next_url
-        time.sleep(3)
 
-    logger.success(f"全部完成，结果已保存在: {os.path.abspath(output_dir)}")

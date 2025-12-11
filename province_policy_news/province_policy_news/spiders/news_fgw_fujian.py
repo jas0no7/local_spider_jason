@@ -22,19 +22,19 @@ class DataSpider(CrawlSpider):
     dupefilter_field = {"batch": "20251107"}
 
     # ==========================================================
-    # 栏目信息配置
+    # 栏目信息配置（max_page 不再被使用）
     # ==========================================================
     infoes = [
         {
             "label": "省政府政策文件",
-            "chnlid": "9374",        # 接口内参数
-            "max_page": 2,           # 抓取页数
+            "chnlid": "9374",
+            "max_page": 2,    # 不再使用
             "referer": "https://fgw.fujian.gov.cn/zwgk/fgzd/szcfg/",
         },
         {
             "label": "省发改委政策文件",
-            "chnlid": "9375",  # 接口内参数
-            "max_page": 4,  # 抓取页数
+            "chnlid": "9375",
+            "max_page": 4,    # 不再使用
             "referer": "https://fgw.fujian.gov.cn/zwgk/fgzd/sfgwgfxwj/",
         },
     ]
@@ -70,42 +70,42 @@ class DataSpider(CrawlSpider):
     search_url = "https://fgw.fujian.gov.cn/fjdzapp/search"
 
     # ==========================================================
-    # 起始请求（POST分页）
+    # 起始请求（强制只请求 page = 1）
     # ==========================================================
     def start_requests(self):
         for info in self.infoes:
             label = info["label"]
             chnlid = info["chnlid"]
-            max_page = info["max_page"]
             referer = info["referer"]
 
             headers = copy.deepcopy(self.headers)
             headers["Referer"] = referer
 
-            for page in range(1, max_page + 1):
-                formdata = {
-                    "channelid": "229105",
-                    "sortfield": "-docorder,-docreltime",
-                    "classsql": f"chnlid={chnlid}",
-                    "classcol": "publishyear",
-                    "classnum": "100",
-                    "classsort": "0",
-                    "cache": "true",
-                    "page": str(page),
-                    "prepage": "75",
-                }
+            page = 1  # ★★★ 强制只采第一页 ★★★
 
-                meta = {"label": label, "referer": referer}
+            formdata = {
+                "channelid": "229105",
+                "sortfield": "-docorder,-docreltime",
+                "classsql": f"chnlid={chnlid}",
+                "classcol": "publishyear",
+                "classnum": "100",
+                "classsort": "0",
+                "cache": "true",
+                "page": str(page),
+                "prepage": "75",
+            }
 
-                yield scrapy.FormRequest(
-                    url=self.search_url,
-                    headers=headers,
-                    cookies=self.cookies,
-                    formdata=formdata,
-                    meta=meta,
-                    callback=self.parse_list,
-                    dont_filter=True,
-                )
+            meta = {"label": label, "referer": referer}
+
+            yield scrapy.FormRequest(
+                url=self.search_url,
+                headers=headers,
+                cookies=self.cookies,
+                formdata=formdata,
+                meta=meta,
+                callback=self.parse_list,
+                dont_filter=True,
+            )
 
     # ==========================================================
     # 解析接口返回的 JSON 列表
@@ -157,8 +157,12 @@ class DataSpider(CrawlSpider):
         publish_time = _meta.get("publish_time")
         label = _meta.get("label")
 
-        # 正文 XPath
-        body_xpath = '//div[@class="xl_con"] | //div[@class="article_component"] | //div[@class="tabs tab_base_01 rules_con1"]'
+        body_xpath = (
+            '//div[@class="xl_con"] | '
+            '//div[@class="article_component"] | '
+            '//div[@class="tabs tab_base_01 rules_con1"]'
+        )
+
         body_html = " ".join(response.xpath(body_xpath).extract())
         content = " ".join(response.xpath(f"{body_xpath}//text()").extract())
 
@@ -167,7 +171,6 @@ class DataSpider(CrawlSpider):
             or "".join(re.findall(r'信息来源[:：]\s*(.*?)<', response.text))
         )
 
-        # 附件
         attachment_urls = response.xpath(
             '//a[contains(@href, ".pdf") or contains(@href, ".doc") '
             'or contains(@href, ".docx") or contains(@href, ".xls") '

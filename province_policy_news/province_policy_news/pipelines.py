@@ -73,7 +73,7 @@ class EducationPipeline:
             logger.warning(f"找不到与 spider.name={spider_key} 对应的 topic，跳过 Kafka 推送")
             kafka_topic = None
 
-        # 全局去重
+        ## 全局去重
         if self.myredis.exists(key=dupefilter_key, value=_id):
             logger.info(f'{spider_key} 已存在 {_id} 跳过')
             return item
@@ -114,7 +114,7 @@ class EducationPipeline:
         # 推送 Kafka
         if kafka_topic:
             try:
-                self.kafka.send(topic=kafka_topic, value=deepcopy(item), key=spider.name)
+                self.kafka.send(topic=kafka_topic, value=deepcopy(item))
                 logger.info(f"[Kafka OK] 已发送到 {kafka_topic} -> {_id}")
             except Exception as e:
                 logger.error(f"[Kafka ERROR] 发送失败 {kafka_topic} -> {_id}, 原因: {e}")

@@ -23,20 +23,17 @@ class DataSpider(CrawlSpider):
     dupefilter_field = {"batch": "20251107"}
 
     # ==========================================================
-    # 栏目信息配置（保留 infoes 格式）
+    # 栏目配置（已保留 max_page 但不再使用它）
     # ==========================================================
     infoes = [
         {
             "label": "规划部署",
             "url": "https://gxt.jiangxi.gov.cn/queryList",
-            "max_page": 4,
+            "max_page": 4,  # 不再使用，只采第一页
             "referer": "https://gxt.jiangxi.gov.cn/jxsgyhxxht/ghbs/index.html",
         },
     ]
 
-    # ==========================================================
-    # 公共 headers
-    # ==========================================================
     headers = {
         "Accept": "*/*",
         "Accept-Language": "zh-CN,zh;q=0.9",
@@ -53,41 +50,40 @@ class DataSpider(CrawlSpider):
     }
 
     # ==========================================================
-    # 起始请求
+    # 起始请求（已改为只请求第一页）
     # ==========================================================
     def start_requests(self):
         for info in self.infoes:
             label = info["label"]
-            max_page = info["max_page"]
             url = info["url"]
             referer = info["referer"]
 
             headers = copy.deepcopy(self.headers)
             headers["Referer"] = referer
 
-            for page in range(1, max_page + 1):
-                formdata = {
-                    "current": str(page),
-                    "pageSize": "15",
-                    "webSiteCode[]": "jxsgyhxxht",
-                    "channelCode[]": "ghbs",
-                    "sort": "sortNum",
-                    "order": "desc",
-                }
+            # ★★★ 只采第一页，不再循环 max_page ★★★
+            formdata = {
+                "current": "1",
+                "pageSize": "15",
+                "webSiteCode[]": "jxsgyhxxht",
+                "channelCode[]": "ghbs",
+                "sort": "sortNum",
+                "order": "desc",
+            }
 
-                meta = {"label": label, "referer": referer}
+            meta = {"label": label, "referer": referer}
 
-                yield scrapy.FormRequest(
-                    url=url,
-                    headers=headers,
-                    formdata=formdata,
-                    meta=meta,
-                    callback=self.parse_list,
-                    dont_filter=True,
-                )
+            yield scrapy.FormRequest(
+                url=url,
+                headers=headers,
+                formdata=formdata,
+                meta=meta,
+                callback=self.parse_list,
+                dont_filter=True,
+            )
 
     # ==========================================================
-    # 列表页解析（JSON）
+    # JSON 列表解析
     # ==========================================================
     def parse_list(self, response):
         meta = response.meta
@@ -99,7 +95,7 @@ class DataSpider(CrawlSpider):
             res_json = json.loads(response.text)
             results = res_json["data"]["results"]
         except Exception as e:
-            self.logger.error(f"解析JSON出错: {e}, 原文: {response.text[:200]}")
+            self.logger.error(f"解析JSON异常: {e}, 原文: {response.text[:200]}")
             return
 
         base_domain = "https://gxt.jiangxi.gov.cn"
@@ -108,49 +104,53 @@ class DataSpider(CrawlSpider):
             source = item.get("source", {})
             title = source.get("title") or source.get("showTitle")
             publish_time = source.get("pubDate")
-            author = json.loads(source.get("metadata", "{}")).get("author", "")
-            content_html = source.get("content", {}).get("content", "")
-            content_text = (
-                content_html.replace("\n", "").replace("\r", "").replace("  ", "")
-            )
+            author = ""
 
-            # ---- 图片 ----
+            # 元数据解析
+            try:
+                metadata = json.loads(source.get("metadata", "{}"))
+                author = metadata.get("author", "")
+            except Exception:
+                pass
+
+            # 正文 HTML
+            content_html = source.get("content", {}).get("content", "")
+            content_text = content_html.replace("\n", "").replace("\r", "").replace("  ", "")
+
+            # 图片解析
             image_list = []
-            if source.get("images"):
-                try:
+            try:
+                if source.get("images"):
                     for img in json.loads(source["images"]):
                         image_list.append(urljoin(base_domain, img["filePath"]))
-                except Exception:
-                    pass
+            except Exception:
+                pass
 
-            # ---- 正文详情 URL ----
+            # 内容页 URL
             content_url = ""
-            if source.get("urls"):
-                try:
+            try:
+                if source.get("urls"):
                     urls_obj = json.loads(source["urls"])
                     content_url = urljoin(base_domain, urls_obj.get("pc", ""))
-                except Exception:
-                    pass
+            except Exception:
+                pass
 
-            # ---- 附件提取 ----
-            attachment_urls = []  # 暂无附件字段
+            # 附件（暂不提供字段）
+            attachment_urls = []
 
-            # ---- 构造 DataItem ----
-            yield DataItem(
-                {
-                    "_id": md5(f"{method}{content_url}{body}".encode("utf-8")).hexdigest(),
-                    "url": content_url,
-                    "spider_topic": settings.get("KAFKA_TOPIC", {}).get(self.name),
-                    "spider_from": self._from,
-                    "label": label,
-                    "title": title,
-                    "author": author,
-                    "publish_time": publish_time,
-                    "body_html": content_html,
-                    "content": content_text,
-                    "images": image_list,
-                    "attachment": get_attachment(attachment_urls, content_url, self._from),
-                    "spider_date": get_now_date(),
-                    "category": self.category,
-                }
-            )
+            yield DataItem({
+                "_id": md5(f"{method}{content_url}{body}".encode("utf-8")).hexdigest(),
+                "url": content_url,
+                "spider_topic": settings.get("KAFKA_TOPIC", {}).get(self.name),
+                "spider_from": self._from,
+                "label": label,
+                "title": title,
+                "author": author,
+                "publish_time": publish_time,
+                "body_html": content_html,
+                "content": content_text,
+                "images": image_list,
+                "attachment": get_attachment(attachment_urls, content_url, self._from),
+                "spider_date": get_now_date(),
+                "category": self.category,
+            })

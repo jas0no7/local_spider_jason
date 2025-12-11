@@ -60,7 +60,7 @@ headers = {
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\""
 }
-url  = "https://www.gansu.gov.cn/common/search/77b4ad617c73434dba6491e1de8a615a"
+url = "https://www.gansu.gov.cn/common/search/77b4ad617c73434dba6491e1de8a615a"
 
 response = session.get(url, headers=headers)
 logger.info(f'第一次访问状态：{response.status_code}')
@@ -72,6 +72,7 @@ result = subprocess.run(['node', 'env.js'], capture_output=True, text=True)
 # cookies['4hP44ZykCTt5P'] = execjs.compile(open('./env.js', 'r', encoding='utf-8').read()).call('get_ck')
 cookies['4hP44ZykCTt5P'] = result.stdout.strip()
 print(cookies)
+
 res = session.get(url, headers=headers, cookies=cookies)
 logger.info(f'第二次访问状态：{res.status_code}')
 print(res.text)

@@ -21,7 +21,6 @@ class EitdznewsSpider(scrapy.Spider):
     category = '政府网站'
     dupefilter_field = {"batch": "20240322"}
 
-    # ⚠ 删除不存在的旧中间件
     custom_settings = {}
 
     infoes = [
@@ -51,26 +50,6 @@ class EitdznewsSpider(scrapy.Spider):
         },
     ]
 
-    # ---------------- 工具函数：当前时间 ----------------
-    @staticmethod
-    def get_now_date():
-        return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # ---------------- 工具函数：附件提取 ----------------
-    @staticmethod
-    def get_attachment(a_nodes, page_url):
-        urls = []
-        for a in a_nodes:
-            href = a.xpath("./@href").get()
-            if not href:
-                continue
-            if href.startswith("http"):
-                urls.append(href)
-            else:
-                base = page_url.rsplit("/", 1)[0]
-                urls.append(base + "/" + href.lstrip("/"))
-        return urls
-
     # ---------------- 起始请求 ----------------
     def start_requests(self):
         for info in self.infoes:
@@ -81,7 +60,7 @@ class EitdznewsSpider(scrapy.Spider):
                 dont_filter=False
             )
 
-    # ---------------- 列表页 ----------------
+    # ---------------- 列表页（仅第一页） ----------------
     def parse_item(self, response):
         logger.info(f"页面URL: {response.url}")
 
@@ -89,12 +68,10 @@ class EitdznewsSpider(scrapy.Spider):
         html_blocks = []
 
         if xml_text:
-            # 新版：<record><![CDATA[...]]></record>
             html_blocks = re.findall(
                 r'<record><!\[CDATA\[(.*?)\]\]></record>', xml_text, flags=re.S
             )
             if not html_blocks:
-                # 兼容旧版
                 html_blocks = re.findall(
                     r'<p class="lb-list">.*?</p>', xml_text, flags=re.S
                 )
@@ -115,7 +92,6 @@ class EitdznewsSpider(scrapy.Spider):
             if not relative_url:
                 continue
 
-            # 构造完整 URL
             url = response.urljoin(relative_url)
             logger.info(f"抓取链接: {url}")
 
@@ -133,25 +109,9 @@ class EitdznewsSpider(scrapy.Spider):
                 dont_filter=False
             )
 
-        # ---------------- 翻页 ----------------
-        current_page = response.meta['page']
-        total_page = response.meta['total']
-        base_url = response.meta['base_url']
-
-        if current_page < total_page:
-            next_page = current_page + 1
-            next_url = base_url.format(next_page)
-            logger.info(f"翻页至 {next_page}: {next_url}")
-
-            next_meta = copy.deepcopy(response.meta)
-            next_meta["page"] = next_page
-
-            yield scrapy.Request(
-                url=next_url,
-                callback=self.parse_item,
-                meta=next_meta,
-                dont_filter=False
-            )
+        # ---------------- ❌ 删除所有翻页逻辑（只采第一页） ----------------
+        logger.info("仅采第一页，不翻页。")
+        return
 
     # ---------------- 详情页 ----------------
     def parse_detail(self, response):
@@ -173,7 +133,6 @@ class EitdznewsSpider(scrapy.Spider):
             ''.join(response.xpath('//meta[@name="Author"]/@content').getall())
         ).strip()
 
-        # 提取附件
         attachment_nodes = response.xpath(
             f'{body_xpath}//a[contains(@href, ".pdf") or '
             f'contains(@href, ".doc") or contains(@href, ".docx") or '
@@ -181,7 +140,6 @@ class EitdznewsSpider(scrapy.Spider):
         )
         attachments = get_attachment(attachment_nodes, url, self._from)
 
-        # 正文
         body_html = ' '.join(response.xpath(body_xpath).getall())
         content = ' '.join(
             response.xpath(f"{body_xpath}//text()").getall()

@@ -12,8 +12,6 @@ from ..mydefine import get_now_date, get_attachment
 settings = get_project_settings()
 
 
-
-
 class DataSpider(CrawlSpider):
     name = "news_fgw_henan"
     allowed_domains = ["fgw.henan.gov.cn"]
@@ -30,7 +28,7 @@ class DataSpider(CrawlSpider):
             "label": "发改要闻",
             "detail_xpath": "//div[@class='news-list']/ul/li",
             "url_xpath": "./a/@href",
-            "title_xpath": "string(./a)",  # 修正标题
+            "title_xpath": "string(./a)",
             "publish_time_xpath": "./span",
             "body_xpath": "//div[@class='content']",
             "total": 233,
@@ -42,7 +40,7 @@ class DataSpider(CrawlSpider):
             "label": "公告通报",
             "detail_xpath": "//div[@class='news-list']/ul/li",
             "url_xpath": "./a/@href",
-            "title_xpath": "string(./a)",  # 修正标题
+            "title_xpath": "string(./a)",
             "publish_time_xpath": "./span",
             "body_xpath": "//div[@class='content']",
             "total": 11,
@@ -51,80 +49,64 @@ class DataSpider(CrawlSpider):
         }
     ]
 
+    # ================================
+    # 只采第一页
+    # ================================
     def start_requests(self):
         for info in self.infoes:
-            url = info.get('url')
             yield scrapy.Request(
-                url=url,
+                url=info["url"],
                 callback=self.parse_item,
                 meta=copy.deepcopy(info),
                 dont_filter=True
             )
 
+    # ================================
+    # 列表页解析
+    # ================================
     def parse_item(self, response):
-        """
-        详情和下一页url
-        :param response:
-        :return:
-        """
-
         _meta = response.meta
-        label = _meta.get('label')
-        detail_xpath = _meta.get('detail_xpath')
-        url_xpath = _meta.get('url_xpath')
-        title_xpath = _meta.get('title_xpath')
-        publish_time_xpath = _meta.get('publish_time_xpath')
-        total = _meta.get('total')
-        page = _meta.get('page')
-        base_url = _meta.get('base_url')
+        label = _meta["label"]
+        detail_xpath = _meta["detail_xpath"]
+        url_xpath = _meta["url_xpath"]
+        title_xpath = _meta["title_xpath"]
+        publish_time_xpath = _meta["publish_time_xpath"]
 
+        # -------- 只采第一页的所有文章 --------
         for ex_url in response.xpath(detail_xpath):
-            url = response.urljoin(ex_url.xpath(url_xpath).extract_first())
-            if url.endswith('.pdf'):
+            url = response.urljoin(ex_url.xpath(url_xpath).get())
+            if not url or url.endswith(".pdf"):
                 continue
 
-            title = ''.join(ex_url.xpath(title_xpath).extract())
-            publish_time = ex_url.xpath(f'string({publish_time_xpath})').extract_first().replace('|', '').strip()
+            title = ex_url.xpath(title_xpath).get().strip()
+            publish_time = ex_url.xpath(f"string({publish_time_xpath})").get().replace("|", "").strip()
 
             meta = {
                 "label": label,
                 "title": title,
-                'publish_time': publish_time,
+                "publish_time": publish_time,
             }
+
             yield scrapy.Request(
                 url=url,
                 callback=self.parse_detail,
-                meta=copy.deepcopy(meta)
+                meta=meta
             )
 
-        if page + 1 < total:
-            page += 1
-            yield scrapy.Request(
-                url=f'{base_url.format(page)}',
-                callback=self.parse_item,
-                meta=copy.deepcopy({
-                    'label': label,
-                    'detail_xpath': detail_xpath,
-                    'url_xpath': url_xpath,
-                    'title_xpath': title_xpath,
-                    'publish_time_xpath': publish_time_xpath,
-                    'total': total,
-                    'page': page,
-                    'base_url': base_url,
-                }),
-            )
+        # -------- ❌ 删除所有翻页逻辑（只采第一页） --------
+        return
 
+    # ================================
+    # 详情页解析
+    # ================================
     def parse_detail(self, response):
         _meta = response.meta
 
         method = response.request.method
-        body = response.request.body.decode('utf-8') if response.request.body else ""
+        body = response.request.body.decode("utf-8") if response.request.body else ""
         url = response.url
 
-        # --------------------------
-        # ① 自动识别正文 XPath
-        # --------------------------
-        # 先尝试官方最常用结构
+        # 自动识别正文
         body_xpath_list = [
             "//div[contains(@class,'article-content')]",
             "//div[contains(@class,'xl_con')]",
@@ -140,40 +122,37 @@ class DataSpider(CrawlSpider):
                 body_xpath = xp
                 break
         else:
-            body_xpath = "//body"  # 兜底不报错
+            body_xpath = "//body"
             body_html = response.xpath(body_xpath).get()
 
-        # 提取文本
         content = "".join(response.xpath(f"{body_xpath}//text()").getall()).strip()
 
-        # --------------------------
-        # ② 标题、时间、来源
-        # --------------------------
-        title = _meta.get("title") or response.xpath('//meta[@name="ArticleTitle"]/@content').get()
+        # 标题
+        title = (
+            _meta.get("title") or
+            response.xpath('//meta[@name="ArticleTitle"]/@content').get()
+        )
 
+        # 发布时间
         publish_time = (
-                _meta.get("publish_time")
-                or "".join(response.xpath("//publishtime/text()").getall()).strip()
-                or "".join(re.findall(r"(\d{4}-\d{2}-\d{2})", response.text))
+            _meta.get("publish_time")
+            or "".join(response.xpath("//publishtime/text()").getall()).strip()
+            or "".join(re.findall(r"(\d{4}-\d{2}-\d{2})", response.text))
         )
 
+        # 作者 / 来源
         author = (
-                response.xpath('//meta[@name="author"]/@content').get()
-                or response.xpath('//meta[@name="ContentSource"]/@content').get()
+            response.xpath('//meta[@name="author"]/@content').get()
+            or response.xpath('//meta[@name="ContentSource"]/@content').get()
         )
 
-        # --------------------------
-        # ③ 附件
-        # --------------------------
+        # 附件
         attachment_urls = response.xpath(
-            "//a[contains(@href,'.pdf') or contains(@href,'.doc') or contains(@href,'.docx') or "
-            "contains(@href,'.xls') or contains(@href,'.xlsx') or contains(@href,'.zip') or "
-            "contains(@href,'.rar')]"
+            "//a[contains(@href,'.pdf') or contains(@href,'.doc') or contains(@href,'.docx') "
+            "or contains(@href,'.xls') or contains(@href,'.xlsx') or contains(@href,'.zip') "
+            "or contains(@href,'.rar')]"
         )
 
-        # --------------------------
-        # ④ 构建 item
-        # --------------------------
         yield DataItem({
             "_id": md5(f"{method}{url}{body}".encode()).hexdigest(),
             "url": url,
@@ -184,8 +163,10 @@ class DataSpider(CrawlSpider):
             "publish_time": publish_time,
             "body_html": body_html or "",
             "content": content or "",
-            "images": [response.urljoin(i) for i in response.xpath(f"{body_xpath}//img/@src").getall()],
+            "images": [
+                response.urljoin(i)
+                for i in response.xpath(f"{body_xpath}//img/@src").getall()
+            ],
             "attachment": get_attachment(attachment_urls, url, self._from),
             "spider_date": get_now_date(),
         })
-

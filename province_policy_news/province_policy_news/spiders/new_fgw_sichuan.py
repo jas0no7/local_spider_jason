@@ -49,9 +49,11 @@ class DataSpider(CrawlSpider):
             'page': 1,
             'base_url': 'https://fgw.sc.gov.cn/sfgw/xwfb/common_list_{}.shtml'
         },
-
     ]
 
+    # ===============================
+    # 1. 请求每个栏目的第一页
+    # ===============================
     def start_requests(self):
         for info in self.infoes:
             url = info.get('url')
@@ -62,13 +64,13 @@ class DataSpider(CrawlSpider):
                 dont_filter=True
             )
 
+    # ===============================
+    # 2. 解析列表页（只采第一页）
+    # ===============================
     def parse_item(self, response):
         """
-        详情和下一页url
-        :param response:
-        :return:
+        列表页 → 提取详情页 URL（只采第一页）
         """
-
         _meta = response.meta
         label = _meta.get('label')
         detail_xpath = _meta.get('detail_xpath')
@@ -76,10 +78,8 @@ class DataSpider(CrawlSpider):
         title_xpath = _meta.get('title_xpath')
         publish_time_xpath = _meta.get('publish_time_xpath')
         body_xpath = _meta.get('body_xpath')
-        total = _meta.get('total')
-        page = _meta.get('page')
-        base_url = _meta.get('base_url')
 
+        # ----------- 只采第一页的文章链接 -----------
         for ex_url in response.xpath(detail_xpath):
             url = response.urljoin(ex_url.xpath(url_xpath).extract_first())
             if url.endswith('.pdf'):
@@ -87,7 +87,9 @@ class DataSpider(CrawlSpider):
 
             title = ''.join(ex_url.xpath(title_xpath).extract())
             if publish_time_xpath:
-                publish_time = ''.join(ex_url.xpath(f'string({publish_time_xpath})').extract()).replace('(', '').replace(')', '').strip()
+                publish_time = ''.join(
+                    ex_url.xpath(f'string({publish_time_xpath})').extract()
+                ).replace('(', '').replace(')', '').strip()
             else:
                 publish_time = None
 
@@ -104,34 +106,13 @@ class DataSpider(CrawlSpider):
                 dont_filter=True
             )
 
-        if page < total:
-            page += 1
-            if page == 1:
-                next_url = _meta['url']
-            else:
-                next_url = base_url.format(page)
-            yield scrapy.Request(
-                url=base_url.format(page),
-                callback=self.parse_item,
-                meta=copy.deepcopy({
-                    'label': label,
-                    'detail_xpath': detail_xpath,
-                    'url_xpath': url_xpath,
-                    'title_xpath': title_xpath,
-                    'publish_time_xpath': publish_time_xpath,
-                    'body_xpath': body_xpath,
-                    'total': total,
-                    'page': page,
-                    'base_url': base_url,
-                }),
-            )
+        # ----------- 禁止翻页（删除分页逻辑）-----------
+        return
 
+    # ===============================
+    # 3. 解析详情页内容
+    # ===============================
     def parse_detail(self, response):
-        """
-        详情
-        :param response:
-        :return:
-        """
         _meta = response.meta
 
         method = response.request.method

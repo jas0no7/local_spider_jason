@@ -23,7 +23,7 @@ class DataSpider(scrapy.Spider):
             'label': "减税降费信息公开",
             'detail_xpath': '//div[@class="zfxxgk_zdgkc"]/ul/li',
             'url_xpath': './a/@href',
-            'title_xpath': 'string(./a)',  # 修复 title
+            'title_xpath': 'string(./a)',
             'publish_time_xpath': './b',
             'body_xpath': '//div[@class="details-main"]',
             'total': 1,
@@ -35,7 +35,7 @@ class DataSpider(scrapy.Spider):
             'label': "发展规划",
             'detail_xpath': '//div[@class="zfxxgk_zdgkc"]/ul/li',
             'url_xpath': './a/@href',
-            'title_xpath': 'string(./a)',  # 修复 title
+            'title_xpath': 'string(./a)',
             'publish_time_xpath': './b',
             'body_xpath': '//div[@class="details-main"]',
             'total': 1,
@@ -54,6 +54,9 @@ class DataSpider(scrapy.Spider):
             )
 
     def parse_item(self, response):
+        """
+        列表页（仅抓第一页）
+        """
 
         meta = response.meta
         label = meta['label']
@@ -64,10 +67,6 @@ class DataSpider(scrapy.Spider):
         publish_time_xpath = meta['publish_time_xpath']
         body_xpath = meta['body_xpath']
 
-        page = meta['page']
-        total = meta['total']
-        base_url = meta['base_url']
-
         for li in response.xpath(detail_xpath):
             href = li.xpath(url_xpath).get()
             if not href:
@@ -77,13 +76,9 @@ class DataSpider(scrapy.Spider):
             if url.endswith('.pdf'):
                 continue
 
-            # 修复 title
-            title = li.xpath(title_xpath).get().strip()
+            title = li.xpath(title_xpath).get().strip() if li.xpath(title_xpath).get() else ""
 
-            if publish_time_xpath:
-                publish_time = li.xpath(f"string({publish_time_xpath})").get().strip()
-            else:
-                publish_time = ""
+            publish_time = li.xpath(f"string({publish_time_xpath})").get().strip() if publish_time_xpath else ""
 
             detail_meta = {
                 "label": label,
@@ -99,17 +94,8 @@ class DataSpider(scrapy.Spider):
                 dont_filter=True
             )
 
-        if page < total:
-            page += 1
-            meta['page'] = page
-            next_url = base_url.format(page)
-
-            yield scrapy.Request(
-                url=next_url,
-                callback=self.parse_item,
-                meta=copy.deepcopy(meta),
-                dont_filter=True
-            )
+        # ❌ 已移除翻页逻辑 —— 只抓第一页
+        return
 
     def parse_detail(self, response):
 

@@ -8,14 +8,13 @@ logging.getLogger('kafka').setLevel(logging.WARNING)
 
 BOT_NAME = 'province_policy_news'
 
-
 SPIDER_MODULES = ['province_policy_news.spiders']
 NEWSPIDER_MODULE = 'province_policy_news.spiders'
 
 # 是否遵守robots
 ROBOTSTXT_OBEY = False
 # 在headers中使用cookie需要设置
-COOKIES_ENABLED = False
+COOKIES_ENABLED = True
 
 # 是否开启日志
 LOG_ENABLED = True
@@ -34,7 +33,6 @@ SCHEDULER_FLUSH_ON_START = False
 SCHEDULER_IDLE_BEFORE_CLOSE = 30
 DOWNLOAD_FAIL_ON_DATALOSS = False
 
-
 spider_name_from_map = {
 
     # ======================
@@ -48,6 +46,7 @@ spider_name_from_map = {
 
     'news_gsbnea': '新闻-国家能源局-甘肃',
     'news_gxt_jiangxi': '新闻-工业和信息化厅-江西',
+    'news_gxt_jiangsu': '新闻-工业和信息化厅-江苏',
 
     'news_nea_fujian': '新闻-国家能源局-福建',
     'news_nea_jiangsu': '新闻-国家能源局-江苏',
@@ -66,10 +65,15 @@ spider_name_from_map = {
     'policy_fgw_chongqing': '政策-发展和改革委员会-重庆',
     'policy_fgw_henan': '政策-发展和改革委员会-河南',
     'policy_fgw_jiangsu': '政策-发展和改革委员会-江苏',
+    'policy_fgw2_jiangsu': '政策-发展和改革委员会-江苏',
     'policy_fgw_shaanxi': '政策-发展和改革委员会-陕西',
     'policy_fgw_zhejiang': '政策-发展和改革委员会-浙江',
     'policy_fgw_hunan': '政策-发展和改革委员会-湖南',
     'policy_fgw_sichuan': '政策-发展和改革委员会-四川',
+    'policy_fgw_hubei': '政策-发展和改革委员会-湖北',
+    'policy_fgw2_hubei': '政策-发展和改革委员会-湖北',
+    'policy_fgw_jiangxi': '政策-发展和改革委员会-江西',
+    'policy_fgw_gansu': '政策-发展和改革委员会-甘肃',
 
     # ======================
     # 政策类（gxt 工业和信息化厅）
@@ -81,6 +85,7 @@ spider_name_from_map = {
     'policy_gxt_jiangsu': '政策-工业和信息化厅-江苏',
     'policy_gxt_jiangxi': '政策-工业和信息化厅-江西',
     'policy_gxt_shaanxi': '政策-工业和信息化厅-陕西',
+    'policy_gxt_gansu': '政策-工业和信息化厅-甘肃',
 
     # ======================
     # 政策类（能源局）
@@ -112,6 +117,9 @@ spider_name_from_map = {
     'policy_sthjt_hunan': '政策-生态环境厅-湖南',
     'policy_sthjt_shaanxi': '政策-生态环境厅-陕西',
     'policy_sthjt_sichuan': '政策-生态环境厅-四川',
+    'policy_sthjt_jiangxi': '政策-生态环境厅-江西',
+    'policy_sthjt_gansu':'政策-生态环境厅-甘肃',
+    'policy_zdl': '政策-中国电力企业联合会',
 
 }
 
@@ -138,7 +146,7 @@ KAFKA_TOPIC = {
     'news_sthjt_sichuan': 'spider-news-sichuan',
 
     'new_fgw_sichuan': 'spider-news-sichuan',
-
+    'news_gxt_jiangsu': 'spider-news-jiangsu',
 
     # ======================
     # 政策类（发展改革委）
@@ -146,10 +154,15 @@ KAFKA_TOPIC = {
     'policy_fgw_chongqing': 'spider-policy-chongqing',
     'policy_fgw_henan': 'spider-policy-henan',
     'policy_fgw_jiangsu': 'spider-policy-jiangsu',
+    'policy_fgw2_jiangsu': 'spider-policy-jiangsu',
     'policy_fgw_shaanxi': 'spider-policy-shaanxi',
     'policy_fgw_zhejiang': 'spider-policy-zhejiang',
     'policy_fgw_hunan': 'spider-policy-hunan',
     'policy_fgw_sichuan': 'spider-policy-sichuan',
+    'policy_fgw_hubei': 'spider-policy-hubei',
+    'policy_fgw2_hubei': 'spider-policy-hubei',
+    'policy_fgw_jiangxi': 'spider-policy-jiangxi',
+    'policy_fgw_gansu': 'spider-policy-gansu',
 
     # ======================
     # 工信厅 gxt
@@ -161,6 +174,7 @@ KAFKA_TOPIC = {
     'policy_gxt_jiangsu': 'spider-policy-jiangsu',
     'policy_gxt_jiangxi': 'spider-policy-jiangxi',
     'policy_gxt_shaanxi': 'spider-policy-shaanxi',
+    'policy_gxt_gansu': 'spider-policy-gansu',
 
     # ======================
     # 能源局（nea）
@@ -190,13 +204,13 @@ KAFKA_TOPIC = {
     'policy_sthjt_hunan': 'spider-policy-hunan',
     'policy_sthjt_shaanxi': 'spider-policy-shaanxi',
     'policy_sthjt_sichuan': 'spider-policy-sichuan',
+    'policy_sthjt_jiangxi': 'spider-policy-jiangxi',
+    'policy_sthjt_gansu':'spider-policy-gansu',
+    'policy_zdl': 'spider_policy_zdl',
 }
 
-
-
-
 # Minio
-BUCKET_NAME = 'province_policy_news'
+BUCKET_NAME = 'province-policy-news'
 MINIO_DOMAIN = "http://fd.edachr.com/"
 
 # playwright ip
@@ -234,10 +248,10 @@ CONCURRENT_REQUESTS = 12
 
 # 下载中间件
 DOWNLOADER_MIDDLEWARES = {
+    'province_policy_news.middlewares.EducationSpiderMiddleware': 543,
     'province_policy_news.middlewares.EducationDownloaderMiddleware': None,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': None,
 }
-
 
 # 保存管道
 ITEM_PIPELINES = {
@@ -271,11 +285,11 @@ REDIS_PROXY_DB = 0
 REDIS_FILTER_DB = 1
 # 代理
 PROXY = {
-    "user": "895047059",
-    "passwd": "eq0ar8ui",
-    "key": "kuai_proxy",
-    "orderid": "913834400555444",
-    "signature": "g0hmiauijvrtd3gvpnu01cr93fk68m06"
+    "user": "d1806922442",
+    "passwd": "x8ykeboz",
+    "key": "o8k668bte7v9357aw4lp",
+    "orderid": "956527168580692",
+    "signature": "z76vps1cl157lceesyyp4wo3fja8jpvl"
 }
 # kafka
 KAFKA = {
