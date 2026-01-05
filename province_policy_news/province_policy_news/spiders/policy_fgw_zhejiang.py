@@ -168,7 +168,7 @@ class EitdznewsSpider(scrapy.Spider):
         total_page = response.meta['total']
         base_url = response.meta['base_url']
 
-        if current_page < total_page:
+        if False and current_page < total_page:
             next_page = current_page + 1
             next_url = base_url.format(next_page)
             logger.info(f"翻页至第 {next_page} 页: {next_url}")

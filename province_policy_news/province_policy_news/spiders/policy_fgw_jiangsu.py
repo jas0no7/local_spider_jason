@@ -159,7 +159,7 @@ class JiangsuEnvSpider(scrapy.Spider):
             self.logger.error(f"解析列表页XML 失败: {e}")
 
         # 翻页逻辑
-        if page < total_pages:
+        if False and page < total_pages:
             page += 1
             meta["page"] = page
 

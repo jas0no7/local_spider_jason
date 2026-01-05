@@ -20,7 +20,6 @@ class EitdznewsSpider(scrapy.Spider):
     _from = '浙江省经济和信息化厅'
     dupefilter_field = {"batch": "20240322"}
 
-    # ⚠ 移除不存在的中间件，避免报错
     custom_settings = {}
 
     infoes = [
@@ -36,9 +35,6 @@ class EitdznewsSpider(scrapy.Spider):
                 '//div[@class="wrapper_detail_text"] | '
                 '//div[@class="article-content"]'
             ),
-            'total': 5,
-            'page': 1,
-            'base_url': 'https://jxt.zj.gov.cn/col/col1229895084/index.html?uid=5024951&pageNum={}'
         },
         {
             'url': 'https://jxt.zj.gov.cn/col/col1229895085/index.html?uid=5024951&pageNum=1',
@@ -52,18 +48,13 @@ class EitdznewsSpider(scrapy.Spider):
                 '//div[@class="wrapper_detail_text"] | '
                 '//div[@class="article-content"]'
             ),
-            'total': 5,
-            'page': 1,
-            'base_url': 'https://jxt.zj.gov.cn/col/col1229895085/index.html?uid=5024951&pageNum={}'
         },
     ]
 
-    # -------- 工具函数：当前时间 --------
     @staticmethod
     def get_now_date():
         return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # -------- 工具函数：附件提取 --------
     @staticmethod
     def get_attachment(a_nodes, page_url):
         urls = []
@@ -77,7 +68,6 @@ class EitdznewsSpider(scrapy.Spider):
                     urls.append(base + "/" + href.lstrip("/"))
         return urls
 
-    # -------- 起始请求 --------
     def start_requests(self):
         for info in self.infoes:
             yield scrapy.Request(
@@ -87,7 +77,7 @@ class EitdznewsSpider(scrapy.Spider):
                 dont_filter=False
             )
 
-    # -------- 列表页（解析 XML） --------
+    # ------------------ 列表页，无翻页 ------------------
     def parse_item(self, response):
         logger.info(f"当前页面 URL：{response.url}")
 
@@ -112,7 +102,6 @@ class EitdznewsSpider(scrapy.Spider):
             if not relative_url:
                 continue
 
-            # → 自动补全 URL
             if relative_url.startswith("/"):
                 url = f"https://jxt.zj.gov.cn{relative_url}"
             else:
@@ -134,7 +123,9 @@ class EitdznewsSpider(scrapy.Spider):
                 dont_filter=False
             )
 
-    # -------- 详情页 --------
+        # ❌ 翻页逻辑已完全移除
+
+    # ------------------ 详情页 ------------------
     def parse_detail(self, response):
         meta = response.meta
 
@@ -149,13 +140,11 @@ class EitdznewsSpider(scrapy.Spider):
         publish_time = meta.get("publish_time")
         body_xpath = meta["body_xpath"]
 
-        # 作者提取
         author = (
             ''.join(re.findall(r'来源[:：]\s*(.*?)<', response.text)) or
             ''.join(response.xpath('//meta[@name="Author"]/@content').getall())
         ).strip()
 
-        # 附件
         attachment_nodes = response.xpath(
             f'{body_xpath}//a[contains(@href, ".pdf") or '
             'contains(@href, ".doc") or contains(@href, ".docx") or '
@@ -163,7 +152,6 @@ class EitdznewsSpider(scrapy.Spider):
         )
         attachments = get_attachment(attachment_nodes, url, self._from)
 
-        # 正文
         body_html = ' '.join(response.xpath(body_xpath).getall())
         content = ' '.join(response.xpath(f"{body_xpath}//text()").getall()).strip()
         images = [response.urljoin(i) for i in response.xpath(f"{body_xpath}//img/@src").getall()]

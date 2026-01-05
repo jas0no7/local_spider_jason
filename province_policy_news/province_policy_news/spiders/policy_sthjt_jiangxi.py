@@ -65,7 +65,7 @@ class DataSpider(CrawlSpider):
             page_start = info["page_start"]
             page_end = info["page_end"]
 
-            for page in range(page_start, page_end + 1):
+            for page in [1]:
                 formdata = {
                     "current": str(page),
                     "unitid": "380055",

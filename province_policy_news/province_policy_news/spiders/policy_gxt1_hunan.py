@@ -32,7 +32,7 @@ class HunanGxtSpider(scrapy.Spider):
         """
         向 API 发送 1-70 页请求
         """
-        for page in range(1, 71):
+        for page in [1]:
             data = {
                 "datas[0][key]": "status",
                 "datas[0][value]": "4",

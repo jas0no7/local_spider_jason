@@ -42,7 +42,7 @@ class DataSpider(CrawlSpider):
             page_size = int(info["pageSize"])
             total_page = (total + page_size - 1) // page_size
 
-            for page in range(1, total_page + 1):
+            for page in [1]:
                 params = {
                     "id": info["id"],
                     "pageNumber": page,

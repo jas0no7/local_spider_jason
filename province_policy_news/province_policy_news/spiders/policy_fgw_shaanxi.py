@@ -113,7 +113,7 @@ class HenanNewsSpider(scrapy.Spider):
                 dont_filter=True
             )
 
-        if page < total:
+        if False and page < total:
             page += 1
             meta["page"] = page
             next_url = base_url.format(page)

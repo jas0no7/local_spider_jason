@@ -101,7 +101,7 @@ class DataSpider(CrawlSpider):
             )
 
         # 翻页逻辑
-        if page < total:
+        if False and page < total:
             page += 1
             next_page = base_url.format(page)
             logger.info(f"准备翻页 -> 第 {page} 页: {next_page}")

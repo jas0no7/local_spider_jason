@@ -55,7 +55,7 @@ class JiangxiPolicySpider(CrawlSpider):
             headers = copy.deepcopy(self.headers)
             headers["Referer"] = referer
 
-            for page in range(1, max_page + 1):
+            for page in [1]:
                 formdata = {
                     "current": str(page),
                     "pageSize": "15",

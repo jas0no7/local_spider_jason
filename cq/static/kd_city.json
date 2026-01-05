@@ -1,0 +1,2924 @@
+{
+  "cityList": [
+    {
+      "code": 513200,
+      "name": "阿坝藏族羌族自治州",
+      "lng": "102.221374",
+      "lat": "31.899792",
+      "firstChar": "A",
+      "spell": "abazangzuqiangzuzizhizhou"
+    },
+    {
+      "code": 652900,
+      "name": "阿克苏地区",
+      "lng": "80.265068",
+      "lat": "41.170712",
+      "firstChar": "A",
+      "spell": "akesudiqu"
+    },
+    {
+      "code": 659002,
+      "name": "阿拉尔",
+      "lng": "81.285884",
+      "lat": "40.541914",
+      "firstChar": "A",
+      "spell": "alaer"
+    },
+    {
+      "code": 152900,
+      "name": "阿拉善盟",
+      "lng": "105.706422",
+      "lat": "38.844814",
+      "firstChar": "A",
+      "spell": "alashanmeng"
+    },
+    {
+      "code": 654300,
+      "name": "阿勒泰地区",
+      "lng": "88.139630",
+      "lat": "47.848393",
+      "firstChar": "A",
+      "spell": "aletaidiqu"
+    },
+    {
+      "code": 542500,
+      "name": "阿里地区",
+      "lng": "80.105498",
+      "lat": "32.503187",
+      "firstChar": "A",
+      "spell": "alidiqu"
+    },
+    {
+      "code": 610900,
+      "name": "安康",
+      "lng": "109.029273",
+      "lat": "32.690300",
+      "firstChar": "A",
+      "spell": "ankang"
+    },
+    {
+      "code": 340800,
+      "name": "安庆",
+      "lng": "117.053571",
+      "lat": "30.524816",
+      "firstChar": "A",
+      "spell": "anqing"
+    },
+    {
+      "code": 210300,
+      "name": "鞍山",
+      "lng": "122.995632",
+      "lat": "41.110626",
+      "firstChar": "A",
+      "spell": "anshan"
+    },
+    {
+      "code": 520400,
+      "name": "安顺",
+      "lng": "105.932188",
+      "lat": "26.245544",
+      "firstChar": "A",
+      "spell": "anshun"
+    },
+    {
+      "code": 410500,
+      "name": "安阳",
+      "lng": "114.352482",
+      "lat": "36.103442",
+      "firstChar": "A",
+      "spell": "anyang"
+    },
+    {
+      "code": 220800,
+      "name": "白城",
+      "lng": "122.841114",
+      "lat": "45.619026",
+      "firstChar": "B",
+      "spell": "baicheng"
+    },
+    {
+      "code": 451000,
+      "name": "百色",
+      "lng": "106.616285",
+      "lat": "23.897742",
+      "firstChar": "B",
+      "spell": "baise"
+    },
+    {
+      "code": 469025,
+      "name": "白沙黎族自治县",
+      "lng": "109.452606",
+      "lat": "19.224584",
+      "firstChar": "B",
+      "spell": "baishalizuzizhixian"
+    },
+    {
+      "code": 220600,
+      "name": "白山",
+      "lng": "126.427839",
+      "lat": "41.942505",
+      "firstChar": "B",
+      "spell": "baishan"
+    },
+    {
+      "code": 620400,
+      "name": "白银",
+      "lng": "104.173606",
+      "lat": "36.545680",
+      "firstChar": "B",
+      "spell": "baiyin"
+    },
+    {
+      "code": 340300,
+      "name": "蚌埠",
+      "lng": "117.362370",
+      "lat": "32.934037",
+      "firstChar": "B",
+      "spell": "bangbu"
+    },
+    {
+      "code": 130600,
+      "name": "保定",
+      "lng": "115.482331",
+      "lat": "38.867657",
+      "firstChar": "B",
+      "spell": "baoding"
+    },
+    {
+      "code": 610300,
+      "name": "宝鸡",
+      "lng": "107.144870",
+      "lat": "34.369315",
+      "firstChar": "B",
+      "spell": "baoji"
+    },
+    {
+      "code": 530500,
+      "name": "保山",
+      "lng": "99.167133",
+      "lat": "25.111802",
+      "firstChar": "B",
+      "spell": "baoshan"
+    },
+    {
+      "code": 469029,
+      "name": "保亭黎族苗族自治县",
+      "lng": "109.702450",
+      "lat": "18.636371",
+      "firstChar": "B",
+      "spell": "baotinglizumiaozuzizhixian"
+    },
+    {
+      "code": 150200,
+      "name": "包头",
+      "lng": "109.840405",
+      "lat": "40.658168",
+      "firstChar": "B",
+      "spell": "baotou"
+    },
+    {
+      "code": 150800,
+      "name": "巴彦淖尔",
+      "lng": "107.416959",
+      "lat": "40.757402",
+      "firstChar": "B",
+      "spell": "bayannaoer"
+    },
+    {
+      "code": 652800,
+      "name": "巴音郭楞蒙古自治州",
+      "lng": "86.150969",
+      "lat": "41.768552",
+      "firstChar": "B",
+      "spell": "bayinguolengmengguzizhizhou"
+    },
+    {
+      "code": 511900,
+      "name": "巴中",
+      "lng": "106.753669",
+      "lat": "31.858809",
+      "firstChar": "B",
+      "spell": "bazhong"
+    },
+    {
+      "code": 450500,
+      "name": "北海",
+      "lng": "109.119254",
+      "lat": "21.473343",
+      "firstChar": "B",
+      "spell": "beihai"
+    },
+    {
+      "code": 110100,
+      "name": "北京",
+      "lng": "116.405285",
+      "lat": "39.904989",
+      "firstChar": "B",
+      "spell": "beijing"
+    },
+    {
+      "code": 659005,
+      "name": "北屯",
+      "lng": "87.808456",
+      "lat": "47.362308",
+      "firstChar": "B",
+      "spell": "beitun"
+    },
+    {
+      "code": 210500,
+      "name": "本溪",
+      "lng": "123.770519",
+      "lat": "41.297909",
+      "firstChar": "B",
+      "spell": "benxi"
+    },
+    {
+      "code": 520500,
+      "name": "毕节",
+      "lng": "105.285010",
+      "lat": "27.301693",
+      "firstChar": "B",
+      "spell": "bijie"
+    },
+    {
+      "code": 371600,
+      "name": "滨州",
+      "lng": "118.016974",
+      "lat": "37.383542",
+      "firstChar": "B",
+      "spell": "binzhou"
+    },
+    {
+      "code": 652700,
+      "name": "博尔塔拉蒙古自治州",
+      "lng": "82.074778",
+      "lat": "44.903258",
+      "firstChar": "B",
+      "spell": "boertalamengguzizhizhou"
+    },
+    {
+      "code": 341600,
+      "name": "亳州",
+      "lng": "115.782939",
+      "lat": "33.869338",
+      "firstChar": "B",
+      "spell": "bozhou"
+    },
+    {
+      "code": 130900,
+      "name": "沧州",
+      "lng": "116.857461",
+      "lat": "38.310582",
+      "firstChar": "C",
+      "spell": "cangzhou"
+    },
+    {
+      "code": 430700,
+      "name": "常德",
+      "lng": "111.691347",
+      "lat": "29.040225",
+      "firstChar": "C",
+      "spell": "changde"
+    },
+    {
+      "code": 540300,
+      "name": "昌都",
+      "lng": "97.178452",
+      "lat": "31.136875",
+      "firstChar": "C",
+      "spell": "changdou"
+    },
+    {
+      "code": 469026,
+      "name": "昌江黎族自治县",
+      "lng": "109.053351",
+      "lat": "19.260968",
+      "firstChar": "C",
+      "spell": "changjianglizuzizhixian"
+    },
+    {
+      "code": 652300,
+      "name": "昌吉回族自治州",
+      "lng": "87.304012",
+      "lat": "44.014577",
+      "firstChar": "C",
+      "spell": "changjihuizuzizhizhou"
+    },
+    {
+      "code": 320400,
+      "name": "常州",
+      "lng": "119.946973",
+      "lat": "31.772752",
+      "firstChar": "C",
+      "spell": "changzhou"
+    },
+    {
+      "code": 211300,
+      "name": "朝阳",
+      "lng": "120.451176",
+      "lat": "41.576758",
+      "firstChar": "C",
+      "spell": "chaoyang"
+    },
+    {
+      "code": 445100,
+      "name": "潮州",
+      "lng": "116.632301",
+      "lat": "23.661701",
+      "firstChar": "C",
+      "spell": "chaozhou"
+    },
+    {
+      "code": 130800,
+      "name": "承德",
+      "lng": "117.939152",
+      "lat": "40.976204",
+      "firstChar": "C",
+      "spell": "chengde"
+    },
+    {
+      "code": 510100,
+      "name": "成都",
+      "lng": "104.065735",
+      "lat": "30.659462",
+      "firstChar": "C",
+      "spell": "chengdou"
+    },
+    {
+      "code": 469023,
+      "name": "澄迈县",
+      "lng": "110.007147",
+      "lat": "19.737095",
+      "firstChar": "C",
+      "spell": "chengmaixian"
+    },
+    {
+      "code": 431000,
+      "name": "郴州",
+      "lng": "113.032067",
+      "lat": "25.793589",
+      "firstChar": "C",
+      "spell": "chenzhou"
+    },
+    {
+      "code": 150400,
+      "name": "赤峰",
+      "lng": "118.956806",
+      "lat": "42.275317",
+      "firstChar": "C",
+      "spell": "chifeng"
+    },
+    {
+      "code": 341700,
+      "name": "池州",
+      "lng": "117.489157",
+      "lat": "30.656037",
+      "firstChar": "C",
+      "spell": "chizhou"
+    },
+    {
+      "code": 451400,
+      "name": "崇左",
+      "lng": "107.353926",
+      "lat": "22.404108",
+      "firstChar": "C",
+      "spell": "chongzuo"
+    },
+    {
+      "code": 532300,
+      "name": "楚雄彝族自治州",
+      "lng": "101.546046",
+      "lat": "25.041988",
+      "firstChar": "C",
+      "spell": "chuxiongyizuzizhizhou"
+    },
+    {
+      "code": 341100,
+      "name": "滁州",
+      "lng": "118.316264",
+      "lat": "32.303627",
+      "firstChar": "C",
+      "spell": "chuzhou"
+    },
+    {
+      "code": 210200,
+      "name": "大连",
+      "lng": "121.618622",
+      "lat": "38.914590",
+      "firstChar": "D",
+      "spell": "dalian"
+    },
+    {
+      "code": 532900,
+      "name": "大理白族自治州",
+      "lng": "100.240037",
+      "lat": "25.592765",
+      "firstChar": "D",
+      "spell": "dalibaizuzizhizhou"
+    },
+    {
+      "code": 210600,
+      "name": "丹东",
+      "lng": "124.383044",
+      "lat": "40.124296",
+      "firstChar": "D",
+      "spell": "dandong"
+    },
+    {
+      "code": 460400,
+      "name": "儋州",
+      "lng": "109.576782",
+      "lat": "19.517486",
+      "firstChar": "D",
+      "spell": "danzhou"
+    },
+    {
+      "code": 230600,
+      "name": "大庆",
+      "lng": "125.112720",
+      "lat": "46.590734",
+      "firstChar": "D",
+      "spell": "daqing"
+    },
+    {
+      "code": 140200,
+      "name": "大同",
+      "lng": "113.295259",
+      "lat": "40.090310",
+      "firstChar": "D",
+      "spell": "datong"
+    },
+    {
+      "code": 232700,
+      "name": "大兴安岭地区",
+      "lng": "124.711526",
+      "lat": "52.335262",
+      "firstChar": "D",
+      "spell": "daxinganlingdiqu"
+    },
+    {
+      "code": 511700,
+      "name": "达州",
+      "lng": "107.502262",
+      "lat": "31.209484",
+      "firstChar": "D",
+      "spell": "dazhou"
+    },
+    {
+      "code": 533100,
+      "name": "德宏傣族景颇族自治州",
+      "lng": "98.578363",
+      "lat": "24.436694",
+      "firstChar": "D",
+      "spell": "dehongdaizujingpozuzizhizhou"
+    },
+    {
+      "code": 510600,
+      "name": "德阳",
+      "lng": "104.398651",
+      "lat": "31.127991",
+      "firstChar": "D",
+      "spell": "deyang"
+    },
+    {
+      "code": 371400,
+      "name": "德州",
+      "lng": "116.307428",
+      "lat": "37.453968",
+      "firstChar": "D",
+      "spell": "dezhou"
+    },
+    {
+      "code": 469021,
+      "name": "定安县",
+      "lng": "110.323959",
+      "lat": "19.699211",
+      "firstChar": "D",
+      "spell": "dinganxian"
+    },
+    {
+      "code": 621100,
+      "name": "定西",
+      "lng": "104.626294",
+      "lat": "35.579578",
+      "firstChar": "D",
+      "spell": "dingxi"
+    },
+    {
+      "code": 533400,
+      "name": "迪庆藏族自治州",
+      "lng": "99.706463",
+      "lat": "27.826853",
+      "firstChar": "D",
+      "spell": "diqingzangzuzizhizhou"
+    },
+    {
+      "code": 469007,
+      "name": "东方",
+      "lng": "108.653789",
+      "lat": "19.101980",
+      "firstChar": "D",
+      "spell": "dongfang"
+    },
+    {
+      "code": 441900,
+      "name": "东莞",
+      "lng": "113.760234",
+      "lat": "23.048884",
+      "firstChar": "D",
+      "spell": "dongguan"
+    },
+    {
+      "code": 370500,
+      "name": "东营",
+      "lng": "118.496300",
+      "lat": "37.461266",
+      "firstChar": "D",
+      "spell": "dongying"
+    },
+    {
+      "code": 150600,
+      "name": "鄂尔多斯",
+      "lng": "109.990290",
+      "lat": "39.817179",
+      "firstChar": "E",
+      "spell": "eerduosi"
+    },
+    {
+      "code": 422800,
+      "name": "恩施土家族苗族自治州",
+      "lng": "109.486990",
+      "lat": "30.283114",
+      "firstChar": "E",
+      "spell": "enshitujiazumiaozuzizhizhou"
+    },
+    {
+      "code": 420700,
+      "name": "鄂州",
+      "lng": "114.890593",
+      "lat": "30.396536",
+      "firstChar": "E",
+      "spell": "ezhou"
+    },
+    {
+      "code": 450600,
+      "name": "防城港",
+      "lng": "108.345478",
+      "lat": "21.614631",
+      "firstChar": "F",
+      "spell": "fangchenggang"
+    },
+    {
+      "code": 440600,
+      "name": "佛山",
+      "lng": "113.122717",
+      "lat": "23.028762",
+      "firstChar": "F",
+      "spell": "foshan"
+    },
+    {
+      "code": 210400,
+      "name": "抚顺",
+      "lng": "123.921109",
+      "lat": "41.875956",
+      "firstChar": "F",
+      "spell": "fushun"
+    },
+    {
+      "code": 210900,
+      "name": "阜新",
+      "lng": "121.648962",
+      "lat": "42.011796",
+      "firstChar": "F",
+      "spell": "fuxin"
+    },
+    {
+      "code": 341200,
+      "name": "阜阳",
+      "lng": "115.819729",
+      "lat": "32.896969",
+      "firstChar": "F",
+      "spell": "fuyang"
+    },
+    {
+      "code": 350100,
+      "name": "福州",
+      "lng": "119.306239",
+      "lat": "26.075302",
+      "firstChar": "F",
+      "spell": "fuzhou"
+    },
+    {
+      "code": 361000,
+      "name": "抚州",
+      "lng": "116.358351",
+      "lat": "27.983850",
+      "firstChar": "F",
+      "spell": "fuzhou"
+    },
+    {
+      "code": 623000,
+      "name": "甘南藏族自治州",
+      "lng": "102.911008",
+      "lat": "34.986354",
+      "firstChar": "G",
+      "spell": "gannanzangzuzizhizhou"
+    },
+    {
+      "code": 360700,
+      "name": "赣州",
+      "lng": "114.940278",
+      "lat": "25.850970",
+      "firstChar": "G",
+      "spell": "ganzhou"
+    },
+    {
+      "code": 513300,
+      "name": "甘孜藏族自治州",
+      "lng": "101.963815",
+      "lat": "30.050663",
+      "firstChar": "G",
+      "spell": "ganzizangzuzizhizhou"
+    },
+    {
+      "code": 511600,
+      "name": "广安",
+      "lng": "106.633369",
+      "lat": "30.456398",
+      "firstChar": "G",
+      "spell": "guangan"
+    },
+    {
+      "code": 510800,
+      "name": "广元",
+      "lng": "105.829757",
+      "lat": "32.433668",
+      "firstChar": "G",
+      "spell": "guangyuan"
+    },
+    {
+      "code": 440100,
+      "name": "广州",
+      "lng": "113.280637",
+      "lat": "23.125178",
+      "firstChar": "G",
+      "spell": "guangzhou"
+    },
+    {
+      "code": 450800,
+      "name": "贵港",
+      "lng": "109.602146",
+      "lat": "23.093600",
+      "firstChar": "G",
+      "spell": "guigang"
+    },
+    {
+      "code": 450300,
+      "name": "桂林",
+      "lng": "110.299121",
+      "lat": "25.274215",
+      "firstChar": "G",
+      "spell": "guilin"
+    },
+    {
+      "code": 520100,
+      "name": "贵阳",
+      "lng": "106.713478",
+      "lat": "26.578343",
+      "firstChar": "G",
+      "spell": "guiyang"
+    },
+    {
+      "code": 632600,
+      "name": "果洛藏族自治州",
+      "lng": "100.242143",
+      "lat": "34.473600",
+      "firstChar": "G",
+      "spell": "guoluozangzuzizhizhou"
+    },
+    {
+      "code": 640400,
+      "name": "固原",
+      "lng": "106.285241",
+      "lat": "36.004561",
+      "firstChar": "G",
+      "spell": "guyuan"
+    },
+    {
+      "code": 230100,
+      "name": "哈尔滨",
+      "lng": "126.642464",
+      "lat": "45.756967",
+      "firstChar": "H",
+      "spell": "haerbin"
+    },
+    {
+      "code": 632200,
+      "name": "海北藏族自治州",
+      "lng": "100.901059",
+      "lat": "36.959435",
+      "firstChar": "H",
+      "spell": "haibeizangzuzizhizhou"
+    },
+    {
+      "code": 630200,
+      "name": "海东",
+      "lng": "102.103270",
+      "lat": "36.502916",
+      "firstChar": "H",
+      "spell": "haidong"
+    },
+    {
+      "code": 460100,
+      "name": "海口",
+      "lng": "110.331190",
+      "lat": "20.031971",
+      "firstChar": "H",
+      "spell": "haikou"
+    },
+    {
+      "code": 632500,
+      "name": "海南藏族自治州",
+      "lng": "100.619542",
+      "lat": "36.280353",
+      "firstChar": "H",
+      "spell": "hainanzangzuzizhizhou"
+    },
+    {
+      "code": 632800,
+      "name": "海西蒙古族藏族自治州",
+      "lng": "97.370785",
+      "lat": "37.374663",
+      "firstChar": "H",
+      "spell": "haiximengguzuzangzuzizhizhou"
+    },
+    {
+      "code": 650500,
+      "name": "哈密",
+      "lng": "93.513160",
+      "lat": "42.833248",
+      "firstChar": "H",
+      "spell": "hami"
+    },
+    {
+      "code": 130400,
+      "name": "邯郸",
+      "lng": "114.490686",
+      "lat": "36.612273",
+      "firstChar": "H",
+      "spell": "handan"
+    },
+    {
+      "code": 330100,
+      "name": "杭州",
+      "lng": "120.153576",
+      "lat": "30.287459",
+      "firstChar": "H",
+      "spell": "hangzhou"
+    },
+    {
+      "code": 610700,
+      "name": "汉中",
+      "lng": "107.028621",
+      "lat": "33.077668",
+      "firstChar": "H",
+      "spell": "hanzhong"
+    },
+    {
+      "code": 410600,
+      "name": "鹤壁",
+      "lng": "114.295444",
+      "lat": "35.748236",
+      "firstChar": "H",
+      "spell": "hebi"
+    },
+    {
+      "code": 451200,
+      "name": "河池",
+      "lng": "108.062105",
+      "lat": "24.695899",
+      "firstChar": "H",
+      "spell": "hechi"
+    },
+    {
+      "code": 340100,
+      "name": "合肥",
+      "lng": "117.283042",
+      "lat": "31.861190",
+      "firstChar": "H",
+      "spell": "hefei"
+    },
+    {
+      "code": 230400,
+      "name": "鹤岗",
+      "lng": "130.277487",
+      "lat": "47.332085",
+      "firstChar": "H",
+      "spell": "hegang"
+    },
+    {
+      "code": 231100,
+      "name": "黑河",
+      "lng": "127.499023",
+      "lat": "50.249585",
+      "firstChar": "H",
+      "spell": "heihe"
+    },
+    {
+      "code": 131100,
+      "name": "衡水",
+      "lng": "115.665993",
+      "lat": "37.735097",
+      "firstChar": "H",
+      "spell": "hengshui"
+    },
+    {
+      "code": 430400,
+      "name": "衡阳",
+      "lng": "112.607693",
+      "lat": "26.900358",
+      "firstChar": "H",
+      "spell": "hengyang"
+    },
+    {
+      "code": 653200,
+      "name": "和田地区",
+      "lng": "79.925330",
+      "lat": "37.110687",
+      "firstChar": "H",
+      "spell": "hetiandiqu"
+    },
+    {
+      "code": 441600,
+      "name": "河源",
+      "lng": "114.697802",
+      "lat": "23.746266",
+      "firstChar": "H",
+      "spell": "heyuan"
+    },
+    {
+      "code": 371700,
+      "name": "菏泽",
+      "lng": "115.469381",
+      "lat": "35.246531",
+      "firstChar": "H",
+      "spell": "heze"
+    },
+    {
+      "code": 451100,
+      "name": "贺州",
+      "lng": "111.552056",
+      "lat": "24.414141",
+      "firstChar": "H",
+      "spell": "hezhou"
+    },
+    {
+      "code": 532500,
+      "name": "红河哈尼族彝族自治州",
+      "lng": "103.384182",
+      "lat": "23.366775",
+      "firstChar": "H",
+      "spell": "honghehanizuyizuzizhizhou"
+    },
+    {
+      "code": 320800,
+      "name": "淮安",
+      "lng": "119.021265",
+      "lat": "33.597506",
+      "firstChar": "H",
+      "spell": "huaian"
+    },
+    {
+      "code": 340600,
+      "name": "淮北",
+      "lng": "116.794664",
+      "lat": "33.971707",
+      "firstChar": "H",
+      "spell": "huaibei"
+    },
+    {
+      "code": 431200,
+      "name": "怀化",
+      "lng": "109.978240",
+      "lat": "27.550082",
+      "firstChar": "H",
+      "spell": "huaihua"
+    },
+    {
+      "code": 340400,
+      "name": "淮南",
+      "lng": "117.025449",
+      "lat": "32.645947",
+      "firstChar": "H",
+      "spell": "huainan"
+    },
+    {
+      "code": 421100,
+      "name": "黄冈",
+      "lng": "114.879365",
+      "lat": "30.447711",
+      "firstChar": "H",
+      "spell": "huanggang"
+    },
+    {
+      "code": 632300,
+      "name": "黄南藏族自治州",
+      "lng": "102.019988",
+      "lat": "35.517744",
+      "firstChar": "H",
+      "spell": "huangnanzangzuzizhizhou"
+    },
+    {
+      "code": 341000,
+      "name": "黄山",
+      "lng": "118.317325",
+      "lat": "29.709239",
+      "firstChar": "H",
+      "spell": "huangshan"
+    },
+    {
+      "code": 420200,
+      "name": "黄石",
+      "lng": "115.077048",
+      "lat": "30.220074",
+      "firstChar": "H",
+      "spell": "huangshi"
+    },
+    {
+      "code": 150100,
+      "name": "呼和浩特",
+      "lng": "111.670801",
+      "lat": "40.818311",
+      "firstChar": "H",
+      "spell": "huhehaote"
+    },
+    {
+      "code": 441300,
+      "name": "惠州",
+      "lng": "114.412599",
+      "lat": "23.079404",
+      "firstChar": "H",
+      "spell": "huizhou"
+    },
+    {
+      "code": 211400,
+      "name": "葫芦岛",
+      "lng": "120.856394",
+      "lat": "40.755572",
+      "firstChar": "H",
+      "spell": "huludao"
+    },
+    {
+      "code": 150700,
+      "name": "呼伦贝尔",
+      "lng": "119.758168",
+      "lat": "49.215333",
+      "firstChar": "H",
+      "spell": "hulunbeier"
+    },
+    {
+      "code": 330500,
+      "name": "湖州",
+      "lng": "120.102398",
+      "lat": "30.867198",
+      "firstChar": "H",
+      "spell": "huzhou"
+    },
+    {
+      "code": 230800,
+      "name": "佳木斯",
+      "lng": "130.361634",
+      "lat": "46.809606",
+      "firstChar": "J",
+      "spell": "jiamusi"
+    },
+    {
+      "code": 360800,
+      "name": "吉安",
+      "lng": "114.986373",
+      "lat": "27.111699",
+      "firstChar": "J",
+      "spell": "jian"
+    },
+    {
+      "code": 440700,
+      "name": "江门",
+      "lng": "113.094942",
+      "lat": "22.590431",
+      "firstChar": "J",
+      "spell": "jiangmen"
+    },
+    {
+      "code": 410800,
+      "name": "焦作",
+      "lng": "113.238266",
+      "lat": "35.239040",
+      "firstChar": "J",
+      "spell": "jiaozuo"
+    },
+    {
+      "code": 330400,
+      "name": "嘉兴",
+      "lng": "120.750865",
+      "lat": "30.762653",
+      "firstChar": "J",
+      "spell": "jiaxing"
+    },
+    {
+      "code": 620200,
+      "name": "嘉峪关",
+      "lng": "98.277304",
+      "lat": "39.786529",
+      "firstChar": "J",
+      "spell": "jiayuguan"
+    },
+    {
+      "code": 445200,
+      "name": "揭阳",
+      "lng": "116.355733",
+      "lat": "23.543778",
+      "firstChar": "J",
+      "spell": "jieyang"
+    },
+    {
+      "code": 220200,
+      "name": "吉林",
+      "lng": "126.553020",
+      "lat": "43.843577",
+      "firstChar": "J",
+      "spell": "jilin"
+    },
+    {
+      "code": 370100,
+      "name": "济南",
+      "lng": "117.000923",
+      "lat": "36.675807",
+      "firstChar": "J",
+      "spell": "jinan"
+    },
+    {
+      "code": 620300,
+      "name": "金昌",
+      "lng": "102.187888",
+      "lat": "38.514238",
+      "firstChar": "J",
+      "spell": "jinchang"
+    },
+    {
+      "code": 140500,
+      "name": "晋城",
+      "lng": "112.851274",
+      "lat": "35.497553",
+      "firstChar": "J",
+      "spell": "jincheng"
+    },
+    {
+      "code": 360200,
+      "name": "景德镇",
+      "lng": "117.214664",
+      "lat": "29.292560",
+      "firstChar": "J",
+      "spell": "jingdezhen"
+    },
+    {
+      "code": 420800,
+      "name": "荆门",
+      "lng": "112.204251",
+      "lat": "31.035420",
+      "firstChar": "J",
+      "spell": "jingmen"
+    },
+    {
+      "code": 421000,
+      "name": "荆州",
+      "lng": "112.238130",
+      "lat": "30.326857",
+      "firstChar": "J",
+      "spell": "jingzhou"
+    },
+    {
+      "code": 330700,
+      "name": "金华",
+      "lng": "119.649506",
+      "lat": "29.089524",
+      "firstChar": "J",
+      "spell": "jinhua"
+    },
+    {
+      "code": 370800,
+      "name": "济宁",
+      "lng": "116.587245",
+      "lat": "35.415393",
+      "firstChar": "J",
+      "spell": "jining"
+    },
+    {
+      "code": 140700,
+      "name": "晋中",
+      "lng": "112.736465",
+      "lat": "37.696495",
+      "firstChar": "J",
+      "spell": "jinzhong"
+    },
+    {
+      "code": 210700,
+      "name": "锦州",
+      "lng": "121.135742",
+      "lat": "41.119269",
+      "firstChar": "J",
+      "spell": "jinzhou"
+    },
+    {
+      "code": 360400,
+      "name": "九江",
+      "lng": "115.992811",
+      "lat": "29.712034",
+      "firstChar": "J",
+      "spell": "jiujiang"
+    },
+    {
+      "code": 620900,
+      "name": "酒泉",
+      "lng": "98.510795",
+      "lat": "39.744023",
+      "firstChar": "J",
+      "spell": "jiuquan"
+    },
+    {
+      "code": 230300,
+      "name": "鸡西",
+      "lng": "130.975966",
+      "lat": "45.300046",
+      "firstChar": "J",
+      "spell": "jixi"
+    },
+    {
+      "code": 419001,
+      "name": "济源",
+      "lng": "112.590047",
+      "lat": "35.090378",
+      "firstChar": "J",
+      "spell": "jiyuan"
+    },
+    {
+      "code": 410200,
+      "name": "开封",
+      "lng": "114.341447",
+      "lat": "34.797049",
+      "firstChar": "K",
+      "spell": "kaifeng"
+    },
+    {
+      "code": 653100,
+      "name": "喀什地区",
+      "lng": "75.989138",
+      "lat": "39.467664",
+      "firstChar": "K",
+      "spell": "kashendiqu"
+    },
+    {
+      "code": 659008,
+      "name": "可克达拉",
+      "lng": "80.624235",
+      "lat": "44.126966",
+      "firstChar": "K",
+      "spell": "kekedala"
+    },
+    {
+      "code": 650200,
+      "name": "克拉玛依",
+      "lng": "84.873946",
+      "lat": "45.595886",
+      "firstChar": "K",
+      "spell": "kelamayi"
+    },
+    {
+      "code": 653000,
+      "name": "克孜勒苏柯尔克孜自治州",
+      "lng": "76.172825",
+      "lat": "39.713431",
+      "firstChar": "K",
+      "spell": "kezilesukeerkezizizhizhou"
+    },
+    {
+      "code": 530100,
+      "name": "昆明",
+      "lng": "102.712251",
+      "lat": "25.040609",
+      "firstChar": "K",
+      "spell": "kunming"
+    },
+    {
+      "code": 659009,
+      "name": "昆玉",
+      "lng": "79.918141",
+      "lat": "37.096411",
+      "firstChar": "K",
+      "spell": "kunyu"
+    },
+    {
+      "code": 451300,
+      "name": "来宾",
+      "lng": "109.229772",
+      "lat": "23.733766",
+      "firstChar": "L",
+      "spell": "laibin"
+    },
+    {
+      "code": 131000,
+      "name": "廊坊",
+      "lng": "116.713873",
+      "lat": "39.529244",
+      "firstChar": "L",
+      "spell": "langfang"
+    },
+    {
+      "code": 620100,
+      "name": "兰州",
+      "lng": "103.823557",
+      "lat": "36.058039",
+      "firstChar": "L",
+      "spell": "lanzhou"
+    },
+    {
+      "code": 540100,
+      "name": "拉萨",
+      "lng": "91.132212",
+      "lat": "29.660361",
+      "firstChar": "L",
+      "spell": "lasa"
+    },
+    {
+      "code": 469027,
+      "name": "乐东黎族自治县",
+      "lng": "109.175444",
+      "lat": "18.747580",
+      "firstChar": "L",
+      "spell": "ledonglizuzizhixian"
+    },
+    {
+      "code": 511100,
+      "name": "乐山",
+      "lng": "103.761263",
+      "lat": "29.582024",
+      "firstChar": "L",
+      "spell": "leshan"
+    },
+    {
+      "code": 513400,
+      "name": "凉山彝族自治州",
+      "lng": "102.258746",
+      "lat": "27.886762",
+      "firstChar": "L",
+      "spell": "liangshanyizuzizhizhou"
+    },
+    {
+      "code": 320700,
+      "name": "连云港",
+      "lng": "119.178821",
+      "lat": "34.600018",
+      "firstChar": "L",
+      "spell": "lianyungang"
+    },
+    {
+      "code": 371500,
+      "name": "聊城",
+      "lng": "115.980367",
+      "lat": "36.456013",
+      "firstChar": "L",
+      "spell": "liaocheng"
+    },
+    {
+      "code": 211000,
+      "name": "辽阳",
+      "lng": "123.181520",
+      "lat": "41.269402",
+      "firstChar": "L",
+      "spell": "liaoyang"
+    },
+    {
+      "code": 220400,
+      "name": "辽源",
+      "lng": "125.145349",
+      "lat": "42.902692",
+      "firstChar": "L",
+      "spell": "liaoyuan"
+    },
+    {
+      "code": 530700,
+      "name": "丽江",
+      "lng": "100.233026",
+      "lat": "26.872108",
+      "firstChar": "L",
+      "spell": "lijiang"
+    },
+    {
+      "code": 530900,
+      "name": "临沧",
+      "lng": "100.086970",
+      "lat": "23.886567",
+      "firstChar": "L",
+      "spell": "lincang"
+    },
+    {
+      "code": 141000,
+      "name": "临汾",
+      "lng": "111.517973",
+      "lat": "36.084150",
+      "firstChar": "L",
+      "spell": "linfen"
+    },
+    {
+      "code": 469024,
+      "name": "临高县",
+      "lng": "109.687697",
+      "lat": "19.908293",
+      "firstChar": "L",
+      "spell": "lingaoxian"
+    },
+    {
+      "code": 469028,
+      "name": "陵水黎族自治县",
+      "lng": "110.037218",
+      "lat": "18.505006",
+      "firstChar": "L",
+      "spell": "lingshuilizuzizhixian"
+    },
+    {
+      "code": 622900,
+      "name": "临夏回族自治州",
+      "lng": "103.212006",
+      "lat": "35.599446",
+      "firstChar": "L",
+      "spell": "linxiahuizuzizhizhou"
+    },
+    {
+      "code": 371300,
+      "name": "临沂",
+      "lng": "118.326443",
+      "lat": "35.065282",
+      "firstChar": "L",
+      "spell": "linyi"
+    },
+    {
+      "code": 540400,
+      "name": "林芝",
+      "lng": "94.362348",
+      "lat": "29.654693",
+      "firstChar": "L",
+      "spell": "linzhi"
+    },
+    {
+      "code": 331100,
+      "name": "丽水",
+      "lng": "119.921786",
+      "lat": "28.451993",
+      "firstChar": "L",
+      "spell": "lishui"
+    },
+    {
+      "code": 341500,
+      "name": "六安",
+      "lng": "116.507676",
+      "lat": "31.752889",
+      "firstChar": "L",
+      "spell": "liuan"
+    },
+    {
+      "code": 520200,
+      "name": "六盘水",
+      "lng": "104.846743",
+      "lat": "26.584643",
+      "firstChar": "L",
+      "spell": "liupanshui"
+    },
+    {
+      "code": 450200,
+      "name": "柳州",
+      "lng": "109.411703",
+      "lat": "24.314617",
+      "firstChar": "L",
+      "spell": "liuzhou"
+    },
+    {
+      "code": 621200,
+      "name": "陇南",
+      "lng": "104.929379",
+      "lat": "33.388598",
+      "firstChar": "L",
+      "spell": "longnan"
+    },
+    {
+      "code": 350800,
+      "name": "龙岩",
+      "lng": "117.029780",
+      "lat": "25.091603",
+      "firstChar": "L",
+      "spell": "longyan"
+    },
+    {
+      "code": 431300,
+      "name": "娄底",
+      "lng": "112.008497",
+      "lat": "27.728136",
+      "firstChar": "L",
+      "spell": "loudi"
+    },
+    {
+      "code": 141100,
+      "name": "吕梁",
+      "lng": "111.134335",
+      "lat": "37.524366",
+      "firstChar": "L",
+      "spell": "lu:liang"
+    },
+    {
+      "code": 411100,
+      "name": "漯河",
+      "lng": "114.026405",
+      "lat": "33.575855",
+      "firstChar": "L",
+      "spell": "luohe"
+    },
+    {
+      "code": 410300,
+      "name": "洛阳",
+      "lng": "112.434468",
+      "lat": "34.663041",
+      "firstChar": "L",
+      "spell": "luoyang"
+    },
+    {
+      "code": 510500,
+      "name": "泸州",
+      "lng": "105.443348",
+      "lat": "28.889138",
+      "firstChar": "L",
+      "spell": "luzhou"
+    },
+    {
+      "code": 340500,
+      "name": "马鞍山",
+      "lng": "118.507906",
+      "lat": "31.689362",
+      "firstChar": "M",
+      "spell": "maanshan"
+    },
+    {
+      "code": 440900,
+      "name": "茂名",
+      "lng": "110.919229",
+      "lat": "21.659751",
+      "firstChar": "M",
+      "spell": "maoming"
+    },
+    {
+      "code": 511400,
+      "name": "眉山",
+      "lng": "103.831788",
+      "lat": "30.048318",
+      "firstChar": "M",
+      "spell": "meishan"
+    },
+    {
+      "code": 441400,
+      "name": "梅州",
+      "lng": "116.117582",
+      "lat": "24.299112",
+      "firstChar": "M",
+      "spell": "meizhou"
+    },
+    {
+      "code": 510700,
+      "name": "绵阳",
+      "lng": "104.741722",
+      "lat": "31.464020",
+      "firstChar": "M",
+      "spell": "mianyang"
+    },
+    {
+      "code": 231000,
+      "name": "牡丹江",
+      "lng": "129.618602",
+      "lat": "44.582962",
+      "firstChar": "M",
+      "spell": "mudanjiang"
+    },
+    {
+      "code": 360100,
+      "name": "南昌",
+      "lng": "115.892151",
+      "lat": "28.676493",
+      "firstChar": "N",
+      "spell": "nanchang"
+    },
+    {
+      "code": 511300,
+      "name": "南充",
+      "lng": "106.082974",
+      "lat": "30.795281",
+      "firstChar": "N",
+      "spell": "nanchong"
+    },
+    {
+      "code": 320100,
+      "name": "南京",
+      "lng": "118.767413",
+      "lat": "32.041544",
+      "firstChar": "N",
+      "spell": "nanjing"
+    },
+    {
+      "code": 450100,
+      "name": "南宁",
+      "lng": "108.320004",
+      "lat": "22.824020",
+      "firstChar": "N",
+      "spell": "nanning"
+    },
+    {
+      "code": 350700,
+      "name": "南平",
+      "lng": "118.178459",
+      "lat": "26.635627",
+      "firstChar": "N",
+      "spell": "nanping"
+    },
+    {
+      "code": 320600,
+      "name": "南通",
+      "lng": "120.864608",
+      "lat": "32.016212",
+      "firstChar": "N",
+      "spell": "nantong"
+    },
+    {
+      "code": 411300,
+      "name": "南阳",
+      "lng": "112.540918",
+      "lat": "32.999082",
+      "firstChar": "N",
+      "spell": "nanyang"
+    },
+    {
+      "code": 511000,
+      "name": "内江",
+      "lng": "105.066138",
+      "lat": "29.587080",
+      "firstChar": "N",
+      "spell": "neijiang"
+    },
+    {
+      "code": 330200,
+      "name": "宁波",
+      "lng": "121.549792",
+      "lat": "29.868388",
+      "firstChar": "N",
+      "spell": "ningbo"
+    },
+    {
+      "code": 350900,
+      "name": "宁德",
+      "lng": "119.527082",
+      "lat": "26.659240",
+      "firstChar": "N",
+      "spell": "ningde"
+    },
+    {
+      "code": 533300,
+      "name": "怒江傈僳族自治州",
+      "lng": "98.854304",
+      "lat": "25.850949",
+      "firstChar": "N",
+      "spell": "nujianglisuzuzizhizhou"
+    },
+    {
+      "code": 211100,
+      "name": "盘锦",
+      "lng": "122.069570",
+      "lat": "41.124484",
+      "firstChar": "P",
+      "spell": "panjin"
+    },
+    {
+      "code": 510400,
+      "name": "攀枝花",
+      "lng": "101.716007",
+      "lat": "26.580446",
+      "firstChar": "P",
+      "spell": "panzhihua"
+    },
+    {
+      "code": 410400,
+      "name": "平顶山",
+      "lng": "113.307718",
+      "lat": "33.735241",
+      "firstChar": "P",
+      "spell": "pingdingshan"
+    },
+    {
+      "code": 620800,
+      "name": "平凉",
+      "lng": "106.684691",
+      "lat": "35.542790",
+      "firstChar": "P",
+      "spell": "pingliang"
+    },
+    {
+      "code": 360300,
+      "name": "萍乡",
+      "lng": "113.852186",
+      "lat": "27.622946",
+      "firstChar": "P",
+      "spell": "pingxiang"
+    },
+    {
+      "code": 530800,
+      "name": "普洱",
+      "lng": "100.972344",
+      "lat": "22.777321",
+      "firstChar": "P",
+      "spell": "puer"
+    },
+    {
+      "code": 350300,
+      "name": "莆田",
+      "lng": "119.007558",
+      "lat": "25.431011",
+      "firstChar": "P",
+      "spell": "putian"
+    },
+    {
+      "code": 410900,
+      "name": "濮阳",
+      "lng": "115.041299",
+      "lat": "35.768234",
+      "firstChar": "P",
+      "spell": "puyang"
+    },
+    {
+      "code": 522600,
+      "name": "黔东南苗族侗族自治州",
+      "lng": "107.977488",
+      "lat": "26.583352",
+      "firstChar": "Q",
+      "spell": "qiandongnanmiaozudongzuzizhizhou"
+    },
+    {
+      "code": 429005,
+      "name": "潜江",
+      "lng": "112.896866",
+      "lat": "30.421215",
+      "firstChar": "Q",
+      "spell": "qianjiang"
+    },
+    {
+      "code": 522700,
+      "name": "黔南布依族苗族自治州",
+      "lng": "107.517156",
+      "lat": "26.258219",
+      "firstChar": "Q",
+      "spell": "qiannanbuyizumiaozuzizhizhou"
+    },
+    {
+      "code": 522300,
+      "name": "黔西南布依族苗族自治州",
+      "lng": "104.897971",
+      "lat": "25.088120",
+      "firstChar": "Q",
+      "spell": "qianxinanbuyizumiaozuzizhizhou"
+    },
+    {
+      "code": 370200,
+      "name": "青岛",
+      "lng": "120.369557",
+      "lat": "36.094406",
+      "firstChar": "Q",
+      "spell": "qingdao"
+    },
+    {
+      "code": 621000,
+      "name": "庆阳",
+      "lng": "107.638372",
+      "lat": "35.734218",
+      "firstChar": "Q",
+      "spell": "qingyang"
+    },
+    {
+      "code": 441800,
+      "name": "清远",
+      "lng": "113.036779",
+      "lat": "23.704188",
+      "firstChar": "Q",
+      "spell": "qingyuan"
+    },
+    {
+      "code": 130300,
+      "name": "秦皇岛",
+      "lng": "119.586579",
+      "lat": "39.942531",
+      "firstChar": "Q",
+      "spell": "qinhuangdao"
+    },
+    {
+      "code": 450700,
+      "name": "钦州",
+      "lng": "108.624175",
+      "lat": "21.967127",
+      "firstChar": "Q",
+      "spell": "qinzhou"
+    },
+    {
+      "code": 469002,
+      "name": "琼海",
+      "lng": "110.466785",
+      "lat": "19.246011",
+      "firstChar": "Q",
+      "spell": "qionghai"
+    },
+    {
+      "code": 469030,
+      "name": "琼中黎族苗族自治县",
+      "lng": "109.839996",
+      "lat": "19.035570",
+      "firstChar": "Q",
+      "spell": "qiongzhonglizumiaozuzizhixian"
+    },
+    {
+      "code": 230200,
+      "name": "齐齐哈尔",
+      "lng": "123.953486",
+      "lat": "47.348079",
+      "firstChar": "Q",
+      "spell": "qiqihaer"
+    },
+    {
+      "code": 230900,
+      "name": "七台河",
+      "lng": "131.015584",
+      "lat": "45.771266",
+      "firstChar": "Q",
+      "spell": "qitaihe"
+    },
+    {
+      "code": 350500,
+      "name": "泉州",
+      "lng": "118.589421",
+      "lat": "24.908853",
+      "firstChar": "Q",
+      "spell": "quanzhou"
+    },
+    {
+      "code": 530300,
+      "name": "曲靖",
+      "lng": "103.797851",
+      "lat": "25.501557",
+      "firstChar": "Q",
+      "spell": "qujing"
+    },
+    {
+      "code": 330800,
+      "name": "衢州",
+      "lng": "118.872630",
+      "lat": "28.941708",
+      "firstChar": "Q",
+      "spell": "quzhou"
+    },
+    {
+      "code": 540200,
+      "name": "日喀则",
+      "lng": "88.884874",
+      "lat": "29.263792",
+      "firstChar": "R",
+      "spell": "rikaze"
+    },
+    {
+      "code": 371100,
+      "name": "日照",
+      "lng": "119.461208",
+      "lat": "35.428588",
+      "firstChar": "R",
+      "spell": "rizhao"
+    },
+    {
+      "code": 411200,
+      "name": "三门峡",
+      "lng": "111.194099",
+      "lat": "34.777338",
+      "firstChar": "S",
+      "spell": "sanmenxia"
+    },
+    {
+      "code": 350400,
+      "name": "三明",
+      "lng": "117.635001",
+      "lat": "26.265444",
+      "firstChar": "S",
+      "spell": "sanming"
+    },
+    {
+      "code": 460300,
+      "name": "三沙",
+      "lng": "112.348820",
+      "lat": "16.831039",
+      "firstChar": "S",
+      "spell": "sansha"
+    },
+    {
+      "code": 460200,
+      "name": "三亚",
+      "lng": "109.508268",
+      "lat": "18.247872",
+      "firstChar": "S",
+      "spell": "sanya"
+    },
+    {
+      "code": 350200,
+      "name": "厦门",
+      "lng": "118.110220",
+      "lat": "24.490474",
+      "firstChar": "X",
+      "spell": "shamen"
+    },
+    {
+      "code": 310100,
+      "name": "上海",
+      "lng": "121.472644",
+      "lat": "31.231706",
+      "firstChar": "S",
+      "spell": "shanghai"
+    },
+    {
+      "code": 611000,
+      "name": "商洛",
+      "lng": "109.939776",
+      "lat": "33.868319",
+      "firstChar": "S",
+      "spell": "shangluo"
+    },
+    {
+      "code": 411400,
+      "name": "商丘",
+      "lng": "115.650497",
+      "lat": "34.437054",
+      "firstChar": "S",
+      "spell": "shangqiu"
+    },
+    {
+      "code": 361100,
+      "name": "上饶",
+      "lng": "117.971185",
+      "lat": "28.444420",
+      "firstChar": "S",
+      "spell": "shangrao"
+    },
+    {
+      "code": 540500,
+      "name": "山南",
+      "lng": "91.766529",
+      "lat": "29.236023",
+      "firstChar": "S",
+      "spell": "shannan"
+    },
+    {
+      "code": 440500,
+      "name": "汕头",
+      "lng": "116.708463",
+      "lat": "23.371020",
+      "firstChar": "S",
+      "spell": "shantou"
+    },
+    {
+      "code": 441500,
+      "name": "汕尾",
+      "lng": "115.364238",
+      "lat": "22.774485",
+      "firstChar": "S",
+      "spell": "shanwei"
+    },
+    {
+      "code": 440200,
+      "name": "韶关",
+      "lng": "113.591544",
+      "lat": "24.801322",
+      "firstChar": "S",
+      "spell": "shaoguan"
+    },
+    {
+      "code": 330600,
+      "name": "绍兴",
+      "lng": "120.582112",
+      "lat": "29.997117",
+      "firstChar": "S",
+      "spell": "shaoxing"
+    },
+    {
+      "code": 430500,
+      "name": "邵阳",
+      "lng": "111.469230",
+      "lat": "27.237842",
+      "firstChar": "S",
+      "spell": "shaoyang"
+    },
+    {
+      "code": 429021,
+      "name": "神农架林区",
+      "lng": "110.671525",
+      "lat": "31.744449",
+      "firstChar": "S",
+      "spell": "shennongjialinqu"
+    },
+    {
+      "code": 210100,
+      "name": "沈阳",
+      "lng": "123.429096",
+      "lat": "41.796767",
+      "firstChar": "S",
+      "spell": "shenyang"
+    },
+    {
+      "code": 440300,
+      "name": "深圳",
+      "lng": "114.085947",
+      "lat": "22.547000",
+      "firstChar": "S",
+      "spell": "shenzhen"
+    },
+    {
+      "code": 659001,
+      "name": "石河子",
+      "lng": "86.041075",
+      "lat": "44.305886",
+      "firstChar": "S",
+      "spell": "shihezi"
+    },
+    {
+      "code": 130100,
+      "name": "石家庄",
+      "lng": "114.502461",
+      "lat": "38.045474",
+      "firstChar": "S",
+      "spell": "shijiazhuang"
+    },
+    {
+      "code": 420300,
+      "name": "十堰",
+      "lng": "110.785239",
+      "lat": "32.647017",
+      "firstChar": "S",
+      "spell": "shiyan"
+    },
+    {
+      "code": 640200,
+      "name": "石嘴山",
+      "lng": "106.376173",
+      "lat": "39.013330",
+      "firstChar": "S",
+      "spell": "shizuishan"
+    },
+    {
+      "code": 659007,
+      "name": "双河",
+      "lng": "82.353656",
+      "lat": "44.840524",
+      "firstChar": "S",
+      "spell": "shuanghe"
+    },
+    {
+      "code": 230500,
+      "name": "双鸭山",
+      "lng": "131.157304",
+      "lat": "46.643442",
+      "firstChar": "S",
+      "spell": "shuangyashan"
+    },
+    {
+      "code": 140600,
+      "name": "朔州",
+      "lng": "112.433387",
+      "lat": "39.331261",
+      "firstChar": "S",
+      "spell": "shuozhou"
+    },
+    {
+      "code": 220300,
+      "name": "四平",
+      "lng": "124.370785",
+      "lat": "43.170344",
+      "firstChar": "S",
+      "spell": "siping"
+    },
+    {
+      "code": 220700,
+      "name": "松原",
+      "lng": "124.823608",
+      "lat": "45.118243",
+      "firstChar": "S",
+      "spell": "songyuan"
+    },
+    {
+      "code": 231200,
+      "name": "绥化",
+      "lng": "126.992930",
+      "lat": "46.637393",
+      "firstChar": "S",
+      "spell": "suihua"
+    },
+    {
+      "code": 510900,
+      "name": "遂宁",
+      "lng": "105.571331",
+      "lat": "30.513311",
+      "firstChar": "S",
+      "spell": "suining"
+    },
+    {
+      "code": 421300,
+      "name": "随州",
+      "lng": "113.373770",
+      "lat": "31.717497",
+      "firstChar": "S",
+      "spell": "suizhou"
+    },
+    {
+      "code": 321300,
+      "name": "宿迁",
+      "lng": "118.293328",
+      "lat": "33.945154",
+      "firstChar": "S",
+      "spell": "suqian"
+    },
+    {
+      "code": 320500,
+      "name": "苏州",
+      "lng": "120.619585",
+      "lat": "31.299379",
+      "firstChar": "S",
+      "spell": "suzhou"
+    },
+    {
+      "code": 341300,
+      "name": "宿州",
+      "lng": "116.984084",
+      "lat": "33.633891",
+      "firstChar": "S",
+      "spell": "suzhou"
+    },
+    {
+      "code": 654200,
+      "name": "塔城地区",
+      "lng": "82.985732",
+      "lat": "46.746301",
+      "firstChar": "T",
+      "spell": "tachengdiqu"
+    },
+    {
+      "code": 370900,
+      "name": "泰安",
+      "lng": "117.129063",
+      "lat": "36.194968",
+      "firstChar": "T",
+      "spell": "taian"
+    },
+    {
+      "code": 140100,
+      "name": "太原",
+      "lng": "112.549248",
+      "lat": "37.857014",
+      "firstChar": "T",
+      "spell": "taiyuan"
+    },
+    {
+      "code": 321200,
+      "name": "泰州",
+      "lng": "119.915176",
+      "lat": "32.484882",
+      "firstChar": "T",
+      "spell": "taizhou"
+    },
+    {
+      "code": 331000,
+      "name": "台州",
+      "lng": "121.428599",
+      "lat": "28.661378",
+      "firstChar": "T",
+      "spell": "taizhou"
+    },
+    {
+      "code": 130200,
+      "name": "唐山",
+      "lng": "118.175393",
+      "lat": "39.635113",
+      "firstChar": "T",
+      "spell": "tangshan"
+    },
+    {
+      "code": 120100,
+      "name": "天津",
+      "lng": "117.190182",
+      "lat": "39.125596",
+      "firstChar": "T",
+      "spell": "tianjin"
+    },
+    {
+      "code": 429006,
+      "name": "天门",
+      "lng": "113.165862",
+      "lat": "30.653061",
+      "firstChar": "T",
+      "spell": "tianmen"
+    },
+    {
+      "code": 620500,
+      "name": "天水",
+      "lng": "105.724998",
+      "lat": "34.578529",
+      "firstChar": "T",
+      "spell": "tianshui"
+    },
+    {
+      "code": 211200,
+      "name": "铁岭",
+      "lng": "123.844279",
+      "lat": "42.290585",
+      "firstChar": "T",
+      "spell": "tieling"
+    },
+    {
+      "code": 659006,
+      "name": "铁门关",
+      "lng": "86.194687",
+      "lat": "41.811007",
+      "firstChar": "T",
+      "spell": "tiemenguan"
+    },
+    {
+      "code": 610200,
+      "name": "铜川",
+      "lng": "108.963122",
+      "lat": "34.908920",
+      "firstChar": "T",
+      "spell": "tongchuan"
+    },
+    {
+      "code": 220500,
+      "name": "通化",
+      "lng": "125.936501",
+      "lat": "41.721177",
+      "firstChar": "T",
+      "spell": "tonghua"
+    },
+    {
+      "code": 150500,
+      "name": "通辽",
+      "lng": "122.263119",
+      "lat": "43.617429",
+      "firstChar": "T",
+      "spell": "tongliao"
+    },
+    {
+      "code": 340700,
+      "name": "铜陵",
+      "lng": "117.816576",
+      "lat": "30.929935",
+      "firstChar": "T",
+      "spell": "tongling"
+    },
+    {
+      "code": 520600,
+      "name": "铜仁",
+      "lng": "109.191555",
+      "lat": "27.718346",
+      "firstChar": "T",
+      "spell": "tongren"
+    },
+    {
+      "code": 650400,
+      "name": "吐鲁番",
+      "lng": "89.184078",
+      "lat": "42.947613",
+      "firstChar": "T",
+      "spell": "tulufan"
+    },
+    {
+      "code": 659003,
+      "name": "图木舒克",
+      "lng": "79.077978",
+      "lat": "39.867316",
+      "firstChar": "T",
+      "spell": "tumushuke"
+    },
+    {
+      "code": 469022,
+      "name": "屯昌县",
+      "lng": "110.102773",
+      "lat": "19.362916",
+      "firstChar": "T",
+      "spell": "tunchangxian"
+    },
+    {
+      "code": 469006,
+      "name": "万宁",
+      "lng": "110.388793",
+      "lat": "18.796216",
+      "firstChar": "W",
+      "spell": "wanning"
+    },
+    {
+      "code": 370700,
+      "name": "潍坊",
+      "lng": "119.107078",
+      "lat": "36.709250",
+      "firstChar": "W",
+      "spell": "weifang"
+    },
+    {
+      "code": 371000,
+      "name": "威海",
+      "lng": "122.116394",
+      "lat": "37.509691",
+      "firstChar": "W",
+      "spell": "weihai"
+    },
+    {
+      "code": 610500,
+      "name": "渭南",
+      "lng": "109.502882",
+      "lat": "34.499381",
+      "firstChar": "W",
+      "spell": "weinan"
+    },
+    {
+      "code": 469005,
+      "name": "文昌",
+      "lng": "110.753975",
+      "lat": "19.612986",
+      "firstChar": "W",
+      "spell": "wenchang"
+    },
+    {
+      "code": 532600,
+      "name": "文山壮族苗族自治州",
+      "lng": "104.244010",
+      "lat": "23.369510",
+      "firstChar": "W",
+      "spell": "wenshanzhuangzumiaozuzizhizhou"
+    },
+    {
+      "code": 330300,
+      "name": "温州",
+      "lng": "120.672111",
+      "lat": "28.000575",
+      "firstChar": "W",
+      "spell": "wenzhou"
+    },
+    {
+      "code": 150300,
+      "name": "乌海",
+      "lng": "106.825563",
+      "lat": "39.673734",
+      "firstChar": "W",
+      "spell": "wuhai"
+    },
+    {
+      "code": 420100,
+      "name": "武汉",
+      "lng": "114.298572",
+      "lat": "30.584355",
+      "firstChar": "W",
+      "spell": "wuhan"
+    },
+    {
+      "code": 340200,
+      "name": "芜湖",
+      "lng": "118.376451",
+      "lat": "31.326319",
+      "firstChar": "W",
+      "spell": "wuhu"
+    },
+    {
+      "code": 659004,
+      "name": "五家渠",
+      "lng": "87.526884",
+      "lat": "44.167401",
+      "firstChar": "W",
+      "spell": "wujiaqu"
+    },
+    {
+      "code": 150900,
+      "name": "乌兰察布",
+      "lng": "113.114543",
+      "lat": "41.034126",
+      "firstChar": "W",
+      "spell": "wulanchabu"
+    },
+    {
+      "code": 650100,
+      "name": "乌鲁木齐",
+      "lng": "87.617733",
+      "lat": "43.792818",
+      "firstChar": "W",
+      "spell": "wulumuqi"
+    },
+    {
+      "code": 620600,
+      "name": "武威",
+      "lng": "102.634697",
+      "lat": "37.929996",
+      "firstChar": "W",
+      "spell": "wuwei"
+    },
+    {
+      "code": 320200,
+      "name": "无锡",
+      "lng": "120.301663",
+      "lat": "31.574729",
+      "firstChar": "W",
+      "spell": "wuxi"
+    },
+    {
+      "code": 469001,
+      "name": "五指山",
+      "lng": "109.516662",
+      "lat": "18.776921",
+      "firstChar": "W",
+      "spell": "wuzhishan"
+    },
+    {
+      "code": 640300,
+      "name": "吴忠",
+      "lng": "106.199409",
+      "lat": "37.986165",
+      "firstChar": "W",
+      "spell": "wuzhong"
+    },
+    {
+      "code": 450400,
+      "name": "梧州",
+      "lng": "111.316229",
+      "lat": "23.472309",
+      "firstChar": "W",
+      "spell": "wuzhou"
+    },
+    {
+      "code": 610100,
+      "name": "西安",
+      "lng": "108.948024",
+      "lat": "34.263161",
+      "firstChar": "X",
+      "spell": "xian"
+    },
+    {
+      "code": 430300,
+      "name": "湘潭",
+      "lng": "112.925083",
+      "lat": "27.846725",
+      "firstChar": "X",
+      "spell": "xiangtan"
+    },
+    {
+      "code": 433100,
+      "name": "湘西土家族苗族自治州",
+      "lng": "109.739735",
+      "lat": "28.314296",
+      "firstChar": "X",
+      "spell": "xiangxitujiazumiaozuzizhizhou"
+    },
+    {
+      "code": 420600,
+      "name": "襄阳",
+      "lng": "112.144146",
+      "lat": "32.042426",
+      "firstChar": "X",
+      "spell": "xiangyang"
+    },
+    {
+      "code": 421200,
+      "name": "咸宁",
+      "lng": "114.328963",
+      "lat": "29.832798",
+      "firstChar": "X",
+      "spell": "xianning"
+    },
+    {
+      "code": 429004,
+      "name": "仙桃",
+      "lng": "113.453974",
+      "lat": "30.364953",
+      "firstChar": "X",
+      "spell": "xiantao"
+    },
+    {
+      "code": 610400,
+      "name": "咸阳",
+      "lng": "108.705117",
+      "lat": "34.333439",
+      "firstChar": "X",
+      "spell": "xianyang"
+    },
+    {
+      "code": 420900,
+      "name": "孝感",
+      "lng": "113.926655",
+      "lat": "30.926423",
+      "firstChar": "X",
+      "spell": "xiaogan"
+    },
+    {
+      "code": 152500,
+      "name": "锡林郭勒盟",
+      "lng": "116.090996",
+      "lat": "43.944018",
+      "firstChar": "X",
+      "spell": "xilinguolemeng"
+    },
+    {
+      "code": 152200,
+      "name": "兴安盟",
+      "lng": "122.070317",
+      "lat": "46.076268",
+      "firstChar": "X",
+      "spell": "xinganmeng"
+    },
+    {
+      "code": 130500,
+      "name": "邢台",
+      "lng": "114.508851",
+      "lat": "37.068200",
+      "firstChar": "X",
+      "spell": "xingtai"
+    },
+    {
+      "code": 630100,
+      "name": "西宁",
+      "lng": "101.778916",
+      "lat": "36.623178",
+      "firstChar": "X",
+      "spell": "xining"
+    },
+    {
+      "code": 410700,
+      "name": "新乡",
+      "lng": "113.883991",
+      "lat": "35.302616",
+      "firstChar": "X",
+      "spell": "xinxiang"
+    },
+    {
+      "code": 411500,
+      "name": "信阳",
+      "lng": "114.075031",
+      "lat": "32.123274",
+      "firstChar": "X",
+      "spell": "xinyang"
+    },
+    {
+      "code": 360500,
+      "name": "新余",
+      "lng": "114.930835",
+      "lat": "27.810834",
+      "firstChar": "X",
+      "spell": "xinyu"
+    },
+    {
+      "code": 140900,
+      "name": "忻州",
+      "lng": "112.733538",
+      "lat": "38.417690",
+      "firstChar": "X",
+      "spell": "xinzhou"
+    },
+    {
+      "code": 532800,
+      "name": "西双版纳傣族自治州",
+      "lng": "100.797941",
+      "lat": "22.001724",
+      "firstChar": "X",
+      "spell": "xishuangbannadaizuzizhizhou"
+    },
+    {
+      "code": 341800,
+      "name": "宣城",
+      "lng": "118.757995",
+      "lat": "30.945667",
+      "firstChar": "X",
+      "spell": "xuancheng"
+    },
+    {
+      "code": 411000,
+      "name": "许昌",
+      "lng": "113.826063",
+      "lat": "34.022956",
+      "firstChar": "X",
+      "spell": "xuchang"
+    },
+    {
+      "code": 320300,
+      "name": "徐州",
+      "lng": "117.184811",
+      "lat": "34.261792",
+      "firstChar": "X",
+      "spell": "xuzhou"
+    },
+    {
+      "code": 511800,
+      "name": "雅安",
+      "lng": "103.001033",
+      "lat": "29.987722",
+      "firstChar": "Y",
+      "spell": "yaan"
+    },
+    {
+      "code": 610600,
+      "name": "延安",
+      "lng": "109.490810",
+      "lat": "36.596537",
+      "firstChar": "Y",
+      "spell": "yanan"
+    },
+    {
+      "code": 222400,
+      "name": "延边朝鲜族自治州",
+      "lng": "129.513228",
+      "lat": "42.904823",
+      "firstChar": "Y",
+      "spell": "yanbianchaoxianzuzizhizhou"
+    },
+    {
+      "code": 320900,
+      "name": "盐城",
+      "lng": "120.139998",
+      "lat": "33.377631",
+      "firstChar": "Y",
+      "spell": "yancheng"
+    },
+    {
+      "code": 441700,
+      "name": "阳江",
+      "lng": "111.975107",
+      "lat": "21.859222",
+      "firstChar": "Y",
+      "spell": "yangjiang"
+    },
+    {
+      "code": 140300,
+      "name": "阳泉",
+      "lng": "113.583285",
+      "lat": "37.861188",
+      "firstChar": "Y",
+      "spell": "yangquan"
+    },
+    {
+      "code": 321000,
+      "name": "扬州",
+      "lng": "119.421003",
+      "lat": "32.393159",
+      "firstChar": "Y",
+      "spell": "yangzhou"
+    },
+    {
+      "code": 370600,
+      "name": "烟台",
+      "lng": "121.391382",
+      "lat": "37.539297",
+      "firstChar": "Y",
+      "spell": "yantai"
+    },
+    {
+      "code": 511500,
+      "name": "宜宾",
+      "lng": "104.630825",
+      "lat": "28.760189",
+      "firstChar": "Y",
+      "spell": "yibin"
+    },
+    {
+      "code": 420500,
+      "name": "宜昌",
+      "lng": "111.290843",
+      "lat": "30.702636",
+      "firstChar": "Y",
+      "spell": "yichang"
+    },
+    {
+      "code": 230700,
+      "name": "伊春",
+      "lng": "128.899396",
+      "lat": "47.724775",
+      "firstChar": "Y",
+      "spell": "yichun"
+    },
+    {
+      "code": 360900,
+      "name": "宜春",
+      "lng": "114.391136",
+      "lat": "27.804300",
+      "firstChar": "Y",
+      "spell": "yichun"
+    },
+    {
+      "code": 654000,
+      "name": "伊犁哈萨克自治州",
+      "lng": "81.317946",
+      "lat": "43.921860",
+      "firstChar": "Y",
+      "spell": "yilihasakezizhizhou"
+    },
+    {
+      "code": 640100,
+      "name": "银川",
+      "lng": "106.278179",
+      "lat": "38.466370",
+      "firstChar": "Y",
+      "spell": "yinchuan"
+    },
+    {
+      "code": 210800,
+      "name": "营口",
+      "lng": "122.235151",
+      "lat": "40.667432",
+      "firstChar": "Y",
+      "spell": "yingkou"
+    },
+    {
+      "code": 360600,
+      "name": "鹰潭",
+      "lng": "117.033838",
+      "lat": "28.238638",
+      "firstChar": "Y",
+      "spell": "yingtan"
+    },
+    {
+      "code": 430900,
+      "name": "益阳",
+      "lng": "112.355042",
+      "lat": "28.570066",
+      "firstChar": "Y",
+      "spell": "yiyang"
+    },
+    {
+      "code": 431100,
+      "name": "永州",
+      "lng": "111.608019",
+      "lat": "26.434516",
+      "firstChar": "Y",
+      "spell": "yongzhou"
+    },
+    {
+      "code": 430600,
+      "name": "岳阳",
+      "lng": "113.132855",
+      "lat": "29.370290",
+      "firstChar": "Y",
+      "spell": "yueyang"
+    },
+    {
+      "code": 450900,
+      "name": "玉林",
+      "lng": "110.154393",
+      "lat": "22.631360",
+      "firstChar": "Y",
+      "spell": "yulin"
+    },
+    {
+      "code": 610800,
+      "name": "榆林",
+      "lng": "109.741193",
+      "lat": "38.290162",
+      "firstChar": "Y",
+      "spell": "yulin"
+    },
+    {
+      "code": 140800,
+      "name": "运城",
+      "lng": "111.003957",
+      "lat": "35.022778",
+      "firstChar": "Y",
+      "spell": "yuncheng"
+    },
+    {
+      "code": 445300,
+      "name": "云浮",
+      "lng": "112.044439",
+      "lat": "22.929801",
+      "firstChar": "Y",
+      "spell": "yunfu"
+    },
+    {
+      "code": 632700,
+      "name": "玉树藏族自治州",
+      "lng": "97.008522",
+      "lat": "33.004049",
+      "firstChar": "Y",
+      "spell": "yushuzangzuzizhizhou"
+    },
+    {
+      "code": 530400,
+      "name": "玉溪",
+      "lng": "102.543907",
+      "lat": "24.350461",
+      "firstChar": "Y",
+      "spell": "yuxi"
+    },
+    {
+      "code": 370400,
+      "name": "枣庄",
+      "lng": "117.557964",
+      "lat": "34.856424",
+      "firstChar": "Z",
+      "spell": "zaozhuang"
+    },
+    {
+      "code": 220100,
+      "name": "长春",
+      "lng": "125.324500",
+      "lat": "43.886841",
+      "firstChar": "C",
+      "spell": "zhangchun"
+    },
+    {
+      "code": 430800,
+      "name": "张家界",
+      "lng": "110.479921",
+      "lat": "29.127401",
+      "firstChar": "Z",
+      "spell": "zhangjiajie"
+    },
+    {
+      "code": 130700,
+      "name": "张家口",
+      "lng": "114.884091",
+      "lat": "40.811901",
+      "firstChar": "Z",
+      "spell": "zhangjiakou"
+    },
+    {
+      "code": 430100,
+      "name": "长沙",
+      "lng": "112.982279",
+      "lat": "28.194090",
+      "firstChar": "C",
+      "spell": "zhangsha"
+    },
+    {
+      "code": 620700,
+      "name": "张掖",
+      "lng": "100.455472",
+      "lat": "38.932897",
+      "firstChar": "Z",
+      "spell": "zhangye"
+    },
+    {
+      "code": 140400,
+      "name": "长治",
+      "lng": "113.113556",
+      "lat": "36.191112",
+      "firstChar": "C",
+      "spell": "zhangzhi"
+    },
+    {
+      "code": 350600,
+      "name": "漳州",
+      "lng": "117.661801",
+      "lat": "24.510897",
+      "firstChar": "Z",
+      "spell": "zhangzhou"
+    },
+    {
+      "code": 440800,
+      "name": "湛江",
+      "lng": "110.405529",
+      "lat": "21.195338",
+      "firstChar": "Z",
+      "spell": "zhanjiang"
+    },
+    {
+      "code": 441200,
+      "name": "肇庆",
+      "lng": "112.472529",
+      "lat": "23.051546",
+      "firstChar": "Z",
+      "spell": "zhaoqing"
+    },
+    {
+      "code": 530600,
+      "name": "昭通",
+      "lng": "103.717216",
+      "lat": "27.336999",
+      "firstChar": "Z",
+      "spell": "zhaotong"
+    },
+    {
+      "code": 410100,
+      "name": "郑州",
+      "lng": "113.665412",
+      "lat": "34.757975",
+      "firstChar": "Z",
+      "spell": "zhengzhou"
+    },
+    {
+      "code": 321100,
+      "name": "镇江",
+      "lng": "119.452753",
+      "lat": "32.204402",
+      "firstChar": "Z",
+      "spell": "zhenjiang"
+    },
+    {
+      "code": 500100,
+      "name": "重庆",
+      "lng": "106.504962",
+      "lat": "29.533155",
+      "firstChar": "C",
+      "spell": "zhongqing"
+    },
+    {
+      "code": 442000,
+      "name": "中山",
+      "lng": "113.382391",
+      "lat": "22.521113",
+      "firstChar": "Z",
+      "spell": "zhongshan"
+    },
+    {
+      "code": 640500,
+      "name": "中卫",
+      "lng": "105.189568",
+      "lat": "37.514951",
+      "firstChar": "Z",
+      "spell": "zhongwei"
+    },
+    {
+      "code": 411600,
+      "name": "周口",
+      "lng": "114.649653",
+      "lat": "33.620357",
+      "firstChar": "Z",
+      "spell": "zhoukou"
+    },
+    {
+      "code": 330900,
+      "name": "舟山",
+      "lng": "122.106863",
+      "lat": "30.016028",
+      "firstChar": "Z",
+      "spell": "zhoushan"
+    },
+    {
+      "code": 440400,
+      "name": "珠海",
+      "lng": "113.552724",
+      "lat": "22.255899",
+      "firstChar": "Z",
+      "spell": "zhuhai"
+    },
+    {
+      "code": 411700,
+      "name": "驻马店",
+      "lng": "114.024736",
+      "lat": "32.980169",
+      "firstChar": "Z",
+      "spell": "zhumadian"
+    },
+    {
+      "code": 430200,
+      "name": "株洲",
+      "lng": "113.151737",
+      "lat": "27.835806",
+      "firstChar": "Z",
+      "spell": "zhuzhou"
+    },
+    {
+      "code": 370300,
+      "name": "淄博",
+      "lng": "118.047648",
+      "lat": "36.814939",
+      "firstChar": "Z",
+      "spell": "zibo"
+    },
+    {
+      "code": 510300,
+      "name": "自贡",
+      "lng": "104.773447",
+      "lat": "29.352765",
+      "firstChar": "Z",
+      "spell": "zigong"
+    },
+    {
+      "code": 512000,
+      "name": "资阳",
+      "lng": "104.641917",
+      "lat": "30.122211",
+      "firstChar": "Z",
+      "spell": "ziyang"
+    },
+    {
+      "code": 520300,
+      "name": "遵义",
+      "lng": "106.937265",
+      "lat": "27.706626",
+      "firstChar": "Z",
+      "spell": "zunyi"
+    }
+  ]
+}

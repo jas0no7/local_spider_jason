@@ -21,31 +21,11 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
     _from = "江苏省工业和信息化厅"
 
     infoes = [
-        {
-            "columnid": "89736",
-            "unitid": "405463",
-            "label": "政策文件",
-        },
-        {
-            "columnid": "80181",
-            "unitid": "403740",
-            "label": "统计信息",
-        },
-        {
-            "columnid": "6179",
-            "unitid": "403981",
-            "label": "政策解读",
-        },
-        {
-            "columnid": "83658",
-            "unitid": "403981",
-            "label": "省级政策",
-        },
-        {
-            "columnid": "6285",
-            "unitid": "405449",
-            "label": "数据统计;统计信息",
-        },
+        {"columnid": "89736", "unitid": "405463", "label": "政策文件"},
+        {"columnid": "80181", "unitid": "403740", "label": "统计信息"},
+        {"columnid": "6179", "unitid": "403981", "label": "政策解读"},
+        {"columnid": "83658", "unitid": "403981", "label": "省级政策"},
+        {"columnid": "6285", "unitid": "405449", "label": "数据统计;统计信息"},
     ]
 
     headers = {
@@ -68,45 +48,7 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
         "cookie": 'JSESSIONID=D5A1F5D49BBB67A1784450859E7DAB55; __jsluid_s=6adbbfed425abed2a58140d4b6204a37; e34b3568-c02f-45db-8662-33d198d0da1b=WyI1NjQ0Njc3NTciXQ',
     }
 
-    # ---------- 工具函数：内部实现 get_attachment ----------
-    @staticmethod
-    def _get_attachment(a_tags, page_url):
-        """把附件的 <a> 标签转换成绝对 URL 列表"""
-        attachments = []
-        for a in a_tags:
-            href = a.xpath("./@href").get()
-            if href:
-                attachments.append(
-                    a.root.base_url + href if href.startswith("/") else href
-                )
-        return attachments
-
-    # ---------- 工具函数：当前日期 ----------
-    @staticmethod
-    def _now():
-        import datetime
-        return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # ---------- API 入口 ----------
-    def start_requests(self):
-        for info in self.infoes:
-            meta = {
-                "label": info["label"],
-                "columnid": info["columnid"],
-                "unitid": info["unitid"],
-                "page": 1
-            }
-            url = self.build_api_url(start=1, end=25)
-
-            yield scrapy.FormRequest(
-                url=url,
-                formdata=self.build_form(info["columnid"], info["unitid"]),
-                headers=self.headers,
-                callback=self.parse_list,
-                meta=copy.deepcopy(meta),
-                dont_filter=True
-            )
-
+    # ---------- 工具：构造 API ----------
     @staticmethod
     def build_api_url(start, end):
         return f"https://gxt.jiangsu.gov.cn/module/web/jpage/dataproxy.jsp?startrecord={start}&endrecord={end}&perpage=25"
@@ -125,12 +67,28 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
             "permissiontype": "0",
         }
 
-    # ---------- 列表页 ----------
+    # ---------- 起始请求，仅第一页 ----------
+    def start_requests(self):
+        for info in self.infoes:
+            meta = {
+                "label": info["label"],
+                "columnid": info["columnid"],
+                "unitid": info["unitid"],
+            }
+            url = self.build_api_url(start=1, end=25)
+
+            yield scrapy.FormRequest(
+                url=url,
+                formdata=self.build_form(info["columnid"], info["unitid"]),
+                headers=self.headers,
+                callback=self.parse_list,
+                meta=copy.deepcopy(meta),
+                dont_filter=True
+            )
+
+    # ---------- 列表页（已删除翻页）----------
     def parse_list(self, response):
         meta = response.meta
-        page = meta["page"]
-        columnid = meta["columnid"]
-        unitid = meta["unitid"]
         label = meta["label"]
 
         text = response.text
@@ -142,6 +100,8 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
 
         for cdata in cdata_list:
             li_html = etree.HTML(cdata.strip())
+            if li_html is None:
+                continue
 
             title = li_html.xpath("//a/@title")
             href = li_html.xpath("//a/@href")
@@ -166,22 +126,7 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
                 dont_filter=True,
             )
 
-        # 下一页
-        next_page = page + 1
-        start = (next_page - 1) * 25 + 1
-        end = next_page * 25
-        next_url = self.build_api_url(start, end)
-
-        meta["page"] = next_page
-
-        yield scrapy.FormRequest(
-            url=next_url,
-            formdata=self.build_form(columnid, unitid),
-            headers=self.headers,
-            callback=self.parse_list,
-            meta=copy.deepcopy(meta),
-            dont_filter=True
-        )
+        # ❌ 翻页逻辑已删除（不再 yield 下一页）
 
     # ---------- 详情页 ----------
     def parse_detail(self, response):
@@ -198,8 +143,7 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
                        ''.join(response.xpath('//publishtime/text()').getall()).strip() or \
                        ''.join(re.findall(r'(\d{4}-\d{2}-\d{2})', response.text))
 
-        author = response.xpath(
-            '//meta[@name="Author"]/@content').get() or ""
+        author = response.xpath('//meta[@name="Author"]/@content').get() or ""
 
         body_xpaths = [
             '//div[@class="scroll_main bfr_article_content"]',
@@ -221,7 +165,6 @@ class PolicyGxtJiangsuSpider(CrawlSpider):
             '//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".docx") or '
             'contains(@href, ".xls") or contains(@href, ".xlsx") or contains(@href, ".zip") or contains(@href, ".rar")]'
         )
-
         attachments = get_attachment(attachment_nodes, url, self._from)
 
         yield DataItem({

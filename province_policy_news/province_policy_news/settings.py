@@ -118,8 +118,10 @@ spider_name_from_map = {
     'policy_sthjt_shaanxi': '政策-生态环境厅-陕西',
     'policy_sthjt_sichuan': '政策-生态环境厅-四川',
     'policy_sthjt_jiangxi': '政策-生态环境厅-江西',
-    'policy_sthjt_gansu':'政策-生态环境厅-甘肃',
+    'policy_sthjt_gansu': '政策-生态环境厅-甘肃',
     'policy_zdl': '政策-中国电力企业联合会',
+    'policy_eipramc': '政策-电力行业规划研究与监测预警中心',
+    'policy_zhejiangfagai': '政策-浙江发改',
 
 }
 
@@ -205,8 +207,10 @@ KAFKA_TOPIC = {
     'policy_sthjt_shaanxi': 'spider-policy-shaanxi',
     'policy_sthjt_sichuan': 'spider-policy-sichuan',
     'policy_sthjt_jiangxi': 'spider-policy-jiangxi',
-    'policy_sthjt_gansu':'spider-policy-gansu',
+    'policy_sthjt_gansu': 'spider-policy-gansu',
     'policy_zdl': 'spider_policy_zdl',
+    'policy_eipramc': 'spider-policy-wx',
+    'policy_zhejiangfagai': 'spider-policy-wx-test',
 }
 
 # Minio

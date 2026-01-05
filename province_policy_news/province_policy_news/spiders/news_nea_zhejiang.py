@@ -37,10 +37,7 @@ class ZjNyjnewsSpider(scrapy.Spider):
             "url_xpath": "./@href",
             "title_xpath": "./span[1]/text()",
             "publish_time_xpath": "./span[2]/text()",
-            "body_xpath": '//div[@class="article-content"] | //div[@class="wrapper_detail_text"]',
-            "total": 88,
-            "page": 1,
-            "base_url": "https://zjb.nea.gov.cn/dtyw/jgdt/index_{}.shtml"
+            "body_xpath": '//div[@class="article-content"] | //div[@class="wrapper_detail_text"]'
         }
     ]
 
@@ -64,9 +61,6 @@ class ZjNyjnewsSpider(scrapy.Spider):
         title_xpath = meta["title_xpath"]
         publish_time_xpath = meta["publish_time_xpath"]
         body_xpath = meta["body_xpath"]
-
-        page = meta["page"]
-        total = meta["total"]
 
         logger.info(f"解析列表页：{response.url}")
 
@@ -93,27 +87,7 @@ class ZjNyjnewsSpider(scrapy.Spider):
                 dont_filter=True      # ✔ 强制请求
             )
 
-        # ---------------- 翻页逻辑 ----------------
-        if page < total:
-            next_page = page + 1
-
-            # 注意：网站 index_1.shtml 是第 2 页
-            if next_page == 1:
-                next_url = "https://zjb.nea.gov.cn/dtyw/jgdt/index.html"
-            else:
-                next_url = f"https://zjb.nea.gov.cn/dtyw/jgdt/index_{next_page - 1}.shtml"
-
-            logger.info(f"翻页 {next_page} → {next_url}")
-
-            next_meta = copy.deepcopy(meta)
-            next_meta["page"] = next_page
-
-            yield scrapy.Request(
-                url=next_url,
-                callback=self.parse_item,
-                meta=next_meta,
-                dont_filter=True      # ✔ 强制请求
-            )
+        # ---------------- 仅采第一页，不再翻页 ----------------
 
     # ---------------- 详情页 ----------------
     def parse_detail(self, response):

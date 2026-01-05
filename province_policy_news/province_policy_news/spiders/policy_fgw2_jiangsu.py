@@ -40,7 +40,7 @@ class JiangsuEnvSpider(scrapy.Spider):
     # 1) start_requests：请求每一页列表
     # =========================================
     def start_requests(self):
-        for page in range(1, self.max_page + 1):
+        for page in [1]:
             formdata = {
                 "name": "",
                 "keytype": "",

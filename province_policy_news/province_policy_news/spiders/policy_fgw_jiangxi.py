@@ -63,7 +63,7 @@ class DataSpider(CrawlSpider):
             channel = info["channelCode[]"]
             label = info["label"]
 
-            for page in range(info["page_start"], info["page_end"] + 1):
+            for page in [1]:
 
                 formdata = {
                     "current": str(page),

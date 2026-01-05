@@ -112,7 +112,7 @@ class ZjsthjtSpider(scrapy.Spider):
         search_url = "https://sthjt.zj.gov.cn/module/xxgk/search.jsp"
 
         for info in self.infoes:
-            for page in range(1, info["total"] + 1):
+            for page in [1]:
 
                 formdata = {
                     "divid": info["divid"],

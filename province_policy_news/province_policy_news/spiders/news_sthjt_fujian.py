@@ -76,7 +76,7 @@ class DataSpider(CrawlSpider):
             headers = copy.deepcopy(self.headers)
             headers["Referer"] = referer
 
-            for page in range(1, max_page + 1):
+            for page in [1]:
                 formdata = {
                     "channelid": "229105",
                     "sortfield": "-docorderpri,-docreltime",

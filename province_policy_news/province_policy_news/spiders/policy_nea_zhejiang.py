@@ -117,7 +117,7 @@ class ZjNyjpolicySpider(scrapy.Spider):
             )
 
         # -------- 翻页，不再使用错误的 zcjd 固定链接 --------
-        if page < total:
+        if False and page < total:
             next_page = page + 1
             next_url = base_url.format(next_page)
 

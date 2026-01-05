@@ -2,10 +2,12 @@ import copy
 import re
 import json
 import subprocess
+import os
 from hashlib import md5
 from urllib.parse import urljoin
 
 import scrapy
+import requests
 from scrapy.spiders import CrawlSpider
 from scrapy.utils.project import get_project_settings
 
@@ -14,83 +16,84 @@ from ..mydefine import get_now_date, get_attachment
 
 from loguru import logger
 from lxml import etree
-from curl_cffi import requests as curl_requests
-import requests
 
 settings = get_project_settings()
 
-# =====================================================================
-#  自动生成湖北发改委 Cookie（封装成函数，让 Scrapy 可以调用）
-# =====================================================================
+
+# ==========================================================
+#  工具：保证临时目录存在
+# ==========================================================
+TMP_DIR = "."
+os.makedirs(TMP_DIR, exist_ok=True)
+
+
+# ==========================================================
+#  动态 Cookie 生成（湖北发改委专用）
+# ==========================================================
 def get_valid_cookies(start_url):
-    logger.info("开始执行动态 Cookie 获取流程...")
+    logger.info("开始执行湖北发改委 Cookie 动态生成流程...")
 
     headers = {
-        "Accept": "application/json, text/javascript, */*; q=0.01",
-        "Accept-Language": "zh-CN,zh;q=0.9",
-        "Cache-Control": "no-cache",
-        "Connection": "keep-alive",
-        "Pragma": "no-cache",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "Referer": "https://fgw.hubei.gov.cn/fbjd/zc/gfwj/",
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
-        "X-Requested-With": "XMLHttpRequest"
     }
 
-    # -------- 1. curl_cffi 绕过 JS 反爬 -----------
-    first_resp = curl_requests.get(start_url, headers=headers)
-    first_tree = etree.HTML(first_resp.text)
+    # 使用 requests 获取首页（替代 curl_cffi）
+    resp = requests.get(start_url, headers=headers, timeout=10)
+    tree = etree.HTML(resp.text)
 
-    contentStr = first_tree.xpath('//meta[2]/@content')[0]
-    scriptStr = first_tree.xpath('//script[1]/text()')[0]
-    js_url = first_tree.xpath('//script[2]/@src')[0]
+    contentStr = tree.xpath('//meta[2]/@content')[0]
+    scriptStr = tree.xpath('//script[1]/text()')[0]
+    js_url = tree.xpath('//script[2]/@src')[0]
 
-    open("content.js", "w", encoding="utf-8").write(f'content="{contentStr}";')
-    open("ts.js", "w", encoding="utf-8").write(scriptStr)
-    open("cd.js", "w", encoding="utf-8").write(
-        curl_requests.get(urljoin("https://fgw.hubei.gov.cn", js_url)).text
-    )
+    # 下载 JS 文件
+    js_full = requests.get(urljoin("https://fgw.hubei.gov.cn", js_url)).text
 
-    logger.info("content.js / ts.js / cd.js 保存成功")
+    # 写入临时文件
+    open(f"{TMP_DIR}/content.js", "w", encoding="utf-8").write(f'content="{contentStr}";')
+    open(f"{TMP_DIR}/ts.js", "w", encoding="utf-8").write(scriptStr)
+    open(f"{TMP_DIR}/cd.js", "w", encoding="utf-8").write(js_full)
 
-    # -------- 2. node env.js 生成 cookie -----------
-    result = subprocess.run(["node", "env.js"], capture_output=True, text=True)
+    logger.info("已生成 content.js、ts.js、cd.js")
+
+    # env.js 会 require 前 3 个文件
+    env_js_path = f"{TMP_DIR}/env.js"
+    open(env_js_path, "w", encoding="utf-8").write("""
+require('./content.js');
+require('./ts.js');
+require('./cd.js');
+console.log(getEncryptedCookie(content));
+""")
+
+    # 调用 node 生成 cookie
+    result = subprocess.run(["node", env_js_path], capture_output=True, text=True)
     dynamic_cookie = result.stdout.strip()
 
-    base_cookies = dict(first_resp.cookies)
+    base_cookies = dict(resp.cookies)
     base_cookies["924omrTVcFchP"] = dynamic_cookie
 
-    logger.info(f"动态 Cookie 已生成：{base_cookies}")
+    logger.info(f"动态 Cookie 生成成功：{base_cookies}")
     return base_cookies
 
 
-# =====================================================================
-# Scrapy Spider
-# =====================================================================
+# ==========================================================
+#  Scrapy Spider
+# ==========================================================
 class DataSpider(CrawlSpider):
     name = 'policy_fgw2_hubei'
     allowed_domains = ['fgw.hubei.gov.cn']
     _from = '湖北发改委'
     category = "政策"
 
-    # ========== ★ JSON 列表接口 =============================
     list_api = "https://fgw.hubei.gov.cn/fbjd/zc/gfwj/wj/gfxwj.json"
-
-    # ========== 首页地址（用于生成 Cookie）==================
     cookie_home = "https://fgw.hubei.gov.cn/fbjd/zc/gfwj/"
 
-    # ==========================================================
-    # Scrapy 初始化时只执行一次：生成 Cookie
-    # ==========================================================
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
-        logger.info("Scrapy 正在初始化湖北发改委动态 Cookie ...")
+        logger.info("正在初始化湖北发改委 Cookie ...")
         self.base_cookie = get_valid_cookies(self.cookie_home)
-        logger.info(f"Cookie 初始化完成：{self.base_cookie}")
 
-    # ==========================================================
-    # 1. 直接请求 JSON 列表接口
-    # ==========================================================
+    # ===================== 1. JSON 列表接口 ====================
     def start_requests(self):
         yield scrapy.Request(
             url=self.list_api,
@@ -99,12 +102,9 @@ class DataSpider(CrawlSpider):
             dont_filter=True
         )
 
-    # ==========================================================
-    # 2. 解析 JSON 列表，分发详情页请求
-    # ==========================================================
+    # ===================== 2. 解析列表 JSON ====================
     def parse_json(self, response):
         data = json.loads(response.text)
-
         BASE = "https://fgw.hubei.gov.cn/"
 
         for item in data["data"]:
@@ -117,20 +117,16 @@ class DataSpider(CrawlSpider):
 
             yield scrapy.Request(
                 url=detail_url,
-                callback=self.parse_detail,
                 cookies=self.base_cookie,
+                callback=self.parse_detail,
                 meta=meta,
                 dont_filter=True
             )
 
-    # ==========================================================
-    # 3. 详情页解析（UTF-8 强制解码 + 多模板 XPATH）
-    # ==========================================================
+    # ===================== 3. 解析详情页 ====================
     def parse_detail(self, response):
         meta = response.meta
-
-        # Scrapy 的 response.body 是 bytes → 强制 decode，避免乱码
-        html = response.body.decode("utf-8", errors="ignore")
+        html = response.text
         tree = etree.HTML(html)
 
         # 常见正文结构
@@ -143,21 +139,19 @@ class DataSpider(CrawlSpider):
 
         content = ""
         for xp in xpaths:
-            part = tree.xpath(xp)
-            if part:
-                content = "".join([x.strip() for x in part if x.strip()])
+            nodes = tree.xpath(xp)
+            if nodes:
+                content = "".join(x.strip() for x in nodes if x.strip())
                 break
 
-        images = tree.xpath('//div[@class="article"]//img/@src')
-        images = [response.urljoin(x) for x in images]
-
-        attachment_urls = tree.xpath(
-            '//a[contains(@href, ".pdf") or contains(@href, ".doc") or contains(@href, ".xlsx")]'
+        images = [response.urljoin(i) for i in tree.xpath('//img/@src')]
+        attachment_nodes = tree.xpath(
+            '//a[contains(@href,".pdf") or contains(@href,".doc") or contains(@href,".xlsx")]'
         )
-        attachments = get_attachment(attachment_urls, response.url, self._from)
+        attachments = get_attachment(attachment_nodes, response.url, self._from)
 
         yield DataItem({
-            "_id": md5(response.url.encode("utf-8")).hexdigest(),
+            "_id": md5(response.url.encode()).hexdigest(),
             "url": response.url,
             "spider_topic": settings.get("KAFKA_TOPIC", {}).get(self.name),
             "spider_from": self._from,

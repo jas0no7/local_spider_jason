@@ -1,0 +1,2836 @@
+{
+    "city": [
+        {
+            "cityCode": "118",
+            "cityName": "北京",
+            "longitude": "116.407526",
+            "latitude": "39.904030",
+            "pCityName": "北京市",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "136",
+            "cityName": "天津",
+            "longitude": "117.200983",
+            "latitude": "39.084158",
+            "pCityName": "天津市",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "154",
+            "cityName": "石家庄市",
+            "longitude": "114.514859",
+            "latitude": "38.042306",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "179",
+            "cityName": "唐山市",
+            "longitude": "118.180193",
+            "latitude": "39.630867",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "195",
+            "cityName": "秦皇岛市",
+            "longitude": "119.600492",
+            "latitude": "39.935385",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "204",
+            "cityName": "邯郸市",
+            "longitude": "114.538961",
+            "latitude": "36.625657",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "225",
+            "cityName": "邢台市",
+            "longitude": "114.504844",
+            "latitude": "37.070589",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "246",
+            "cityName": "保定市",
+            "longitude": "115.464806",
+            "latitude": "38.873891",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "273",
+            "cityName": "张家口市",
+            "longitude": "114.887543",
+            "latitude": "40.824418",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "292",
+            "cityName": "承德市",
+            "longitude": "117.962410",
+            "latitude": "40.954071",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "305",
+            "cityName": "沧州市",
+            "longitude": "116.838834",
+            "latitude": "38.304477",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "323",
+            "cityName": "廊坊市",
+            "longitude": "116.683752",
+            "latitude": "39.538047",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "335",
+            "cityName": "衡水市",
+            "longitude": "115.670177",
+            "latitude": "37.738920",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "349",
+            "cityName": "太原市",
+            "longitude": "112.548879",
+            "latitude": "37.870590",
+            "pCityName": "山西省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "361",
+            "cityName": "大同市",
+            "longitude": "113.300129",
+            "latitude": "40.076762",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "374",
+            "cityName": "阳泉市",
+            "longitude": "113.580519",
+            "latitude": "37.856971",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "381",
+            "cityName": "长治市",
+            "longitude": "113.116255",
+            "latitude": "36.195386",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "396",
+            "cityName": "晋城市",
+            "longitude": "112.851831",
+            "latitude": "35.490701",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "404",
+            "cityName": "朔州市",
+            "longitude": "112.432825",
+            "latitude": "39.331595",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "412",
+            "cityName": "晋中市",
+            "longitude": "112.752694",
+            "latitude": "37.687024",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "425",
+            "cityName": "运城市",
+            "longitude": "111.007528",
+            "latitude": "35.026412",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "440",
+            "cityName": "忻州市",
+            "longitude": "112.734174",
+            "latitude": "38.416663",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "456",
+            "cityName": "临汾市",
+            "longitude": "111.518976",
+            "latitude": "36.088005",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "475",
+            "cityName": "吕梁市",
+            "longitude": "111.144319",
+            "latitude": "37.518314",
+            "pCityName": "山西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "491",
+            "cityName": "呼和浩特市",
+            "longitude": "111.749180",
+            "latitude": "40.842585",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "502",
+            "cityName": "包头市",
+            "longitude": "109.840347",
+            "latitude": "40.657449",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "513",
+            "cityName": "乌海市",
+            "longitude": "106.794249",
+            "latitude": "39.655388",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "518",
+            "cityName": "赤峰市",
+            "longitude": "118.886856",
+            "latitude": "42.257817",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "532",
+            "cityName": "通辽市",
+            "longitude": "122.243444",
+            "latitude": "43.652890",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "542",
+            "cityName": "鄂尔多斯市",
+            "longitude": "109.781327",
+            "latitude": "39.608266",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "552",
+            "cityName": "呼伦贝尔市",
+            "longitude": "119.765744",
+            "latitude": "49.211574",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "568",
+            "cityName": "巴彦淖尔市",
+            "longitude": "107.387657",
+            "latitude": "40.743213",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "577",
+            "cityName": "乌兰察布市",
+            "longitude": "113.132585",
+            "latitude": "40.994785",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "590",
+            "cityName": "兴安盟",
+            "longitude": "122.067042",
+            "latitude": "46.077561",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "597",
+            "cityName": "锡林郭勒盟",
+            "longitude": "116.048222",
+            "latitude": "43.933454",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "610",
+            "cityName": "阿拉善盟",
+            "longitude": "105.728969",
+            "latitude": "38.851892",
+            "pCityName": "内蒙古自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "616",
+            "cityName": "沈阳市",
+            "longitude": "123.431474",
+            "latitude": "41.805698",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "631",
+            "cityName": "大连市",
+            "longitude": "121.614682",
+            "latitude": "38.914003",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "643",
+            "cityName": "鞍山市",
+            "longitude": "122.994329",
+            "latitude": "41.108647",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "652",
+            "cityName": "抚顺市",
+            "longitude": "123.957208",
+            "latitude": "41.880872",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "661",
+            "cityName": "本溪市",
+            "longitude": "123.766485",
+            "latitude": "41.294175",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "669",
+            "cityName": "丹东市",
+            "longitude": "124.354706",
+            "latitude": "40.000499",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "677",
+            "cityName": "锦州市",
+            "longitude": "121.127003",
+            "latitude": "41.095119",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "686",
+            "cityName": "营口市",
+            "longitude": "122.235417",
+            "latitude": "40.667012",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "694",
+            "cityName": "阜新市",
+            "longitude": "121.670323",
+            "latitude": "42.021619",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "703",
+            "cityName": "辽阳市",
+            "longitude": "123.236944",
+            "latitude": "41.267244",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "712",
+            "cityName": "盘锦市",
+            "longitude": "122.070714",
+            "latitude": "41.119997",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "718",
+            "cityName": "铁岭市",
+            "longitude": "123.726166",
+            "latitude": "42.223769",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "727",
+            "cityName": "朝阳市",
+            "longitude": "120.450372",
+            "latitude": "41.573734",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "736",
+            "cityName": "葫芦岛市",
+            "longitude": "120.836932",
+            "latitude": "40.711052",
+            "pCityName": "辽宁省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "745",
+            "cityName": "长春市",
+            "longitude": "125.323544",
+            "latitude": "43.817071",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "757",
+            "cityName": "吉林市",
+            "longitude": "126.549576",
+            "latitude": "43.837883",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "768",
+            "cityName": "四平市",
+            "longitude": "124.350398",
+            "latitude": "43.166419",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "776",
+            "cityName": "辽源市",
+            "longitude": "125.143532",
+            "latitude": "42.887918",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "782",
+            "cityName": "通化市",
+            "longitude": "125.939697",
+            "latitude": "41.728401",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "791",
+            "cityName": "白山市",
+            "longitude": "126.423587",
+            "latitude": "41.939994",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "799",
+            "cityName": "松原市",
+            "longitude": "124.825117",
+            "latitude": "45.141789",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "806",
+            "cityName": "白城市",
+            "longitude": "122.839024",
+            "latitude": "45.619641",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "813",
+            "cityName": "延边朝鲜族自治州",
+            "longitude": "129.508946",
+            "latitude": "42.891253",
+            "pCityName": "吉林省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "823",
+            "cityName": "哈尔滨市",
+            "longitude": "126.534967",
+            "latitude": "45.803775",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "843",
+            "cityName": "齐齐哈尔市",
+            "longitude": "123.918186",
+            "latitude": "47.354348",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "861",
+            "cityName": "鸡西市",
+            "longitude": "130.969333",
+            "latitude": "45.295075",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "872",
+            "cityName": "鹤岗市",
+            "longitude": "130.297964",
+            "latitude": "47.349916",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "882",
+            "cityName": "双鸭山市",
+            "longitude": "131.159133",
+            "latitude": "46.646508",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "892",
+            "cityName": "大庆市",
+            "longitude": "125.103784",
+            "latitude": "46.589309",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "903",
+            "cityName": "伊春市",
+            "longitude": "128.841147",
+            "latitude": "47.727536",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "922",
+            "cityName": "佳木斯市",
+            "longitude": "130.318917",
+            "latitude": "46.799922",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "934",
+            "cityName": "七台河市",
+            "longitude": "131.003138",
+            "latitude": "45.771726",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "940",
+            "cityName": "牡丹江市",
+            "longitude": "129.633168",
+            "latitude": "44.551653",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "952",
+            "cityName": "黑河市",
+            "longitude": "127.528560",
+            "latitude": "50.245329",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "960",
+            "cityName": "绥化市",
+            "longitude": "126.968887",
+            "latitude": "46.653845",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "972",
+            "cityName": "大兴安岭地区",
+            "longitude": "124.711080",
+            "latitude": "52.335206",
+            "pCityName": "黑龙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "978",
+            "cityName": "上海市",
+            "longitude": "121.473701",
+            "latitude": "31.230416",
+            "pCityName": "上海市",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "997",
+            "cityName": "南京市",
+            "longitude": "118.796877",
+            "latitude": "32.060255",
+            "pCityName": "江苏省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1010",
+            "cityName": "无锡市",
+            "longitude": "120.311910",
+            "latitude": "31.491169",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1020",
+            "cityName": "徐州市",
+            "longitude": "117.284124",
+            "latitude": "34.205768",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1032",
+            "cityName": "常州市",
+            "longitude": "119.973987",
+            "latitude": "31.810689",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1041",
+            "cityName": "苏州市",
+            "longitude": "120.585315",
+            "latitude": "31.298886",
+            "pCityName": "江苏省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1052",
+            "cityName": "南通市",
+            "longitude": "120.894291",
+            "latitude": "31.980171",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1062",
+            "cityName": "连云港市",
+            "longitude": "119.221611",
+            "latitude": "34.596653",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1071",
+            "cityName": "淮安市",
+            "longitude": "119.015285",
+            "latitude": "33.610353",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1081",
+            "cityName": "盐城市",
+            "longitude": "120.163561",
+            "latitude": "33.347382",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1092",
+            "cityName": "扬州市",
+            "longitude": "119.412966",
+            "latitude": "32.394210",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1100",
+            "cityName": "镇江市",
+            "longitude": "119.425836",
+            "latitude": "32.187849",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1108",
+            "cityName": "泰州市",
+            "longitude": "119.923116",
+            "latitude": "32.455778",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1116",
+            "cityName": "宿迁市",
+            "longitude": "118.275198",
+            "latitude": "33.963232",
+            "pCityName": "江苏省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1124",
+            "cityName": "杭州市",
+            "longitude": "120.155070",
+            "latitude": "30.274084",
+            "pCityName": "浙江省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1139",
+            "cityName": "宁波市",
+            "longitude": "121.550357",
+            "latitude": "29.874556",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1152",
+            "cityName": "温州市",
+            "longitude": "120.699366",
+            "latitude": "27.994267",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1165",
+            "cityName": "嘉兴市",
+            "longitude": "120.755486",
+            "latitude": "30.746129",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1174",
+            "cityName": "湖州市",
+            "longitude": "120.086823",
+            "latitude": "30.894348",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1181",
+            "cityName": "绍兴市",
+            "longitude": "120.580232",
+            "latitude": "30.029752",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1189",
+            "cityName": "金华市",
+            "longitude": "119.647444",
+            "latitude": "29.079059",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1200",
+            "cityName": "衢州市",
+            "longitude": "118.859457",
+            "latitude": "28.970079",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1208",
+            "cityName": "舟山市",
+            "longitude": "122.207215",
+            "latitude": "29.985295",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1214",
+            "cityName": "台州市",
+            "longitude": "121.420757",
+            "latitude": "28.656386",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1225",
+            "cityName": "丽水市",
+            "longitude": "119.922796",
+            "latitude": "28.467630",
+            "pCityName": "浙江省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1237",
+            "cityName": "合肥市",
+            "longitude": "117.227239",
+            "latitude": "31.820586",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1248",
+            "cityName": "芜湖市",
+            "longitude": "118.432941",
+            "latitude": "31.352859",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1258",
+            "cityName": "蚌埠市",
+            "longitude": "117.389719",
+            "latitude": "32.916287",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1267",
+            "cityName": "淮南市",
+            "longitude": "116.999932",
+            "latitude": "32.625478",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1275",
+            "cityName": "马鞍山市",
+            "longitude": "118.506759",
+            "latitude": "31.670452",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1283",
+            "cityName": "淮北市",
+            "longitude": "116.798265",
+            "latitude": "33.955844",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1289",
+            "cityName": "铜陵市",
+            "longitude": "117.812079",
+            "latitude": "30.945429",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1295",
+            "cityName": "安庆市",
+            "longitude": "117.063754",
+            "latitude": "30.543494",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1308",
+            "cityName": "黄山市",
+            "longitude": "118.337481",
+            "latitude": "29.714655",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1317",
+            "cityName": "滁州市",
+            "longitude": "118.317106",
+            "latitude": "32.301556",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1327",
+            "cityName": "阜阳市",
+            "longitude": "115.814204",
+            "latitude": "32.890124",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1337",
+            "cityName": "宿州市",
+            "longitude": "116.964356",
+            "latitude": "33.646373",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1344",
+            "cityName": "六安市",
+            "longitude": "116.521854",
+            "latitude": "31.733699",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1353",
+            "cityName": "亳州市",
+            "longitude": "115.778676",
+            "latitude": "33.844582",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1359",
+            "cityName": "池州市",
+            "longitude": "117.491568",
+            "latitude": "30.664800",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1365",
+            "cityName": "宣城市",
+            "longitude": "118.758816",
+            "latitude": "30.940718",
+            "pCityName": "安徽省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1375",
+            "cityName": "福州市",
+            "longitude": "119.296494",
+            "latitude": "26.074507",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1390",
+            "cityName": "厦门市",
+            "longitude": "118.089425",
+            "latitude": "24.479833",
+            "pCityName": "福建省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1398",
+            "cityName": "莆田市",
+            "longitude": "119.007777",
+            "latitude": "25.454084",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1405",
+            "cityName": "三明市",
+            "longitude": "117.638678",
+            "latitude": "26.263406",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1419",
+            "cityName": "泉州市",
+            "longitude": "118.675675",
+            "latitude": "24.874132",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1433",
+            "cityName": "漳州市",
+            "longitude": "117.647481",
+            "latitude": "24.512948",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1446",
+            "cityName": "南平市",
+            "longitude": "118.177708",
+            "latitude": "26.641768",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1458",
+            "cityName": "龙岩市",
+            "longitude": "117.017536",
+            "latitude": "25.075123",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1467",
+            "cityName": "宁德市",
+            "longitude": "119.547932",
+            "latitude": "26.665617",
+            "pCityName": "福建省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1479",
+            "cityName": "南昌市",
+            "longitude": "115.858197",
+            "latitude": "28.682892",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1490",
+            "cityName": "景德镇市",
+            "longitude": "117.178419",
+            "latitude": "29.268835",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1496",
+            "cityName": "萍乡市",
+            "longitude": "113.854556",
+            "latitude": "27.622768",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1503",
+            "cityName": "九江市",
+            "longitude": "116.001930",
+            "latitude": "29.705077",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1518",
+            "cityName": "新余市",
+            "longitude": "114.917346",
+            "latitude": "27.817808",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1522",
+            "cityName": "鹰潭市",
+            "longitude": "117.069202",
+            "latitude": "28.260189",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1527",
+            "cityName": "赣州市",
+            "longitude": "114.935029",
+            "latitude": "25.831829",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1547",
+            "cityName": "吉安市",
+            "longitude": "114.992509",
+            "latitude": "27.113443",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1562",
+            "cityName": "宜春市",
+            "longitude": "114.416778",
+            "latitude": "27.815619",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1574",
+            "cityName": "抚州市",
+            "longitude": "116.358181",
+            "latitude": "27.949217",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1587",
+            "cityName": "上饶市",
+            "longitude": "117.943433",
+            "latitude": "28.454863",
+            "pCityName": "江西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1602",
+            "cityName": "济南市",
+            "longitude": "117.119999",
+            "latitude": "36.651216",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1614",
+            "cityName": "青岛市",
+            "longitude": "120.382639",
+            "latitude": "36.067082",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1626",
+            "cityName": "淄博市",
+            "longitude": "118.054927",
+            "latitude": "36.813487",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1636",
+            "cityName": "枣庄市",
+            "longitude": "117.323725",
+            "latitude": "34.810487",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1644",
+            "cityName": "东营市",
+            "longitude": "118.674767",
+            "latitude": "37.434751",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1651",
+            "cityName": "烟台市",
+            "longitude": "121.447935",
+            "latitude": "37.463822",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1665",
+            "cityName": "潍坊市",
+            "longitude": "119.161755",
+            "latitude": "36.706774",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1679",
+            "cityName": "济宁市",
+            "longitude": "116.587098",
+            "latitude": "35.414921",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1693",
+            "cityName": "泰安市",
+            "longitude": "117.087614",
+            "latitude": "36.200252",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1701",
+            "cityName": "威海市",
+            "longitude": "122.120419",
+            "latitude": "37.513068",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1707",
+            "cityName": "日照市",
+            "longitude": "119.526888",
+            "latitude": "35.416377",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1713",
+            "cityName": "莱芜市",
+            "longitude": "117.676723",
+            "latitude": "36.213813",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1717",
+            "cityName": "临沂市",
+            "longitude": "118.356448",
+            "latitude": "35.104672",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1731",
+            "cityName": "德州市",
+            "longitude": "116.357464",
+            "latitude": "37.434092",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1744",
+            "cityName": "聊城市",
+            "longitude": "115.985371",
+            "latitude": "36.456703",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1754",
+            "cityName": "滨州市",
+            "longitude": "117.970703",
+            "latitude": "37.381990",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1763",
+            "cityName": "菏泽市",
+            "longitude": "115.480656",
+            "latitude": "35.233750",
+            "pCityName": "山东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1775",
+            "cityName": "郑州市",
+            "longitude": "113.625368",
+            "latitude": "34.746599",
+            "pCityName": "河南省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1789",
+            "cityName": "开封市",
+            "longitude": "114.307581",
+            "latitude": "34.797239",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1801",
+            "cityName": "洛阳市",
+            "longitude": "112.454040",
+            "latitude": "34.619682",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1818",
+            "cityName": "平顶山市",
+            "longitude": "113.192661",
+            "latitude": "33.766169",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1830",
+            "cityName": "安阳市",
+            "longitude": "114.392392",
+            "latitude": "36.097577",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1841",
+            "cityName": "鹤壁市",
+            "longitude": "114.297272",
+            "latitude": "35.747225",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1848",
+            "cityName": "新乡市",
+            "longitude": "113.926800",
+            "latitude": "35.303004",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1862",
+            "cityName": "焦作市",
+            "longitude": "113.241823",
+            "latitude": "35.215892",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1874",
+            "cityName": "濮阳市",
+            "longitude": "115.029215",
+            "latitude": "35.761829",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1882",
+            "cityName": "许昌市",
+            "longitude": "113.852640",
+            "latitude": "34.035506",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1890",
+            "cityName": "漯河市",
+            "longitude": "114.016539",
+            "latitude": "33.581412",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1897",
+            "cityName": "三门峡市",
+            "longitude": "111.200135",
+            "latitude": "34.772493",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1905",
+            "cityName": "南阳市",
+            "longitude": "112.528321",
+            "latitude": "32.990833",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1920",
+            "cityName": "商丘市",
+            "longitude": "115.656370",
+            "latitude": "34.414172",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1931",
+            "cityName": "信阳市",
+            "longitude": "114.091023",
+            "latitude": "32.146983",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1943",
+            "cityName": "周口市",
+            "longitude": "114.696951",
+            "latitude": "33.626149",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1955",
+            "cityName": "驻马店市",
+            "longitude": "114.022298",
+            "latitude": "33.011529",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1967",
+            "cityName": "河南省直辖县级行政区划",
+            "longitude": "113.753602",
+            "latitude": "34.765515",
+            "pCityName": "河南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1970",
+            "cityName": "武汉市",
+            "longitude": "114.305392",
+            "latitude": "30.593098",
+            "pCityName": "湖北省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "1985",
+            "cityName": "黄石市",
+            "longitude": "115.038520",
+            "latitude": "30.199652",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "1993",
+            "cityName": "十堰市",
+            "longitude": "110.797990",
+            "latitude": "32.629397",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2003",
+            "cityName": "宜昌市",
+            "longitude": "111.286471",
+            "latitude": "30.691967",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2018",
+            "cityName": "襄阳市",
+            "longitude": "112.122414",
+            "latitude": "32.008986",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2029",
+            "cityName": "鄂州市",
+            "longitude": "114.894843",
+            "latitude": "30.391940",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2034",
+            "cityName": "荆门市",
+            "longitude": "112.199265",
+            "latitude": "31.035423",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2041",
+            "cityName": "孝感市",
+            "longitude": "113.916902",
+            "latitude": "30.924568",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2050",
+            "cityName": "荆州市",
+            "longitude": "112.239741",
+            "latitude": "30.335165",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2060",
+            "cityName": "黄冈市",
+            "longitude": "114.872316",
+            "latitude": "30.453905",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2072",
+            "cityName": "咸宁市",
+            "longitude": "114.322492",
+            "latitude": "29.841443",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2080",
+            "cityName": "随州市",
+            "longitude": "113.382458",
+            "latitude": "31.690215",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2085",
+            "cityName": "恩施土家族苗族自治州",
+            "longitude": "109.488172",
+            "latitude": "30.272156",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2094",
+            "cityName": "湖北省直辖县级行政区划",
+            "longitude": "114.341861",
+            "latitude": "30.546498",
+            "pCityName": "湖北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2101",
+            "cityName": "长沙市",
+            "longitude": "112.938814",
+            "latitude": "28.228209",
+            "pCityName": "湖南省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "2112",
+            "cityName": "株洲市",
+            "longitude": "113.134002",
+            "latitude": "27.827550",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2123",
+            "cityName": "湘潭市",
+            "longitude": "112.944049",
+            "latitude": "27.829738",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2130",
+            "cityName": "衡阳市",
+            "longitude": "112.571997",
+            "latitude": "26.893230",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2144",
+            "cityName": "邵阳市",
+            "longitude": "111.467791",
+            "latitude": "27.238892",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2158",
+            "cityName": "岳阳市",
+            "longitude": "113.128958",
+            "latitude": "29.357104",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2169",
+            "cityName": "常德市",
+            "longitude": "111.698497",
+            "latitude": "29.031673",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2180",
+            "cityName": "张家界市",
+            "longitude": "110.479191",
+            "latitude": "29.117096",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2186",
+            "cityName": "益阳市",
+            "longitude": "112.355180",
+            "latitude": "28.553860",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2194",
+            "cityName": "郴州市",
+            "longitude": "113.014717",
+            "latitude": "25.770509",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2207",
+            "cityName": "永州市",
+            "longitude": "111.613445",
+            "latitude": "26.420394",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2220",
+            "cityName": "怀化市",
+            "longitude": "109.998488",
+            "latitude": "27.554978",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2234",
+            "cityName": "娄底市",
+            "longitude": "111.993497",
+            "latitude": "27.700062",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2241",
+            "cityName": "湘西土家族苗族自治州",
+            "longitude": "109.739172",
+            "latitude": "28.311947",
+            "pCityName": "湖南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2251",
+            "cityName": "广州市",
+            "longitude": "113.264434",
+            "latitude": "23.129162",
+            "pCityName": "广东省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "2265",
+            "cityName": "韶关市",
+            "longitude": "113.597522",
+            "latitude": "24.810403",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2277",
+            "cityName": "深圳市",
+            "longitude": "114.057868",
+            "latitude": "22.543099",
+            "pCityName": "广东省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "2285",
+            "cityName": "珠海市",
+            "longitude": "113.576726",
+            "latitude": "22.270715",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2290",
+            "cityName": "汕头市",
+            "longitude": "116.681972",
+            "latitude": "23.354091",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2299",
+            "cityName": "佛山市",
+            "longitude": "113.121416",
+            "latitude": "23.021548",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2306",
+            "cityName": "江门市",
+            "longitude": "113.081901",
+            "latitude": "22.578738",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2315",
+            "cityName": "湛江市",
+            "longitude": "110.359377",
+            "latitude": "21.270707",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2326",
+            "cityName": "茂名市",
+            "longitude": "110.925456",
+            "latitude": "21.662999",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2334",
+            "cityName": "肇庆市",
+            "longitude": "112.465091",
+            "latitude": "23.047191",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2344",
+            "cityName": "惠州市",
+            "longitude": "114.416196",
+            "latitude": "23.111847",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2351",
+            "cityName": "梅州市",
+            "longitude": "116.122238",
+            "latitude": "24.288615",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2361",
+            "cityName": "汕尾市",
+            "longitude": "115.375278",
+            "latitude": "22.786211",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2367",
+            "cityName": "河源市",
+            "longitude": "114.700447",
+            "latitude": "23.743538",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2375",
+            "cityName": "阳江市",
+            "longitude": "111.982232",
+            "latitude": "21.857958",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2381",
+            "cityName": "清远市",
+            "longitude": "113.056031",
+            "latitude": "23.681763",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2391",
+            "cityName": "东莞市",
+            "longitude": "113.751765",
+            "latitude": "23.020536",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2393",
+            "cityName": "中山市",
+            "longitude": "113.392782",
+            "latitude": "22.517645",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2395",
+            "cityName": "潮州市",
+            "longitude": "116.622603",
+            "latitude": "23.656950",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2400",
+            "cityName": "揭阳市",
+            "longitude": "116.372831",
+            "latitude": "23.549993",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2407",
+            "cityName": "云浮市",
+            "longitude": "112.044491",
+            "latitude": "22.915094",
+            "pCityName": "广东省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2415",
+            "cityName": "南宁市",
+            "longitude": "108.366543",
+            "latitude": "22.817002",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2429",
+            "cityName": "柳州市",
+            "longitude": "109.415953",
+            "latitude": "24.325502",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2441",
+            "cityName": "桂林市",
+            "longitude": "110.290194",
+            "latitude": "25.273566",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2460",
+            "cityName": "梧州市",
+            "longitude": "111.279115",
+            "latitude": "23.476962",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2469",
+            "cityName": "北海市",
+            "longitude": "109.119927",
+            "latitude": "21.481254",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2475",
+            "cityName": "防城港市",
+            "longitude": "108.353846",
+            "latitude": "21.686860",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2481",
+            "cityName": "钦州市",
+            "longitude": "108.654146",
+            "latitude": "21.979933",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2487",
+            "cityName": "贵港市",
+            "longitude": "109.598926",
+            "latitude": "23.111530",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2494",
+            "cityName": "玉林市",
+            "longitude": "110.164756",
+            "latitude": "22.636379",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2503",
+            "cityName": "百色市",
+            "longitude": "106.618201",
+            "latitude": "23.902333",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2517",
+            "cityName": "贺州市",
+            "longitude": "111.566694",
+            "latitude": "24.403582",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2523",
+            "cityName": "河池市",
+            "longitude": "108.085261",
+            "latitude": "24.692931",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2536",
+            "cityName": "来宾市",
+            "longitude": "109.221465",
+            "latitude": "23.750306",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2544",
+            "cityName": "崇左市",
+            "longitude": "107.364711",
+            "latitude": "22.376532",
+            "pCityName": "广西壮族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2554",
+            "cityName": "海口市",
+            "longitude": "110.198293",
+            "latitude": "20.044001",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2560",
+            "cityName": "三亚市",
+            "longitude": "109.511909",
+            "latitude": "18.252847",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2567",
+            "cityName": "儋州市",
+            "longitude": "110.349228",
+            "latitude": "20.017377",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2585",
+            "cityName": "重庆",
+            "longitude": "106.551556",
+            "latitude": "29.563009",
+            "pCityName": "重庆市",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2625",
+            "cityName": "成都市",
+            "longitude": "104.066541",
+            "latitude": "30.572269",
+            "pCityName": "四川省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "2646",
+            "cityName": "自贡市",
+            "longitude": "104.778442",
+            "latitude": "29.339030",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2654",
+            "cityName": "攀枝花市",
+            "longitude": "101.718637",
+            "latitude": "26.582347",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2661",
+            "cityName": "泸州市",
+            "longitude": "105.442258",
+            "latitude": "28.871811",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2670",
+            "cityName": "德阳市",
+            "longitude": "104.397894",
+            "latitude": "31.126855",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2678",
+            "cityName": "绵阳市",
+            "longitude": "104.679114",
+            "latitude": "31.467450",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2689",
+            "cityName": "广元市",
+            "longitude": "105.843357",
+            "latitude": "32.435435",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2698",
+            "cityName": "遂宁市",
+            "longitude": "105.592898",
+            "latitude": "30.532847",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2705",
+            "cityName": "内江市",
+            "longitude": "105.058433",
+            "latitude": "29.580228",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2712",
+            "cityName": "乐山市",
+            "longitude": "103.765568",
+            "latitude": "29.552106",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2725",
+            "cityName": "南充市",
+            "longitude": "106.110698",
+            "latitude": "30.837793",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2736",
+            "cityName": "眉山市",
+            "longitude": "103.848538",
+            "latitude": "30.075439",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2744",
+            "cityName": "宜宾市",
+            "longitude": "104.643215",
+            "latitude": "28.751768",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2756",
+            "cityName": "广安市",
+            "longitude": "106.633212",
+            "latitude": "30.455961",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2764",
+            "cityName": "达州市",
+            "longitude": "107.468023",
+            "latitude": "31.209571",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2773",
+            "cityName": "雅安市",
+            "longitude": "103.013261",
+            "latitude": "29.980537",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2783",
+            "cityName": "巴中市",
+            "longitude": "106.747477",
+            "latitude": "31.867903",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2790",
+            "cityName": "资阳市",
+            "longitude": "104.627636",
+            "latitude": "30.128901",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2796",
+            "cityName": "阿坝藏族羌族自治州",
+            "longitude": "102.224653",
+            "latitude": "31.899413",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2811",
+            "cityName": "甘孜藏族自治州",
+            "longitude": "101.962310",
+            "latitude": "30.049520",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2831",
+            "cityName": "凉山彝族自治州",
+            "longitude": "102.267335",
+            "latitude": "27.881610",
+            "pCityName": "四川省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2850",
+            "cityName": "贵阳市",
+            "longitude": "106.630153",
+            "latitude": "26.647661",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2862",
+            "cityName": "六盘水市",
+            "longitude": "104.830359",
+            "latitude": "26.592666",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2867",
+            "cityName": "遵义市",
+            "longitude": "106.927389",
+            "latitude": "27.725654",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2883",
+            "cityName": "安顺市",
+            "longitude": "105.947593",
+            "latitude": "26.253072",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2891",
+            "cityName": "毕节市",
+            "longitude": "105.283992",
+            "latitude": "27.302589",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2901",
+            "cityName": "铜仁市",
+            "longitude": "109.189598",
+            "latitude": "27.731514",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2913",
+            "cityName": "黔西南布依族苗族自治州",
+            "longitude": "104.906396",
+            "latitude": "25.087825",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2922",
+            "cityName": "黔东南苗族侗族自治州",
+            "longitude": "107.982859",
+            "latitude": "26.583442",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2939",
+            "cityName": "黔南布依族苗族自治州",
+            "longitude": "107.522097",
+            "latitude": "26.254092",
+            "pCityName": "贵州省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2953",
+            "cityName": "昆明市",
+            "longitude": "102.832891",
+            "latitude": "24.880095",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2969",
+            "cityName": "曲靖市",
+            "longitude": "103.796167",
+            "latitude": "25.489999",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2980",
+            "cityName": "玉溪市",
+            "longitude": "102.546543",
+            "latitude": "24.352036",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2991",
+            "cityName": "保山市",
+            "longitude": "99.161761",
+            "latitude": "25.112046",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "2998",
+            "cityName": "昭通市",
+            "longitude": "103.717465",
+            "latitude": "27.338257",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3011",
+            "cityName": "丽江市",
+            "longitude": "100.227750",
+            "latitude": "26.855047",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3018",
+            "cityName": "普洱市",
+            "longitude": "100.966512",
+            "latitude": "22.825065",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3030",
+            "cityName": "临沧市",
+            "longitude": "100.079583",
+            "latitude": "23.877573",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3040",
+            "cityName": "楚雄彝族自治州",
+            "longitude": "101.528068",
+            "latitude": "25.045532",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3051",
+            "cityName": "红河哈尼族彝族自治州",
+            "longitude": "103.374799",
+            "latitude": "23.363130",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3065",
+            "cityName": "文山壮族苗族自治州",
+            "longitude": "104.216248",
+            "latitude": "23.400733",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3074",
+            "cityName": "西双版纳傣族自治州",
+            "longitude": "100.797777",
+            "latitude": "22.007351",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3078",
+            "cityName": "大理白族自治州",
+            "longitude": "100.267638",
+            "latitude": "25.606486",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3091",
+            "cityName": "德宏傣族景颇族自治州",
+            "longitude": "98.584895",
+            "latitude": "24.433353",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3098",
+            "cityName": "怒江傈僳族自治州",
+            "longitude": "98.853097",
+            "latitude": "25.852547",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3104",
+            "cityName": "迪庆藏族自治州",
+            "longitude": "99.702234",
+            "latitude": "27.818882",
+            "pCityName": "云南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3110",
+            "cityName": "拉萨市",
+            "longitude": "91.140856",
+            "latitude": "29.645554",
+            "pCityName": "西藏自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3166",
+            "cityName": "那曲地区",
+            "longitude": "92.051239",
+            "latitude": "31.476202",
+            "pCityName": "西藏自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3179",
+            "cityName": "阿里地区",
+            "longitude": "80.105804",
+            "latitude": "32.501111",
+            "pCityName": "西藏自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3198",
+            "cityName": "西安市",
+            "longitude": "108.940174",
+            "latitude": "34.341568",
+            "pCityName": "陕西省",
+            "hotCityFlag": "0"
+        },
+        {
+            "cityCode": "3213",
+            "cityName": "铜川市",
+            "longitude": "108.945233",
+            "latitude": "34.896756",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3219",
+            "cityName": "宝鸡市",
+            "longitude": "107.237974",
+            "latitude": "34.361979",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3233",
+            "cityName": "咸阳市",
+            "longitude": "108.708991",
+            "latitude": "34.329605",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3249",
+            "cityName": "渭南市",
+            "longitude": "109.509786",
+            "latitude": "34.499995",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3262",
+            "cityName": "延安市",
+            "longitude": "109.489727",
+            "latitude": "36.585455",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3277",
+            "cityName": "汉中市",
+            "longitude": "107.023323",
+            "latitude": "33.067480",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3290",
+            "cityName": "榆林市",
+            "longitude": "109.734589",
+            "latitude": "38.285390",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3304",
+            "cityName": "安康市",
+            "longitude": "109.029022",
+            "latitude": "32.684714",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3316",
+            "cityName": "商洛市",
+            "longitude": "109.940477",
+            "latitude": "33.870422",
+            "pCityName": "陕西省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3326",
+            "cityName": "兰州市",
+            "longitude": "103.834303",
+            "latitude": "36.061089",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3336",
+            "cityName": "嘉峪关市",
+            "longitude": "98.289152",
+            "latitude": "39.773130",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3338",
+            "cityName": "金昌市",
+            "longitude": "102.188043",
+            "latitude": "38.520089",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3342",
+            "cityName": "白银市",
+            "longitude": "104.138559",
+            "latitude": "36.544756",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3349",
+            "cityName": "天水市",
+            "longitude": "105.724947",
+            "latitude": "34.580863",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3358",
+            "cityName": "武威市",
+            "longitude": "102.638011",
+            "latitude": "37.928264",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3364",
+            "cityName": "张掖市",
+            "longitude": "100.449818",
+            "latitude": "38.925875",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3372",
+            "cityName": "平凉市",
+            "longitude": "106.665240",
+            "latitude": "35.543051",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3381",
+            "cityName": "酒泉市",
+            "longitude": "98.494483",
+            "latitude": "39.732410",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3390",
+            "cityName": "庆阳市",
+            "longitude": "107.643631",
+            "latitude": "35.709077",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3400",
+            "cityName": "定西市",
+            "longitude": "104.626282",
+            "latitude": "35.580662",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3409",
+            "cityName": "陇南市",
+            "longitude": "104.921841",
+            "latitude": "33.400684",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3420",
+            "cityName": "临夏回族自治州",
+            "longitude": "103.210538",
+            "latitude": "35.601182",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3429",
+            "cityName": "甘南藏族自治州",
+            "longitude": "102.911027",
+            "latitude": "34.983385",
+            "pCityName": "甘肃省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3439",
+            "cityName": "西宁市",
+            "longitude": "101.778228",
+            "latitude": "36.617144",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3448",
+            "cityName": "海东市",
+            "longitude": "102.104287",
+            "latitude": "36.502039",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3456",
+            "cityName": "海北藏族自治州",
+            "longitude": "100.900997",
+            "latitude": "36.954413",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3462",
+            "cityName": "黄南藏族自治州",
+            "longitude": "102.015248",
+            "latitude": "35.519548",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3468",
+            "cityName": "海南藏族自治州",
+            "longitude": "100.620373",
+            "latitude": "36.286437",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3475",
+            "cityName": "果洛藏族自治州",
+            "longitude": "100.244808",
+            "latitude": "34.471431",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3483",
+            "cityName": "玉树藏族自治州",
+            "longitude": "97.091934",
+            "latitude": "33.011674",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3490",
+            "cityName": "海西蒙古族藏族自治州",
+            "longitude": "97.369751",
+            "latitude": "37.377139",
+            "pCityName": "青海省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3497",
+            "cityName": "银川市",
+            "longitude": "106.230909",
+            "latitude": "38.487193",
+            "pCityName": "宁夏回族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3505",
+            "cityName": "石嘴山市",
+            "longitude": "106.383303",
+            "latitude": "38.983236",
+            "pCityName": "宁夏回族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3510",
+            "cityName": "吴忠市",
+            "longitude": "106.198393",
+            "latitude": "37.997460",
+            "pCityName": "宁夏回族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3517",
+            "cityName": "固原市",
+            "longitude": "106.242610",
+            "latitude": "36.015855",
+            "pCityName": "宁夏回族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3524",
+            "cityName": "中卫市",
+            "longitude": "105.196902",
+            "latitude": "37.499972",
+            "pCityName": "宁夏回族自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3530",
+            "cityName": "乌鲁木齐市",
+            "longitude": "87.616848",
+            "latitude": "43.825592",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3540",
+            "cityName": "克拉玛依市",
+            "longitude": "84.889207",
+            "latitude": "45.579888",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3554",
+            "cityName": "昌吉回族自治州",
+            "longitude": "87.308224",
+            "latitude": "44.011182",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3562",
+            "cityName": "博尔塔拉蒙古自治州",
+            "longitude": "82.066159",
+            "latitude": "44.905588",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3567",
+            "cityName": "巴音郭楞蒙古自治州",
+            "longitude": "86.145298",
+            "latitude": "41.764115",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3577",
+            "cityName": "阿克苏地区",
+            "longitude": "80.260605",
+            "latitude": "41.168779",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3587",
+            "cityName": "克孜勒苏柯尔克孜自治州",
+            "longitude": "76.167819",
+            "latitude": "39.714526",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3592",
+            "cityName": "喀什地区",
+            "longitude": "75.989755",
+            "latitude": "39.470400",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3605",
+            "cityName": "和田地区",
+            "longitude": "79.922211",
+            "latitude": "37.114157",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3614",
+            "cityName": "伊犁哈萨克自治州",
+            "longitude": "81.324136",
+            "latitude": "43.916823",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3626",
+            "cityName": "塔城地区",
+            "longitude": "82.980316",
+            "latitude": "46.745364",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3634",
+            "cityName": "阿勒泰地区",
+            "longitude": "88.141253",
+            "latitude": "47.844924",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3642",
+            "cityName": "自治区直辖县级行政区",
+            "longitude": "87.627704",
+            "latitude": "43.793026",
+            "pCityName": "新疆维吾尔自治区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3650",
+            "cityName": "澳门",
+            "longitude": "113.543028",
+            "latitude": "22.186835",
+            "pCityName": "澳门特别行政区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3658",
+            "cityName": "台北市",
+            "longitude": "120.014725",
+            "latitude": "40.767109",
+            "pCityName": "台湾省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3660",
+            "cityName": "香港市",
+            "longitude": "114.163825",
+            "latitude": "22.276284",
+            "pCityName": "香港特别行政区",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3673",
+            "cityName": "河北省直辖县级行政区划",
+            "longitude": "114.468664",
+            "latitude": "38.037057",
+            "pCityName": "河北省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3806",
+            "cityName": "高雄市",
+            "longitude": "120.548915",
+            "latitude": "22.909117",
+            "pCityName": "台湾省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3820",
+            "cityName": "五指山市",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3821",
+            "cityName": "琼海市",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3822",
+            "cityName": "文昌市",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3823",
+            "cityName": "万宁市",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3824",
+            "cityName": "东方市",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3825",
+            "cityName": "定安县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3826",
+            "cityName": "屯昌县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3828",
+            "cityName": "澄迈县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3829",
+            "cityName": "临高县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3830",
+            "cityName": "白沙黎族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3831",
+            "cityName": "昌江黎族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3832",
+            "cityName": "乐东黎族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3833",
+            "cityName": "陵水黎族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3834",
+            "cityName": "保亭黎族苗族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        },
+        {
+            "cityCode": "3835",
+            "cityName": "琼中黎族苗族自治县",
+            "longitude": "0.000000",
+            "latitude": "0.000000",
+            "pCityName": "海南省",
+            "hotCityFlag": "1"
+        }
+    ]
+}

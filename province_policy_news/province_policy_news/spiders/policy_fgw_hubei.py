@@ -295,7 +295,7 @@ class DataSpider(CrawlSpider):
             )
 
         # 翻页
-        if page < total:
+        if False and page < total:
             page += 1
             next_url = base_url.format(page)
 

@@ -108,7 +108,7 @@ class EitdznewsSpider(scrapy.Spider):
         # --------------------------------------------------------
         # 🔄 翻页逻辑
         # --------------------------------------------------------
-        if page < total:
+        if False and page < total:
             next_page = page + 1
             next_url = meta["base_url"].format(next_page)
 

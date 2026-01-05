@@ -174,7 +174,7 @@ class DataSpider(CrawlSpider):
             page_size = 20
             page_count = (total + page_size - 1) // page_size
 
-            for page in range(1, page_count + 1):
+            for page in [1]:
                 params = {
                     "sort": "",
                     "_isAgg": "false",

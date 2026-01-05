@@ -104,7 +104,7 @@ class DataSpider(CrawlSpider):
                 dont_filter=True
             )
 
-        if page < total:
+        if False and page < total:
             page += 1
             if page == 1:
                 next_url = _meta['url']

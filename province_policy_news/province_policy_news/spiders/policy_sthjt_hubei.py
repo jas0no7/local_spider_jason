@@ -34,9 +34,6 @@ class HenanNewsSpider(scrapy.Spider):
             "title_xpath": "string(.//a[1])",
             "publish_time_xpath": ".//div[@class='info']/span[contains(text(),'发布日期')]",
             "body_xpath": "//div[@class='article'] | //div[@class='grid'] ",
-            "total": 3,
-            "page": 0,
-            "base_url": "https://sthjt.hubei.gov.cn/fbjd/zc/gfxwj/index_{}.shtml",
         },
         {
             "url": "https://sthjt.hubei.gov.cn/fbjd/zc/zcjd/index.shtml",
@@ -46,9 +43,6 @@ class HenanNewsSpider(scrapy.Spider):
             "title_xpath": "string(./a)",
             "publish_time_xpath": "./span",
             "body_xpath": "//div[@class='article_box'] ",
-            "total": 12,
-            "page": 0,
-            "base_url": "https://sthjt.hubei.gov.cn/fbjd/zc/zcjd/index_{}.shtml",
         }
     ]
 
@@ -95,16 +89,7 @@ class HenanNewsSpider(scrapy.Spider):
                 dont_filter=True,
             )
 
-        if meta["page"] < meta["total"]:
-            meta["page"] += 1
-            next_url = meta["base_url"].format(meta["page"])
-
-            yield scrapy.Request(
-                next_url,
-                callback=self.parse_list,
-                meta=meta,
-                dont_filter=True,
-            )
+        # ★★★ 分页逻辑已移除，脚本仅抓取第一页 ★★★
 
     def parse_detail(self, response):
         meta = response.meta
